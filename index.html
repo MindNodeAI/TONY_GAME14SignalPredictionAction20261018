@@ -1,0 +1,3640 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>未來店長：生活產業 AI 預測性行銷沙盤 (V4.0 理論聖經與Word報告版) | TonyStudio</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=JetBrains+Mono:wght@600;800&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Noto Sans TC"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          },
+          colors: {
+            brand: { 50: '#eef2ff', 500: '#6366f1', 600: '#4f46e5', 900: '#1e1b4b' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { background-color: #0b0f19; color: #f8fafc; overflow-x: hidden; }
+    .glass-card {
+      background: rgba(30, 41, 59, 0.75);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .gradient-border {
+      position: relative;
+      border-radius: 1rem;
+      background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(16,185,129,0.12));
+      border: 1px solid rgba(99, 102, 241, 0.35);
+    }
+    input[type=range] {
+      -webkit-appearance: none;
+      background: transparent;
+    }
+    input[type=range]::-webkit-slider-runnable-track {
+      height: 10px;
+      border-radius: 999px;
+      background: #334155;
+    }
+    input[type=range]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      height: 22px;
+      width: 22px;
+      border-radius: 50%;
+      background: #6366f1;
+      border: 2px solid #ffffff;
+      margin-top: -6px;
+      cursor: pointer;
+      box-shadow: 0 0 10px rgba(99, 102, 241, 0.8);
+    }
+    .pulse-dot {
+      animation: pulse-ring 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    @keyframes urgent-glow {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(244, 63, 94, 0); border-color: rgba(244, 63, 94, 0.4); }
+      50% { box-shadow: 0 0 35px 4px rgba(244, 63, 94, 0.45); border-color: rgba(244, 63, 94, 1); }
+    }
+    .timer-urgent {
+      animation: urgent-glow 0.8s infinite ease-in-out;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col justify-between selection:bg-indigo-500 selection:text-white">
+
+  <!-- ==================== SaaS 會員登入/註冊閘門 (Auth Gate) ==================== -->
+  <div id="authGateOverlay" class="fixed inset-0 z-50 bg-[#0b0f19] overflow-y-auto flex flex-col justify-between">
+    <div class="max-w-6xl w-full mx-auto px-4 py-8 md:py-12 my-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        
+        <!-- 左側：品牌視覺與 TONY 顧問創作者簡介 (佔 7 欄) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="flex items-center gap-4">
+            <img src="https://firebasestorage.googleapis.com/v0/b/k16-tony-ai-wisdom-platform.firebasestorage.app/o/assets%2F6av64EOvvqQNAIoXqcPfHC5BBeF3%2F1785039560457_1.png?alt=media&token=19b27497-4101-4436-bc80-b299741b7984" alt="TonyStudio Logo" class="w-16 h-16 rounded-2xl object-contain bg-slate-900 p-1.5 border border-indigo-500/40 shadow-xl" onerror="this.src='https://placehold.co/64x64/1e1b4b/ffffff?text=TS'">
+            <div>
+              <span class="text-xs font-bold tracking-wider uppercase px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+                經濟部商業發展署・全端 SaaS 實戰培訓系統
+              </span>
+              <h1 class="text-2xl md:text-3xl font-black text-white mt-1.5 tracking-tight">
+                未來店長｜生活產業 AI 預測性行銷決策沙盤
+              </h1>
+            </div>
+          </div>
+
+          <p class="text-sm md:text-base text-slate-300 leading-relaxed">
+            歡迎進入台灣生活產業專屬的「Signal ➔ Prediction ➔ Action」AI 預測性行銷決策沙盤系統。請先完成會員驗證登入，以開啟 8 大實戰關卡、AI 動態沙盤生成器、講師戰情室與顧問級 Word 診斷報告。
+          </p>
+
+          <!-- 平台創作者 TONY 顧問簡介卡 -->
+          <div class="glass-card rounded-3xl p-6 border border-indigo-500/30 shadow-2xl space-y-4">
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-4 pb-4 border-b border-slate-800">
+              <img src="https://firebasestorage.googleapis.com/v0/b/k16-tony-ai-wisdom-platform.firebasestorage.app/o/assets%2F6av64EOvvqQNAIoXqcPfHC5BBeF3%2F1787580326393_ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8819%E6%97%A5%20%E4%B8%8A%E5%8D%8811_16_14.png?alt=media&token=3c85de41-f36f-46e5-a97a-7bc7eb83a027" alt="TONY 楊文澤老師" class="w-20 h-20 rounded-2xl object-cover border-2 border-emerald-400 shadow-lg shrink-0" onerror="this.src='https://placehold.co/80x80/312e81/ffffff?text=TONY'">
+              <div>
+                <div class="flex flex-wrap items-center gap-2">
+                  <span class="text-xs font-bold px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30">平台創作者簡介</span>
+                  <span class="text-xs text-indigo-300 font-semibold">資深數位行銷科技顧問｜生成式 AI 創作者｜創業導師</span>
+                </div>
+                <h2 class="text-xl font-black text-white mt-1">TONY 楊文澤 老師</h2>
+                <p class="text-xs text-slate-300 mt-0.5">▪ 龍華科大 數位行銷講師 ｜ ▪ 智策慧 品牌行銷科技顧問</p>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300 leading-relaxed">
+              <div class="space-y-2">
+                <div>
+                  <strong class="text-indigo-300 block mb-0.5">💼 經歷 Experience</strong>
+                  <ul class="space-y-0.5 text-slate-300">
+                    <li>▪ 脈動心聯股份有限公司 創辦人暨執行長</li>
+                    <li>- 宏碁集團建碁 AOPEN 整合營銷處處長 / 全球品牌行銷總監 / 企業發言人</li>
+                    <li>- 台灣數位看板多媒體聯盟 (DSMA) 副會長</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong class="text-indigo-300 block mb-0.5">🎓 學歷 Education</strong>
+                  <ul class="space-y-0.5 text-slate-300">
+                    <li>- 台大 EMBA 商學組</li>
+                    <li>- 美國 Arizona State University 互動多媒體設計</li>
+                    <li>▪ 北科大 工業設計</li>
+                  </ul>
+                </div>
+              </div>
+              <div>
+                <strong class="text-emerald-300 block mb-0.5">🎤 專家授課經歷</strong>
+                <ul class="space-y-1 text-slate-300">
+                  <li>▪ CPC 生產力中心 經營管理顧問師班 / 中小企業成長創價能量 講師</li>
+                  <li>- 台大 EMBA / 長榮 EMBA / 北科大 / 政大 / 世新 業師</li>
+                  <li>- 2021 MarTech 行銷科技行銷長認證班 講師</li>
+                  <li>- 2021/2024/2025 T大使與產業尖兵 講師</li>
+                  <li>- 2025 新光人壽 AI 工具應用 企業內訓講師</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 右側：高質感會員登入 / 註冊 / 忘記密碼卡片 (佔 5 欄) -->
+        <div class="lg:col-span-5">
+          <div class="glass-card rounded-3xl p-6 md:p-8 border-2 border-indigo-500/40 shadow-2xl space-y-5">
+            
+            <!-- 頁籤切換 -->
+            <div class="grid grid-cols-3 bg-slate-900/90 p-1 rounded-2xl border border-slate-800 text-xs font-bold">
+              <button onclick="window.app.switchAuthTab('login')" id="authTab-login" class="py-2.5 rounded-xl bg-indigo-600 text-white shadow transition">🔑 會員登入</button>
+              <button onclick="window.app.switchAuthTab('register')" id="authTab-register" class="py-2.5 rounded-xl text-slate-400 hover:text-white transition">📝 免費註冊</button>
+              <button onclick="window.app.switchAuthTab('reset')" id="authTab-reset" class="py-2.5 rounded-xl text-slate-400 hover:text-white transition">❓ 忘記密碼</button>
+            </div>
+
+            <!-- 訊息提示框 (綠字成功 / 紅字警告) -->
+            <div id="authAlertBox" class="hidden p-4 rounded-2xl text-xs font-bold leading-relaxed border"></div>
+
+            <!-- 表單 1：會員登入 -->
+            <div id="authForm-login" class="space-y-4">
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">電子信箱 (Email)</label>
+                <input id="loginEmail" type="email" placeholder="example@gmail.com" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">登入密碼 (Password)</label>
+                <div class="relative">
+                  <input id="loginPassword" type="password" placeholder="請輸入密碼" class="w-full px-4 py-3 pr-11 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+                  <button type="button" onclick="window.app.togglePasswordVisibility('loginPassword', 'eyeIconLogin')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1" title="顯示/隱藏密碼">
+                    <span id="eyeIconLogin">👁️</span>
+                  </button>
+                </div>
+              </div>
+              <button onclick="window.app.handleEmailLogin()" id="btnEmailLogin" class="w-full py-3.5 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-black text-sm shadow-lg shadow-indigo-600/30 transition">
+                🚀 立即登入沙盤系統
+              </button>
+            </div>
+
+            <!-- 表單 2：新會員註冊 (Double Opt-in) -->
+            <div id="authForm-register" class="hidden space-y-4">
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">真實姓名 (Real Name)</label>
+                <input id="regRealName" type="text" placeholder="請輸入您的真實姓名（如：王小明）" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">學員身分選擇 (Identity)</label>
+                <select id="regMemberType" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+                  <option value="TONY老師學員">🎓 TONY老師學員</option>
+                  <option value="非學員(一般訪客)">🌟 非學員(一般訪客)</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">電子信箱 (Email)</label>
+                <input id="regEmail" type="email" placeholder="請輸入常用 Email（需收驗證信）" class="w-full px-4 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+              </div>
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">設定密碼 (至少 6 位字元)</label>
+                <div class="relative">
+                  <input id="regPassword" type="password" placeholder="請設定最少 6 位數密碼" class="w-full px-4 py-2.5 pr-11 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+                  <button type="button" onclick="window.app.togglePasswordVisibility('regPassword', 'eyeIconReg')" class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white p-1" title="顯示/隱藏密碼">
+                    <span id="eyeIconReg">👁️</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- 垃圾郵件匣溫馨提醒 -->
+              <div class="p-3.5 rounded-2xl bg-amber-500/15 border border-amber-500/40 text-amber-200 text-xs leading-relaxed flex items-start gap-2.5">
+                <span class="text-base shrink-0">📬</span>
+                <span><strong>溫馨提醒：</strong>註冊確認信有時會跑到<strong>「垃圾郵件匣」</strong>，請記得前往確認唷！點擊信中連結完成驗證後即可登入。</span>
+              </div>
+
+              <button onclick="window.app.handleEmailRegister()" id="btnEmailRegister" class="w-full py-3.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-black text-sm shadow-lg shadow-emerald-600/30 transition">
+                📧 註冊帳號並發送驗證信
+              </button>
+            </div>
+
+            <!-- 表單 3：忘記密碼 -->
+            <div id="authForm-reset" class="hidden space-y-4">
+              <div>
+                <label class="block text-xs text-slate-300 font-semibold mb-1">註冊之電子信箱 (Email)</label>
+                <input id="resetEmail" type="email" placeholder="請輸入您註冊時的 Email" class="w-full px-4 py-3 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+              </div>
+
+              <!-- 垃圾郵件匣溫馨提醒 -->
+              <div class="p-3.5 rounded-2xl bg-amber-500/15 border border-amber-500/40 text-amber-200 text-xs leading-relaxed flex items-start gap-2.5">
+                <span class="text-base shrink-0">📬</span>
+                <span><strong>溫馨提醒：</strong>註冊確認信或密碼重設信有時會跑到<strong>「垃圾郵件匣」</strong>，請記得前往確認唷！</span>
+              </div>
+
+              <button onclick="window.app.handlePasswordReset()" id="btnPasswordReset" class="w-full py-3.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-black text-sm shadow-lg shadow-indigo-600/30 transition">
+                📨 發送密碼重設信
+              </button>
+            </div>
+
+            <!-- Google 快速登入區 -->
+            <div class="pt-4 border-t border-slate-800 space-y-3">
+              <div class="text-center text-xs text-slate-400">或使用 Google 帳號一鍵驗證登入</div>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                <input id="googleRealNameInput" type="text" placeholder="首次登入可填真實姓名(選填)" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white">
+                <select id="googleMemberTypeInput" class="px-3 py-2 rounded-xl bg-slate-900 border border-slate-800 text-xs text-white">
+                  <option value="TONY老師學員">身分：TONY老師學員</option>
+                  <option value="非學員(一般訪客)">身分：非學員(一般訪客)</option>
+                </select>
+              </div>
+              <button onclick="window.app.handleGoogleLogin()" class="w-full py-3 rounded-xl bg-white hover:bg-slate-100 text-slate-900 font-black text-sm shadow flex items-center justify-center gap-2.5 transition">
+                <svg class="w-5 h-5" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 5c1.6 0 3 .6 4.1 1.7l3.1-3.1C17.3 1.8 14.8 1 12 1 7.4 1 3.5 3.6 1.6 7.4l3.7 2.8C6.2 7.2 8.9 5 12 5z"/>
+                  <path fill="#4285F4" d="M23.5 12.3c0-.8-.1-1.6-.2-2.3H12v4.5h6.5c-.3 1.5-1.1 2.8-2.4 3.6l3.7 2.9c2.2-2 3.7-5 3.7-8.7z"/>
+                  <path fill="#FBBC05" d="M5.3 14.8c-.2-.8-.4-1.6-.4-2.5s.2-1.7.4-2.5L1.6 7C.6 9 0 11.2 0 13.5s.6 4.5 1.6 6.5l3.7-2.8z"/>
+                  <path fill="#34A853" d="M12 24c3.2 0 6-1.1 8-3l-3.7-2.9c-1.1.7-2.5 1.2-4.3 1.2-3.1 0-5.8-2.1-6.7-5L1.6 17c1.9 3.9 5.8 7 10.4 7z"/>
+                </svg>
+                <span>使用 Google 帳號快速登入</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- 登入頁底部版權宣言 -->
+    <div class="border-t border-slate-800/80 py-4 px-4 text-center text-xs text-slate-400 bg-slate-950/80">
+      © 2020 TonyStudio. 本學習平台由 TONY 楊文澤資深AI科技顧問設計. All Rights Reserved.
+    </div>
+  </div>
+
+  <!-- 頂部導覽列 -->
+  <header class="sticky top-0 z-40 glass-card border-b border-slate-800 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-3">
+      <div class="flex items-center gap-3">
+        <img src="https://firebasestorage.googleapis.com/v0/b/k16-tony-ai-wisdom-platform.firebasestorage.app/o/assets%2F6av64EOvvqQNAIoXqcPfHC5BBeF3%2F1785039560457_1.png?alt=media&token=19b27497-4101-4436-bc80-b299741b7984" alt="Logo" class="w-11 h-11 rounded-xl object-contain bg-slate-900 p-1 border border-indigo-500/40 shadow-lg shadow-indigo-500/20" onerror="this.src='https://placehold.co/44x44/1e1b4b/ffffff?text=TS'">
+        <div>
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-bold tracking-wider uppercase px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">經濟部商業發展署・實戰培訓系統</span>
+            <span id="firebaseStatusBadge" class="text-xs px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5">
+              <span id="firebaseStatusDot" class="w-2 h-2 rounded-full bg-amber-400 pulse-dot"></span>
+              <span id="firebaseStatusText">正在連線至 Firebase...</span>
+            </span>
+            <span id="loggedInUserBadge" class="hidden text-xs px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-semibold"></span>
+          </div>
+          <h1 class="text-lg md:text-xl font-black tracking-tight text-white mt-0.5">
+            未來店長：生活產業 AI 預測性行銷沙盤
+          </h1>
+        </div>
+      </div>
+
+      <!-- 全域頂部倒數計時迷你膠囊 -->
+      <div id="globalTimerBanner" class="hidden items-center gap-2.5 px-3.5 py-1.5 rounded-xl bg-slate-900 border border-indigo-500/50 shadow-lg">
+        <span class="text-xs font-bold text-slate-300">⏱️ 本回決策倒數</span>
+        <span id="globalTimerDigits" class="text-base font-black font-mono text-emerald-400">01:00</span>
+      </div>
+
+      <!-- 四大核心模式切換與快速控場按鈕 -->
+      <div class="flex flex-wrap items-center gap-2">
+        <!-- 專屬管理者後台按鈕 (僅 Admin 顯示) -->
+        <button id="adminDashboardBtn" onclick="window.app.openAdminModal()" class="hidden px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-amber-500 to-rose-600 hover:from-amber-400 hover:to-rose-500 text-white text-xs font-black shadow-lg shadow-rose-600/30 items-center gap-1.5 transition">
+          <span>👑 進入管理後台</span>
+        </button>
+
+        <button onclick="window.app.toggleCreatorModal()" class="px-3 py-1.5 rounded-xl bg-indigo-500/20 hover:bg-indigo-500/30 text-indigo-300 border border-indigo-500/40 text-xs font-bold flex items-center gap-1.5 transition" title="創作者 TONY 顧問簡介">
+          <span>👨‍🏫 顧問簡介</span>
+        </button>
+
+        <button onclick="window.app.toggleQrModal()" class="px-3 py-1.5 rounded-xl bg-emerald-600/20 hover:bg-emerald-600/30 text-emerald-300 border border-emerald-500/40 text-xs font-bold flex items-center gap-1.5 transition" title="放大顯示房間 QR Code">
+          <span>📱 掃碼入場</span>
+        </button>
+
+        <div class="bg-slate-900/90 p-1 rounded-xl border border-slate-800 flex flex-wrap text-xs md:text-sm font-medium">
+          <button onclick="window.app.switchMode('bible')" id="tab-bible" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+            📖 預測理論聖經
+          </button>
+          <button onclick="window.app.switchMode('player')" id="tab-player" class="px-3 py-1.5 rounded-lg bg-indigo-600 text-white shadow transition">
+            🎯 學員決策沙盤
+          </button>
+          <button onclick="window.app.switchMode('sandbox')" id="tab-sandbox" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+            ✨ AI 沙盤生成器
+          </button>
+          <button onclick="window.app.switchMode('instructor')" id="tab-instructor" class="px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition">
+            📊 講師戰情室 (<span id="onlineTeamCount">0</span>組)
+          </button>
+        </div>
+
+        <button onclick="window.app.toggleConfigModal()" class="p-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 transition" title="組別與 Gemini API 設定">
+          ⚙️
+        </button>
+
+        <button onclick="window.app.handleLogout()" class="px-3 py-1.5 rounded-xl bg-rose-950/70 hover:bg-rose-900 text-rose-300 border border-rose-800/60 text-xs font-bold transition" title="登出帳號">
+          🚪 登出
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- 主內容區 -->
+  <main class="flex-1 max-w-7xl w-full mx-auto px-4 py-6">
+
+    <!-- 學員狀態橫幅 -->
+    <section class="glass-card rounded-2xl p-4 mb-6 flex flex-wrap items-center justify-between gap-4 border border-slate-800/80">
+      <div class="flex items-center gap-3">
+        <div class="w-11 h-11 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center text-xl" id="playerAvatar">🏢</div>
+        <div>
+          <div class="text-xs text-slate-400 flex flex-wrap items-center gap-2">
+            <span id="displayRoleBadge" class="text-emerald-400 font-semibold">[生活企業組]</span>
+            <span>同步房間：<strong id="displayRoomId" class="text-white font-mono">BIZ-2026</strong></span>
+            <span id="displayUidBadge" class="text-[11px] text-slate-500 font-mono"></span>
+          </div>
+          <div class="font-bold text-base md:text-lg text-white flex items-center gap-2 mt-0.5">
+            <span id="displayTeamName">第一組：未來生活主理人</span>
+            <button onclick="window.app.toggleConfigModal()" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 font-normal transition">✏️ 修改組名/身份</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 累積經營指標 -->
+      <div class="flex items-center gap-4 md:gap-8 bg-slate-900/80 px-4 py-2.5 rounded-xl border border-slate-800">
+        <div>
+          <div class="text-xs text-slate-400">累積品牌營收</div>
+          <div class="text-lg md:text-xl font-black text-emerald-400 font-mono" id="statTotalRevenue">NT$ 3,000,000</div>
+        </div>
+        <div class="h-8 w-px bg-slate-800"></div>
+        <div>
+          <div class="text-xs text-slate-400">平均預測精準度</div>
+          <div class="text-lg md:text-xl font-black text-indigo-400 font-mono" id="statAccuracy">-- %</div>
+        </div>
+        <div class="h-8 w-px bg-slate-800"></div>
+        <div>
+          <div class="text-xs text-slate-400">完成關卡</div>
+          <div class="text-lg md:text-xl font-black text-amber-400 font-mono"><span id="statCompletedRounds">0</span> / 8</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== 視角 0：📖 預測性行銷理論聖經（Signal ➔ Action 實戰學院） ==================== -->
+    <div id="view-bible" class="hidden space-y-6">
+      <!-- 聖經核心理念 Banner -->
+      <div class="gradient-border p-6 md:p-8">
+        <div class="flex flex-wrap items-center justify-between gap-4">
+          <div class="max-w-3xl space-y-2">
+            <span class="text-xs font-bold uppercase tracking-wider px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 border border-amber-500/40">
+              TONY 老師核心教學框架・Predictive Marketing Bible
+            </span>
+            <h2 class="text-2xl md:text-3xl font-black text-white mt-2">
+              📖 預測性行銷理論聖經：「預測只是訊號，Action 才是營收變現關鍵！」
+            </h2>
+            <p class="text-sm md:text-base text-slate-200 leading-relaxed">
+              許多企業以為導入數據分析就是預測性行銷，卻往往停留在「看圖表說故事」。真正的預測性行銷必須完成 <strong>「S-P-A 價值轉化閉環」</strong>：從捕捉細微的<strong>前兆訊號（Signal）</strong>，推演出高機率的<strong>行為預測（Prediction）</strong>，最終落地為精準攔截營收的<strong>商業行動（Action）</strong>！
+            </p>
+          </div>
+          <button onclick="window.app.switchMode('player')" class="px-5 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm shadow-lg shadow-indigo-600/30 transition shrink-0">
+            🎯 學完理論，立即進入沙盤實戰 ➔
+          </button>
+        </div>
+      </div>
+
+      <!-- 第一部曲：S-P-A 三階價值轉化架構 -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+        <div class="glass-card rounded-2xl p-5 border-t-4 border-t-indigo-500 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold px-2.5 py-1 rounded bg-indigo-500/20 text-indigo-300">Stage 1・感知層</span>
+            <span class="text-2xl">📡</span>
+          </div>
+          <h3 class="text-lg font-black text-white">1. Signal（捕捉三大前兆訊號）</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            不要等月底看財務報表（落後指標），店長必須每天監測三個維度的「領先指標（Leading Indicators）」：
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-1">
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-indigo-300">🌦️ 外部環境與微趨勢訊號：</strong>氣溫驟降、降雨機率、節慶詢價關鍵字、區域人流停留時間。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-indigo-300">🛒 內部交易與週期訊號 (RFM)：</strong>消耗品使用天數（如第24天見底）、熟客回訪間隔異常拉長（如超過45天）。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-indigo-300">🔍 數位隱性意圖訊號：</strong>官網特定文章停留超過2分鐘、IG貼文「按珍藏（Save）」比例、行前提醒超過12小時未讀。
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-t-4 border-t-amber-500 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold px-2.5 py-1 rounded bg-amber-500/20 text-amber-300">Stage 2・判斷層</span>
+            <span class="text-2xl">🧠</span>
+          </div>
+          <h3 class="text-lg font-black text-white">2. Prediction（六大商業預測模型）</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            將單一訊號交叉比對，回答「未來 7～30 天誰會做什麼？」避免憑感覺盲目叫貨或全店打折：
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-1">
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-amber-300">📊 需求與備料預測：</strong>預判特定品項在氣候/檔期的真實需求量，消滅食材與包材報廢。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-amber-300">⚠️ 流失與爽約預警 (Churn / No-Show)：</strong>抓出「即將離開的高價值熟客」與「高機率臨時放鳥的預約單」。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-amber-300">🎯 下一步最佳行動 (Next Best Action)：</strong>預判顧客買完 A 商品後，在哪一天最需要跨品類的 B 商品，以及背後的真實買單決策者是誰。
+            </li>
+          </ul>
+        </div>
+
+        <div class="glass-card rounded-2xl p-5 border-t-4 border-t-emerald-500 space-y-3">
+          <div class="flex items-center justify-between">
+            <span class="text-xs font-bold px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300">Stage 3・變現層 ⭐最關鍵</span>
+            <span class="text-2xl">🚀</span>
+          </div>
+          <h3 class="text-lg font-black text-white">3. Action（4R 精準行動落地劇本）</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            <strong>看懂訊號卻只會「全店買一送一」就是不及格！</strong>高品質的 Action 必須同時滿足 4R 準則：
+          </p>
+          <ul class="text-xs text-slate-300 space-y-2 pt-1">
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-emerald-300">① Right Who（精準分群與決策者）：</strong>只對有該訊號的分群推播（或針對銀髮族背後的付費子女推播），不打擾無關客群。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-emerald-300">② Right Time（黃金時間窗介入）：</strong>降溫前48小時預售、消耗品第24天提醒、預約前48小時未讀釋出候補。
+            </li>
+            <li class="p-2.5 rounded-xl bg-slate-900/90 border border-slate-800">
+              <strong class="text-emerald-300">③ Right Offer & Mechanism（價值感誘因與鎖單機制）：</strong>用「預購鎖單券、連住私廚體驗升等、鄰居候補禮、早鳥盲測訂金」取代粗暴砍價！
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 第二部曲：傳統經驗促銷 vs. 預測性行銷 Action 對照總表 -->
+      <div class="glass-card rounded-2xl p-6 border border-slate-800">
+        <h3 class="text-lg font-black text-white mb-1">⚡ 為什麼「預測訊號 ＋ 精準 Action」能讓 ROI 翻倍？（課堂必考判讀準則）</h3>
+        <p class="text-xs text-slate-400 mb-4">在沙盤下注前，請用這張表檢視 A、B、C 三個選項背後的商業邏輯差異：</p>
+
+        <div class="overflow-x-auto">
+          <table class="w-full text-left border-collapse text-xs md:text-sm">
+            <thead>
+              <tr class="border-b border-slate-700 text-slate-300 bg-slate-900/80">
+                <th class="py-3 px-4">實戰場景與理論模型</th>
+                <th class="py-3 px-4">📡 關鍵前兆訊號 (Signal)</th>
+                <th class="py-3 px-4 text-rose-400">❌ 錯誤的傳統反應 (盲目促銷/被動)</th>
+                <th class="py-3 px-4 text-emerald-400">✅ 正確的預測性 Action (高毛利落地劇本)</th>
+                <th class="py-3 px-4">核心營運效益</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-800 text-slate-300">
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">1. 換季/天候需求預測<br><span class="text-xs text-indigo-400">早午餐茶飲 (R1)</span></td>
+                <td class="py-3 px-4">降溫預報 8°C ＋ 熱搜詞「燕麥奶/高蛋白暖食」暴增 45%</td>
+                <td class="py-3 px-4">憑感覺多叫 50% 原料，降溫當天推「第二杯半價」（引來低留存過路客且易報廢）</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">提前 48 小時對「曾買過溫熱飲熟客」推播【微涼專屬暖食預購券】，憑預售量精準叫貨</td>
+                <td class="py-3 px-4">鎖定確定營收、食材耗損率降至 2.5% 以下</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">2. 熟客流失預警 (Churn)<br><span class="text-xs text-indigo-400">美容 SPA (R2)</span></td>
+                <td class="py-3 px-4">前 20% 黃金熟客超過 45 天未預約 ＋ 不開群發促銷信 ＋ 曾提換季失眠</td>
+                <td class="py-3 px-4">全體無差別發送 500 元折價券，或放棄熟客去投 399 元低價新客廣告</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">在第 45 天黃金窗啟動【店長個人化關懷：免費升級 15 分鐘秋季好眠精油檢測】</td>
+                <td class="py-3 px-4">用高價值感取代降價，留客成本僅開發新客的 1/5</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">3. 下一步最佳行動 (NBA)<br><span class="text-xs text-indigo-400">寵物選物 (R3)</span></td>
+                <td class="py-3 px-4">買 30 日份幼犬益生菌滿 22 天 ＋ 官網瀏覽「外出胸背帶與友善餐廳」逾 2 分鐘</td>
+                <td class="py-3 px-4">等滿 30 天才發雙11全館滿千折百（客人第 25 天吃完已去實體店買別牌）</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">在第 24 天黃金補貨點自動觸發【益生菌續訂 9 折 ＋ 幼犬首次外出水壺連帶加購組】</td>
+                <td class="py-3 px-4">攔截競品流失、跨品類連帶轉換率提升 4.2 倍</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">4. 爆品與供應鏈預測<br><span class="text-xs text-indigo-400">烘焙伴手禮 (R4) / 文創 (R8)</span></td>
+                <td class="py-3 px-4">B2B 福委會詢問 ESG 低碳小禮盒增 38% ／ IG 貼文「收藏數(Save)」集中於前 2 款</td>
+                <td class="py-3 px-4">憑過去經驗全印傳統大禮盒，或 8 款聯名商品平均各生產 1,000 組鋪貨</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">以【AI 概念圖＋7天早鳥試吃預購 / IG 收藏率】做小數據測試，依真實轉換率決定工廠排產配比</td>
+                <td class="py-3 px-4">達成「以銷定產」，徹底消滅節慶包材與呆滯庫存</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">5. 離峰產能與防放鳥預測<br><span class="text-xs text-indigo-400">溫泉旅宿 (R5) / 美甲 (R6)</span></td>
+                <td class="py-3 px-4">週日晚 Workation 熱搜增 52% ／ 美甲預約前 48 小時確認信超過 12 小時未讀</td>
+                <td class="py-3 px-4">訂房網平日直接砍 55 折傷品牌 ／ 等客人當下放鳥才發 IG 限動喊 8 折</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">週日晚對熟客推【平日連住贈私廚晚宴】／ 前 48 小時未讀自動釋出時段推播【1公里內候補熟客池】</td>
+                <td class="py-3 px-4">守住品牌平均單價（ADR），將空房與空班損失歸零</td>
+              </tr>
+              <tr>
+                <td class="py-3 px-4 font-bold text-white">6. 雙向關係人續約預測<br><span class="text-xs text-indigo-400">銀髮健康中心 (R7)</span></td>
+                <td class="py-3 px-4">75% 體驗課由「成年子女」刷卡買單 ＋ 長輩第 3 堂課防跌肌力數據進步 15%</td>
+                <td class="py-3 px-4">第 4 堂課下課時把長輩本人留在櫃檯強推 3.6 萬元年卡（造成長輩心理壓力而拒買）</td>
+                <td class="py-3 px-4 font-semibold text-emerald-300">在第 3 堂課當晚將【長輩肌力進步數據圖卡＋開心影片】推播給買單子女 LINE，附孝親續約禮</td>
+                <td class="py-3 px-4">精準打動真實付費決策者，季卡續約率從 22% 躍升至 79%</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 視角 1：🎯 學員決策沙盤 ==================== -->
+    <div id="view-player" class="space-y-5">
+
+      <!-- 題庫章節篩選器 -->
+      <div class="flex flex-wrap items-center justify-between gap-3">
+        <div class="flex flex-wrap items-center gap-2 text-xs font-bold">
+          <span class="text-slate-400">📚 選擇實戰題庫章節：</span>
+          <button onclick="window.app.setChapterFilter('ch1')" id="chap-ch1" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition">
+            第一章：經典民生篇 (R1~R4)
+          </button>
+          <button onclick="window.app.setChapterFilter('ch2')" id="chap-ch2" class="px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition">
+            第二章：在地服務進階篇 (R5~R8)
+          </button>
+          <button onclick="window.app.setChapterFilter('all')" id="chap-all" class="px-3 py-1.5 rounded-xl bg-indigo-600 text-white shadow border border-indigo-500 transition">
+            🔥 完整 8 關全開
+          </button>
+        </div>
+        <div class="flex items-center gap-2">
+          <button onclick="window.app.switchMode('bible')" class="text-xs px-3 py-1.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 text-amber-300 border border-amber-500/40 font-bold transition">
+            📖 不確定怎麼判讀？先看《預測理論聖經》
+          </button>
+          <button onclick="window.app.switchMode('sandbox')" class="text-xs px-3 py-1.5 rounded-xl bg-emerald-500/20 hover:bg-emerald-500/30 text-emerald-300 border border-emerald-500/40 font-bold transition">
+            ✨ 用 AI 生成新沙盤
+          </button>
+        </div>
+      </div>
+
+      <!-- 回合選擇器 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="roundSelectorContainer"></div>
+
+      <!-- 關卡主體：左情報、右決策 -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+        <!-- 左側：生活產業背景與 3 大前兆訊號 (佔 5 欄) -->
+        <div class="lg:col-span-5 space-y-4">
+          <div class="gradient-border p-5">
+            <div class="flex items-center justify-between mb-2">
+              <span id="scenarioCategory" class="text-xs font-bold px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">
+                Round 1・需求預測
+              </span>
+              <span id="scenarioIndustry" class="text-xs text-slate-300 font-medium">☕ 連鎖早午餐／特色茶飲</span>
+            </div>
+            <h2 id="scenarioTitle" class="text-xl font-black text-white mb-2">入秋首波強冷空氣與暖食商機</h2>
+            <p id="scenarioDesc" class="text-sm text-slate-300 leading-relaxed"></p>
+          </div>
+
+          <div class="glass-card rounded-2xl p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <h3 class="text-sm font-bold text-slate-200 flex items-center gap-2">
+                <span>📡 Step 1：判讀三大前兆訊號 (Signals)</span>
+              </h3>
+              <button onclick="window.app.switchMode('bible')" class="text-xs text-indigo-400 hover:underline">查看訊號理論</button>
+            </div>
+            <div id="signalsContainer" class="space-y-3"></div>
+          </div>
+        </div>
+
+        <!-- 右側：100萬行銷預算配置與深度報告開獎 (佔 7 欄) -->
+        <div class="lg:col-span-7 space-y-6">
+          <div id="playerDecisionCard" class="glass-card rounded-2xl p-5 md:p-6 transition-all">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b border-slate-800">
+              <div>
+                <h3 class="text-base md:text-lg font-bold text-white">💰 Step 2：決定 Action 投資金額（配置 100% 預算）</h3>
+                <p class="text-xs text-slate-400">預測只是訊號，請將 100 萬預算配置到最能創造高 ROI 的具體 Action 方案</p>
+              </div>
+              <!-- 補齊全壓 A / 全壓 B / 全壓 C 與黃金配置按鈕 -->
+              <div class="flex flex-wrap items-center gap-1.5">
+                <button onclick="window.app.setQuickPreset(100,0,0)" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-amber-600/30 hover:text-amber-300 text-slate-300 border border-slate-700 transition font-semibold">全壓 A</button>
+                <button onclick="window.app.setQuickPreset(0,100,0)" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-emerald-600/30 hover:text-emerald-300 text-slate-300 border border-slate-700 transition font-semibold">全壓 B</button>
+                <button onclick="window.app.setQuickPreset(0,0,100)" class="text-xs px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-rose-600/30 hover:text-rose-300 text-slate-300 border border-slate-700 transition font-semibold">全壓 C</button>
+                <button onclick="window.app.setQuickPreset(20,70,10)" class="text-xs px-2.5 py-1.5 rounded-lg bg-indigo-950 hover:bg-indigo-900 text-indigo-300 border border-indigo-700 transition font-semibold">20/70/10 建議配置</button>
+              </div>
+            </div>
+
+            <!-- 三個策略選項滑桿 -->
+            <div id="optionsContainer" class="space-y-5"></div>
+
+            <!-- 預算總和檢核列 -->
+            <div class="mt-6 pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4">
+              <div class="flex items-center gap-3">
+                <span class="text-sm text-slate-300">目前預算配置總和：</span>
+                <span id="budgetSumBadge" class="text-lg font-black font-mono px-3 py-0.5 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">
+                  100% (NT$ 100萬)
+                </span>
+              </div>
+
+              <button id="submitDecisionBtn" onclick="window.app.submitDecision()" class="px-6 py-3 rounded-xl bg-gradient-to-r from-indigo-600 to-emerald-600 hover:from-indigo-500 hover:to-emerald-500 text-white font-bold shadow-lg shadow-indigo-600/30 transition flex items-center gap-2">
+                <span>🚀 鎖定決策・生成深度診斷與 Action 報告</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 開獎結果、深度文字診斷說明、Action 落地藍圖與 Word 匯出區 -->
+          <div id="resultPanel" class="hidden glass-card rounded-2xl p-5 md:p-6 border-2 border-indigo-500/50 space-y-6">
+            <div class="flex flex-wrap items-center justify-between gap-3 border-b border-slate-800 pb-4">
+              <div class="flex items-center gap-2.5">
+                <span class="text-3xl">📑</span>
+                <div>
+                  <h3 class="text-lg md:text-xl font-black text-white">30 天後市場開獎 ＆ 顧問級決策診斷報告</h3>
+                  <p class="text-xs text-slate-400">不僅看分數，更深入解析「前兆訊號判讀」與「Action 落地執行劇本」</p>
+                </div>
+              </div>
+              <div class="flex items-center gap-2">
+                <div id="resultGradeBadge" class="px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+                  S 級・商業先知
+                </div>
+                <!-- 一鍵下載編排過的 Word 檔按鈕 -->
+                <button onclick="window.app.exportWordReport()" class="px-3.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs shadow-lg shadow-blue-600/30 flex items-center gap-1.5 transition">
+                  <span>📥 下載排版 Word 報告 (.doc)</span>
+                </button>
+              </div>
+            </div>
+
+            <!-- 四大營運指標卡 -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div class="text-xs text-slate-400">預估創造營收</div>
+                <div id="resRevenue" class="text-lg font-black text-emerald-400 font-mono mt-1">+NT$ 185萬</div>
+              </div>
+              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div class="text-xs text-slate-400">行銷投資報酬 (ROI)</div>
+                <div id="resROI" class="text-lg font-black text-indigo-400 font-mono mt-1">185%</div>
+              </div>
+              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div class="text-xs text-slate-400">庫存/產能閒置耗損</div>
+                <div id="resWaste" class="text-lg font-black text-amber-400 font-mono mt-1">4.2%</div>
+              </div>
+              <div class="bg-slate-900/90 p-3.5 rounded-xl border border-slate-800">
+                <div class="text-xs text-slate-400">預測×行動綜合得分</div>
+                <div id="resScore" class="text-lg font-black text-white font-mono mt-1">92 分</div>
+              </div>
+            </div>
+
+            <!-- 新增重點 1：為什麼得到這個分數？「預算配置權重 × 訊號判讀」深度文字說明 -->
+            <div class="bg-slate-900/95 rounded-2xl p-5 border border-slate-800 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-slate-800 pb-2.5">
+                <h4 class="text-sm font-black text-indigo-300 flex items-center gap-2">
+                  <span>🔍 壹、為什麼您會得到這個分數？（預算配置與訊號判讀深度說明）</span>
+                </h4>
+                <span id="reportAllocationSummary" class="text-xs font-mono text-slate-400">您的配置：A 20萬 / B 70萬 / C 10萬</span>
+              </div>
+              <div id="detailedDiagnosisContainer" class="space-y-3 text-xs md:text-sm text-slate-200 leading-relaxed">
+                <!-- 由 JS 根據學員 A/B/C 實際投資金額動態生成詳細解析 -->
+              </div>
+            </div>
+
+            <!-- 新增重點 2：預測只是訊號，Action 才是關鍵！「4R 具體行動落地執行藍圖」 -->
+            <div class="bg-emerald-950/30 rounded-2xl p-5 border border-emerald-500/30 space-y-4">
+              <div class="flex flex-wrap items-center justify-between gap-2 border-b border-emerald-500/20 pb-2.5">
+                <h4 class="text-sm font-black text-emerald-300 flex items-center gap-2">
+                  <span>🎯 貳、從預測訊號到真實變現：本關最佳 Action 落地執行藍圖 (4R Playbook)</span>
+                </h4>
+                <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">課堂實戰核心重點</span>
+              </div>
+              <div id="actionPlaybookContainer" class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+                <!-- 由 JS 動態渲染 Right Who, Right Time, Right Offer, Right SOP -->
+              </div>
+            </div>
+
+            <!-- 新增重點 3：AI 顧問即時個人化深度講評 (Gemini 3.8 Flash) -->
+            <div class="bg-indigo-950/40 rounded-2xl p-5 border border-indigo-500/40 space-y-3">
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <div>
+                  <h4 class="text-sm font-black text-white flex items-center gap-2">
+                    <span>🤖 參、AI 首席行銷顧問個人化深度講評 (Gemini 3.8 Flash)</span>
+                  </h4>
+                  <p class="text-xs text-slate-400">針對貴組剛剛的資金配置比例，由 AI 生成專屬優化建議，並自動同步納入 Word 報告中</p>
+                </div>
+                <button id="btnGenerateAiReport" onclick="window.app.generateAiDeepCommentary()" class="px-3.5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow transition flex items-center gap-1.5">
+                  <span>✨ 請 AI 顧問針對本組配置撰寫深度評語</span>
+                </button>
+              </div>
+              <div id="aiDeepCommentaryBox" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs md:text-sm text-slate-200 leading-relaxed whitespace-pre-line"></div>
+            </div>
+
+            <!-- AI 虛擬消費者真實心聲 -->
+            <div>
+              <h4 class="text-xs font-bold uppercase tracking-wider text-slate-400 mb-2.5">💬 肆、目標客群與第一線人員真實反應</h4>
+              <div id="customerPersonasContainer" class="grid grid-cols-1 md:grid-cols-3 gap-3"></div>
+            </div>
+
+            <!-- 底部操作列：下載 Word 報告 與 下一關 -->
+            <div class="p-4 rounded-xl bg-slate-900 border border-slate-800 flex flex-wrap items-center justify-between gap-4">
+              <div class="text-xs text-slate-300">
+                💡 <strong>小提醒：</strong>點擊右側藍色按鈕即可將上方完整《訊號判讀＋預算診斷＋4R Action 落地表格》匯出為排版精美的 Word 檔（`.doc`）！
+              </div>
+              <div class="flex items-center gap-2.5">
+                <button onclick="window.app.exportWordReport()" class="px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow-lg shadow-blue-600/30 transition flex items-center gap-1.5">
+                  <span>📄 匯出編排過的 Word 報告 (.doc)</span>
+                </button>
+                <button onclick="window.app.goToNextScenario()" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow transition">
+                  下一關挑戰 ➔
+                </button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 視角 2：✨ AI 預測沙盤生成器 ==================== -->
+    <div id="view-sandbox" class="hidden space-y-6">
+      <div class="gradient-border p-6">
+        <div class="max-w-4xl">
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
+              AI Scenario Generator・Gemini 3.8 Flash 驅動
+            </span>
+            <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
+              支援一鍵生成新產業沙盤 ＆ 雲端同步至全班第 8 關
+            </span>
+          </div>
+          <h2 class="text-2xl font-black text-white mt-2">✨ AI 預測性行銷沙盤生成器（自由命題 × 企業痛點診斷）</h2>
+          <p class="text-sm text-slate-300 mt-1">
+            您可以點擊下方<strong>「台灣熱門生活產業快捷範本」</strong>或手動輸入現場學員的真實業態，系統將透過 <code class="text-emerald-300 font-mono">gemini-3.8-flash</code> 即時生成包含「3 大前兆訊號」、「A/B/C 三大策略選項」與「4R Action 落地執行藍圖」的完整沙盤關卡！
+          </p>
+        </div>
+
+        <!-- 新增：台灣生活產業一鍵快速命題範本 -->
+        <div class="mt-5 pt-4 border-t border-slate-800/80">
+          <span class="text-xs font-bold text-indigo-300 block mb-2">🎲 點擊快速帶入台灣生活產業命題範本（或於下方自行修改）：</span>
+          <div class="flex flex-wrap gap-2">
+            <button onclick="window.app.fillSandboxPreset('台南手作布丁伴手禮', '職人焦糖布丁禮盒 (420元)', '連假過後平日下午門市人流銳減，宅配回購率偏低')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-indigo-950 text-slate-200 border border-slate-700 transition">🍮 台南手作布丁店（平日離峰與回購）</button>
+            <button onclick="window.app.fillSandboxPreset('連鎖手搖飲品牌', '季節限定鮮果茶系列 (75元)', '梅雨季與颱風天門市來客數暴跌4成，鮮果原料容易報廢')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-indigo-950 text-slate-200 border border-slate-700 transition">🧋 連鎖手搖飲（雨天衝擊與鮮果耗損）</button>
+            <button onclick="window.app.fillSandboxPreset('社區型寵物美容沙龍', '狗狗精緻洗護包月方案 (2,400元)', '單次洗澡客人很多，但願意升等包月與加購皮膚SPA的比例太低')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-indigo-950 text-slate-200 border border-slate-700 transition">🐶 寵物美容沙龍（包月轉換與跨售）</button>
+            <button onclick="window.app.fillSandboxPreset('親子主題餐廳', '平日雙人親子下午茶套餐 (680元)', '週末一位難求客訴多，但週一至週四座位空置率高達70%')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-indigo-950 text-slate-200 border border-slate-700 transition">🎠 親子主題餐廳（平假日產能失衡）</button>
+            <button onclick="window.app.fillSandboxPreset('精品眼鏡與驗光中心', '全視線抗藍光多焦鏡片 (8,800元)', '客人配完一副眼鏡後平均3年才再出現，熟客喚醒率極低')" class="text-xs px-3 py-1.5 rounded-xl bg-slate-900 hover:bg-indigo-950 text-slate-200 border border-slate-700 transition">👓 精品眼鏡行（長週期熟客喚醒）</button>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+          <div>
+            <label class="block text-xs text-slate-300 font-semibold mb-1">1. 生活產業別 / 店型</label>
+            <input id="customIndustry" type="text" value="台南手作布丁與伴手禮專門店" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 font-semibold mb-1">2. 主力產品或客群單價</label>
+            <input id="customProduct" type="text" value="職人焦糖布丁禮盒（單價 420 元）" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-300 font-semibold mb-1">3. 最想解決的預測與行銷痛點</label>
+            <input id="customPain" type="text" value="連假過後平日下午門市人流銳減，宅配回購率偏低" class="w-full px-3.5 py-2.5 rounded-xl bg-slate-900 border border-slate-700 text-sm text-white focus:border-indigo-500 focus:outline-none">
+          </div>
+        </div>
+
+        <div class="mt-5 flex flex-wrap items-center justify-between gap-3">
+          <label class="flex items-center gap-2 text-xs text-slate-300 cursor-pointer">
+            <input id="broadcastCustomCheck" type="checkbox" checked class="rounded bg-slate-900 border-slate-700 text-indigo-600 focus:ring-indigo-500">
+            <span>同時將此 AI 生成沙盤透過 Firestore 廣播至全班第 8 關（讓全班一起挑戰並匯出 Word 報告）</span>
+          </label>
+          <button id="generateCustomBtn" onclick="window.app.generateCustomScenario()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
+            <span>⚡ 立即以 gemini-3.8-flash 生成新預測沙盤並進入挑戰</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==================== 視角 3：📊 講師大螢幕戰情室 ==================== -->
+    <div id="view-instructor" class="hidden space-y-6">
+
+      <!-- 講師控場指揮台 -->
+      <div id="warRoomTimerCard" class="glass-card rounded-2xl p-5 md:p-6 border border-indigo-500/40 transition-all">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+
+          <div class="lg:col-span-4 bg-slate-900/90 p-4 rounded-2xl border border-slate-800 flex items-center justify-between gap-4">
+            <div>
+              <span class="text-[11px] font-bold uppercase tracking-wider text-emerald-400">Step 1・課堂破冰入場</span>
+              <h3 class="text-base font-black text-white mt-0.5">房間代碼：<span id="warRoomCodeDisplay" class="font-mono text-emerald-400">BIZ-2026</span></h3>
+              <p class="text-xs text-slate-400 mt-1">點擊右側按鈕放大顯示全螢幕 QR Code，讓學員手機掃描秒速進場</p>
+            </div>
+            <button onclick="window.app.toggleQrModal()" class="shrink-0 px-4 py-3 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 hover:from-emerald-400 hover:to-teal-500 text-white font-black text-xs shadow-lg shadow-emerald-600/25 flex flex-col items-center gap-1 transition">
+              <span class="text-2xl">📱</span>
+              <span>放大 QR Code</span>
+            </button>
+          </div>
+
+          <div class="lg:col-span-8 bg-slate-900/90 p-4 md:px-6 rounded-2xl border border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+            <div class="flex items-center gap-4">
+              <div class="text-center">
+                <div class="text-[11px] font-bold uppercase tracking-wider text-indigo-400 mb-0.5">Step 2・限時決策催票計時器</div>
+                <div id="instructorTimerDigits" class="text-4xl md:text-5xl font-black font-mono tracking-wider text-white">
+                  01:00
+                </div>
+              </div>
+              <div class="h-12 w-px bg-slate-800 hidden sm:block"></div>
+              <div class="space-y-1.5">
+                <div class="flex items-center gap-1.5">
+                  <span id="timerStatusTag" class="text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-semibold">待命準備中</span>
+                  <button onclick="window.app.toggleSoundMute()" id="soundMuteBtn" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 hover:bg-indigo-500/30 transition">
+                    🔊 音效：開啟
+                  </button>
+                </div>
+                <p class="text-xs text-slate-400">倒數將透過雲端同步顯示於全班手機，最後 10 秒觸發急促警示音與紅光閃爍</p>
+              </div>
+            </div>
+
+            <div class="flex flex-wrap items-center gap-2 shrink-0">
+              <button onclick="window.app.startClassroomTimer(60)" class="px-4 py-2.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs shadow-lg shadow-indigo-600/30 transition flex items-center gap-1">
+                <span>▶️ 啟動 60 秒</span>
+              </button>
+              <button onclick="window.app.startClassroomTimer(30)" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-amber-300 font-bold text-xs border border-slate-700 transition">
+                ⚡ 30秒衝刺
+              </button>
+              <button onclick="window.app.stopClassroomTimer()" class="px-3 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 font-bold text-xs border border-slate-700 transition">
+                ⏹️ 重置
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden mt-4">
+          <div id="instructorTimerBar" class="h-full bg-gradient-to-r from-indigo-500 to-emerald-400 transition-all duration-300" style="width: 100%"></div>
+        </div>
+      </div>
+
+      <!-- 群體決策分佈與排行榜 -->
+      <div class="glass-card rounded-2xl p-6 border border-indigo-500/30">
+        <div class="flex flex-wrap items-center justify-between gap-4 mb-6">
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold text-indigo-400 uppercase tracking-wider">Instructor War Room・Firestore 即時同步</span>
+              <span class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono">Project: game14-ai-predictive-marketing</span>
+            </div>
+            <h2 class="text-2xl font-black text-white mt-1">📊 全班群體決策分佈：「企業實務組」vs.「大學生創新組」</h2>
+            <p class="text-sm text-slate-400">當前檢視關卡：<strong id="warRoomCurrentRoundLabel" class="text-indigo-300">關卡 1</strong></p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <button onclick="window.app.seedDemoTeamsToFirestore()" class="px-3.5 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-bold text-indigo-300 border border-slate-700 transition">
+              ➕ 塞入 5 組模擬測試隊伍 (彩排用)
+            </button>
+            <button onclick="window.app.clearRoomTeams()" class="px-3.5 py-2 rounded-xl bg-rose-950/60 hover:bg-rose-900/70 text-xs font-bold text-rose-300 border border-rose-800/60 transition">
+              🗑️ 清空重置本房間數據
+            </button>
+          </div>
+        </div>
+
+        <div id="warRoomRoundQuickBar" class="flex flex-wrap gap-1.5 mb-6 pb-4 border-b border-slate-800"></div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+          <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-emerald-400 flex items-center gap-2">
+                <span>🏢 生活企業代表組</span>
+                <span id="entGroupCountBadge" class="text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-mono">0 組</span>
+              </h3>
+              <span class="text-xs text-slate-400">即時平均預算配置</span>
+            </div>
+            <div id="chartEnterprise" class="space-y-3"></div>
+          </div>
+
+          <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <h3 class="font-bold text-indigo-400 flex items-center gap-2">
+                <span>🎓 大學生商管組</span>
+                <span id="stuGroupCountBadge" class="text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 font-mono">0 組</span>
+              </h3>
+              <span class="text-xs text-slate-400">即時平均預算配置</span>
+            </div>
+            <div id="chartStudent" class="space-y-3"></div>
+          </div>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between mb-3">
+            <h3 class="text-base font-bold text-white">🏆 全班「商業先知」即時雲端排行榜 (依累積總營收排序)</h3>
+            <span class="text-xs text-slate-400">只要學員在手機端點擊「鎖定決策」，排行榜將毫秒級自動更新</span>
+          </div>
+          <div class="overflow-x-auto">
+            <table class="w-full text-left border-collapse text-sm">
+              <thead>
+                <tr class="border-b border-slate-800 text-slate-400 text-xs">
+                  <th class="py-2.5 px-3">名次</th>
+                  <th class="py-2.5 px-3">組別名稱</th>
+                  <th class="py-2.5 px-3">身份組別</th>
+                  <th class="py-2.5 px-3">本關配置 (A / B / C)</th>
+                  <th class="py-2.5 px-3">已完成關卡</th>
+                  <th class="py-2.5 px-3">平均預測精準度</th>
+                  <th class="py-2.5 px-3 text-right">累積模擬總營收</th>
+                </tr>
+              </thead>
+              <tbody id="leaderboardBody" class="divide-y divide-slate-800/60"></tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 平台創作者 TONY 楊文澤顧問專區 -->
+    <section class="mt-10 glass-card rounded-3xl p-6 md:p-8 border border-indigo-500/30">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+        <div class="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-center text-center sm:text-left lg:text-center gap-4">
+          <img src="https://firebasestorage.googleapis.com/v0/b/k16-tony-ai-wisdom-platform.firebasestorage.app/o/assets%2F6av64EOvvqQNAIoXqcPfHC5BBeF3%2F1787580326393_ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8819%E6%97%A5%20%E4%B8%8A%E5%8D%8811_16_14.png?alt=media&token=3c85de41-f36f-46e5-a97a-7bc7eb83a027" alt="TONY 楊文澤 老師" class="w-28 h-28 rounded-3xl object-cover border-2 border-emerald-400 shadow-2xl" onerror="this.src='https://placehold.co/112x112/312e81/ffffff?text=TONY'">
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/40">平台創作者簡介</span>
+            <h3 class="text-2xl font-black text-white mt-2">TONY 楊文澤 老師</h3>
+            <p class="text-xs text-emerald-400 font-bold mt-1">資深數位行銷科技顧問・生成式 AI 創作者・創業導師</p>
+          </div>
+        </div>
+        <div class="lg:col-span-8 grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+          <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <div class="font-bold text-indigo-300 text-sm">📌 現職 Current ＆ 經歷 Experience</div>
+            <p class="text-slate-200 font-semibold">▪ 龍華科大 數位行銷講師 ｜ ▪ 智策慧 品牌行銷科技顧問</p>
+            <ul class="space-y-1 text-slate-300 pt-1 border-t border-slate-800">
+              <li>▪ 脈動心聯股份有限公司 創辦人暨執行長</li>
+              <li>- 宏碁集團建碁 AOPEN 整合營銷處處長 / 全球品牌行銷總監 / 企業發言人</li>
+              <li>- 台灣數位看板多媒體聯盟 (DSMA) 副會長</li>
+            </ul>
+          </div>
+          <div class="bg-slate-900/80 p-4 rounded-2xl border border-slate-800 space-y-2">
+            <div class="font-bold text-emerald-300 text-sm">🎓 學歷 Education ＆ 專家授課經歷</div>
+            <p class="text-slate-200">- 台大 EMBA 商學組 / 美國 ASU 互動多媒體設計 / 北科大 工業設計</p>
+            <ul class="space-y-1 text-slate-300 pt-1 border-t border-slate-800">
+              <li>▪ CPC 生產力中心 經營管理顧問師班 / 中小企業成長創價能量 講師</li>
+              <li>- 台大 EMBA / 長榮 EMBA / 北科大 / 政大 / 世新 業師</li>
+              <li>- 2021 MarTech 行銷科技行銷長認證班 講師</li>
+              <li>- 2021/2024/2025 T大使與產業尖兵 講師</li>
+              <li>- 2025 新光人壽 AI 工具應用 企業內訓講師</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- 底部版權列 -->
+  <footer class="border-t border-slate-800/80 py-5 px-4 text-center text-xs text-slate-400 space-y-1 bg-slate-950/60">
+    <div class="font-bold text-slate-300">© 2020 TonyStudio. 本學習平台由 TONY 楊文澤資深AI科技顧問設計. All Rights Reserved.</div>
+    <div class="text-[11px] text-slate-500">Designed for 經濟部商業發展署「生活產業預測性行銷課程」・V4.0 SaaS Full-Stack Edition</div>
+  </footer>
+
+  <!-- ==================== 彈窗 0：👑 專屬管理者後台 (Admin Dashboard) ==================== -->
+  <div id="adminModal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md overflow-y-auto p-4 md:p-6">
+    <div class="glass-card max-w-7xl mx-auto rounded-3xl p-6 md:p-8 border-2 border-amber-500/40 shadow-2xl space-y-6 my-4">
+      <div class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-amber-500 to-rose-600 flex items-center justify-center text-2xl shadow-lg">👑</div>
+          <div>
+            <div class="flex items-center gap-2">
+              <span class="text-xs font-bold uppercase tracking-wider px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40">RBAC 最高權限管理中心</span>
+              <span class="text-xs font-mono text-emerald-400">Creator: mindnodeai@gmail.com</span>
+            </div>
+            <h3 class="text-xl md:text-2xl font-black text-white mt-0.5">SaaS 會員權限管理與 AI 商業數據分析後台</h3>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-2.5">
+          <button onclick="window.app.exportMembersCSV()" class="px-4 py-2.5 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-black shadow-lg shadow-emerald-600/30 flex items-center gap-1.5 transition">
+            <span>📊 匯出 CSV 會員名單 (含 UTF-8 BOM)</span>
+          </button>
+          <button onclick="window.app.closeAdminModal()" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-2xl font-bold flex items-center justify-center">&times;</button>
+        </div>
+      </div>
+
+      <!-- 後台統計摘要卡片 -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+          <div class="text-xs text-slate-400">總註冊會員數</div>
+          <div id="adminStatTotalUsers" class="text-2xl font-black text-white font-mono mt-1">0</div>
+        </div>
+        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+          <div class="text-xs text-slate-400">TONY 老師學員數</div>
+          <div id="adminStatTonyStudents" class="text-2xl font-black text-emerald-400 font-mono mt-1">0</div>
+        </div>
+        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+          <div class="text-xs text-slate-400">非學員 (一般訪客)</div>
+          <div id="adminStatGuests" class="text-2xl font-black text-indigo-400 font-mono mt-1">0</div>
+        </div>
+        <div class="bg-slate-900/90 p-4 rounded-2xl border border-slate-800">
+          <div class="text-xs text-slate-400">累積總登入與決策紀錄</div>
+          <div id="adminStatTotalLogins" class="text-2xl font-black text-amber-400 font-mono mt-1">0 次</div>
+        </div>
+      </div>
+
+      <!-- 功能 6：AI 營運分析報告（設定起訖時間 ➔ 產出分析報告 ➔ 輸出成 WORD 檔） -->
+      <div class="bg-indigo-950/35 rounded-2xl p-5 border border-indigo-500/40 space-y-4">
+        <div class="flex flex-wrap items-center justify-between gap-3">
+          <div>
+            <h4 class="text-base font-black text-white flex items-center gap-2">
+              <span>🤖 AI 平台商業數據與學員表現分析報告（支援起訖時間篩選 ＆ Word 匯出）</span>
+            </h4>
+            <p class="text-xs text-slate-300">選擇起訖日期區間，系統將彙整期間內註冊會員結構、登入活躍度與沙盤決策歷史，生成顧問級分析報告並可下載為 Word (.doc)</p>
+          </div>
+          <div class="flex flex-wrap items-center gap-2">
+            <div class="flex items-center gap-1.5 text-xs">
+              <span class="text-slate-300">起日：</span>
+              <input type="date" id="adminReportStartDate" class="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs">
+            </div>
+            <div class="flex items-center gap-1.5 text-xs">
+              <span class="text-slate-300">迄日：</span>
+              <input type="date" id="adminReportEndDate" class="px-2.5 py-1.5 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs">
+            </div>
+            <button onclick="window.app.generateAdminAiReport()" id="btnAdminAiAnalyze" class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shadow transition">
+              ⚡ 產出區間 AI 分析報告
+            </button>
+            <button onclick="window.app.exportAdminWordReport()" class="px-4 py-2 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold shadow transition">
+              📥 輸出成 WORD 檔 (.doc)
+            </button>
+          </div>
+        </div>
+        <div id="adminAiReportPreview" class="p-4 rounded-xl bg-slate-900/90 border border-slate-800 text-xs md:text-sm text-slate-200 leading-relaxed whitespace-pre-line max-h-60 overflow-y-auto">
+          請選擇上方起訖日期並點擊「⚡ 產出區間 AI 分析報告」，系統將自動統計該時段內的會員數據與沙盤學習成效。
+        </div>
+      </div>
+
+      <!-- 註冊會員管理動態表格 -->
+      <div class="space-y-3">
+        <div class="flex flex-wrap items-center justify-between gap-2">
+          <h4 class="text-base font-black text-white">👥 註冊會員清冊與 RBAC 權限管理</h4>
+          <span class="text-xs text-slate-400">提示：系統創作者 <code class="text-amber-300 font-mono">mindnodeai@gmail.com</code> 具永久最高權限保護，不可降維或刪除</span>
+        </div>
+        <div class="overflow-x-auto rounded-2xl border border-slate-800 bg-slate-900/80">
+          <table class="w-full text-left border-collapse text-xs md:text-sm">
+            <thead>
+              <tr class="border-b border-slate-800 bg-slate-950/90 text-slate-300">
+                <th class="py-3 px-4">真實姓名</th>
+                <th class="py-3 px-4">電子信箱 (Email)</th>
+                <th class="py-3 px-4">學員身份</th>
+                <th class="py-3 px-4">系統權限 (Role)</th>
+                <th class="py-3 px-4">註冊時間</th>
+                <th class="py-3 px-4 text-center">登錄次數</th>
+                <th class="py-3 px-4 text-right">權限切換 / 歷史紀錄 / 刪除</th>
+              </tr>
+            </thead>
+            <tbody id="adminUsersTableBody" class="divide-y divide-slate-800/70 text-slate-200"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 彈窗 0-B：會員個人歷史紀錄檢視 Modal -->
+  <div id="userHistoryModal" class="fixed inset-0 z-[60] hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-3xl w-full rounded-3xl p-6 border border-indigo-500/50 space-y-4 max-h-[85vh] flex flex-col">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <div>
+          <h4 id="historyModalTitle" class="text-lg font-black text-white">📜 會員活動與沙盤決策歷史紀錄</h4>
+          <p id="historyModalSub" class="text-xs text-slate-400 font-mono"></p>
+        </div>
+        <button onclick="document.getElementById('userHistoryModal').classList.add('hidden')" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xl font-bold">&times;</button>
+      </div>
+      <div id="historyModalContent" class="flex-1 overflow-y-auto space-y-3 text-xs text-slate-200 pr-1"></div>
+    </div>
+  </div>
+
+  <!-- 彈窗 0-C：TONY 顧問簡介快速檢視彈窗 -->
+  <div id="creatorModal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-2xl w-full rounded-3xl p-6 md:p-8 border border-indigo-500/40 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <img src="https://firebasestorage.googleapis.com/v0/b/k16-tony-ai-wisdom-platform.firebasestorage.app/o/assets%2F6av64EOvvqQNAIoXqcPfHC5BBeF3%2F1787580326393_ChatGPT%20Image%202026%E5%B9%B46%E6%9C%8819%E6%97%A5%20%E4%B8%8A%E5%8D%8811_16_14.png?alt=media&token=3c85de41-f36f-46e5-a97a-7bc7eb83a027" alt="TONY 顧問" class="w-16 h-16 rounded-2xl object-cover border-2 border-emerald-400">
+          <div>
+            <span class="text-xs font-bold px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300">平台創作者簡介</span>
+            <h3 class="text-xl font-black text-white mt-0.5">TONY 楊文澤 老師</h3>
+            <p class="text-xs text-indigo-300">資深數位行銷科技顧問｜生成式 AI 創作者｜創業導師</p>
+          </div>
+        </div>
+        <button onclick="window.app.toggleCreatorModal()" class="w-9 h-9 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 text-xl font-bold">&times;</button>
+      </div>
+      <div class="space-y-3 text-xs md:text-sm text-slate-200 leading-relaxed">
+        <p><strong class="text-indigo-300">▪ 現職 Current：</strong>龍華科大 數位行銷講師 ／ 智策慧 品牌行銷科技顧問</p>
+        <p><strong class="text-indigo-300">▪ 經歷 Experience：</strong>脈動心聯股份有限公司 創辦人暨執行長 ／ 宏碁集團建碁 AOPEN 整合營銷處處長、全球品牌行銷總監、企業發言人 ／ 台灣數位看板多媒體聯盟 (DSMA) 副會長</p>
+        <p><strong class="text-indigo-300">▪ 學歷 Education：</strong>台大 EMBA 商學組 ／ 美國 Arizona State University 互動多媒體設計 ／ 北科大 工業設計</p>
+        <p><strong class="text-emerald-300">▪ 專家授課經歷：</strong>CPC 生產力中心 經營管理顧問師班 & 中小企業成長創價能量 講師 ／ 台大 EMBA、長榮 EMBA、北科大、政大、世新 業師 ／ 2021 MarTech 行銷科技行銷長認證班 講師 ／ 2021/2024/2025 T大使與產業尖兵 講師 ／ 2025 新光人壽 AI 工具應用 企業內訓講師</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 彈窗 1：大螢幕投影專用 QR Code 入場迎賓幕 ==================== -->
+  <div id="qrModal" class="fixed inset-0 z-50 hidden bg-slate-950/90 backdrop-blur-md flex items-center justify-center p-4">
+    <div class="glass-card max-w-4xl w-full rounded-3xl p-6 md:p-8 border-2 border-emerald-500/40 shadow-2xl space-y-6">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-4">
+        <div class="flex items-center gap-3">
+          <span class="text-3xl">📱</span>
+          <div>
+            <span class="text-xs font-bold uppercase tracking-wider text-emerald-400">經濟部商業發展署・互動沙盤連線</span>
+            <h3 class="text-2xl font-black text-white">請拿出手機掃描 QR Code 進入預測沙盤</h3>
+          </div>
+        </div>
+        <button onclick="window.app.toggleQrModal()" class="w-10 h-10 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-2xl font-bold flex items-center justify-center">&times;</button>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+        <div class="md:col-span-5 flex flex-col items-center">
+          <div class="p-4 bg-white rounded-3xl shadow-2xl border-4 border-emerald-400">
+            <img id="qrCodeImage" src="" alt="Room QR Code" class="w-64 h-64 md:w-72 md:h-72 object-contain">
+          </div>
+          <span class="text-xs text-slate-400 mt-2">掃描後自動帶入房間代碼，完成登入即可連線對戰</span>
+        </div>
+
+        <div class="md:col-span-7 space-y-5">
+          <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+            <div class="text-xs text-slate-400">當前課堂同步房間代碼 (Room Code)</div>
+            <div id="qrModalRoomCode" class="text-4xl md:text-5xl font-black font-mono text-emerald-400 tracking-wider mt-1">BIZ-2026</div>
+            <div class="mt-3 pt-3 border-t border-slate-800/80">
+              <label class="block text-xs text-slate-400 mb-1">🔗 課堂部署網址（可隨時修改以更新左側 QR Code）：</label>
+              <div class="flex gap-2">
+                <input id="qrUrlInput" type="text" class="flex-1 px-3 py-1.5 rounded-xl bg-slate-950 border border-slate-700 text-xs text-slate-200 font-mono" oninput="window.app.updateQrCodeImage()">
+                <button onclick="window.app.copyJoinLink()" id="copyLinkBtn" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white text-xs font-bold shrink-0">複製連結</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="bg-slate-900/90 p-5 rounded-2xl border border-slate-800">
+            <div class="flex items-center justify-between mb-3">
+              <span class="text-sm font-bold text-white flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 pulse-dot"></span>
+                <span>目前已連線進場組別</span>
+              </span>
+              <span id="qrModalTeamCount" class="text-sm font-black font-mono text-emerald-400">0 組已就緒</span>
+            </div>
+            <div id="qrModalTeamBadges" class="flex flex-wrap gap-2 max-h-36 overflow-y-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==================== 彈窗 2：設定與 API / 組別切換 Modal ==================== -->
+  <div id="configModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-slate-700 space-y-5">
+      <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+        <h3 class="text-lg font-black text-white">⚙️ 學員組別與 Gemini 3.8 API 設定</h3>
+        <button onclick="window.app.toggleConfigModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
+      </div>
+
+      <div class="space-y-4 text-sm">
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+          <div class="sm:col-span-2">
+            <label class="block text-xs text-slate-400 mb-1">您的組別名稱（將顯示於大螢幕排行榜與 Word 報告封面）</label>
+            <input id="inputTeamName" type="text" value="第一組：未來生活主理人" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white">
+          </div>
+          <div>
+            <label class="block text-xs text-slate-400 mb-1">課堂房間代碼</label>
+            <input id="inputRoomId" type="text" value="BIZ-2026" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono">
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-xs text-slate-400 mb-1">學員身份別（用於講師戰情室「企業組 vs. 大學生組」分群比較）</label>
+          <select id="inputRole" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white">
+            <option value="enterprise">🏢 生活產業企業學員</option>
+            <option value="student">🎓 大學生商管學員</option>
+          </select>
+        </div>
+
+        <div class="pt-3 border-t border-slate-800">
+          <label class="block text-xs text-indigo-300 font-semibold mb-1">🔑 Google Gemini API Key（用於「AI 沙盤生成器」與「AI 顧問深度報告講評」）</label>
+          <input id="inputGeminiKey" type="password" placeholder="貼上您的 AIzaSy... 金鑰 (將儲存於本機瀏覽器)" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs">
+          <p class="text-[11px] text-slate-400 mt-1">
+            系統已鎖定主模型為 <code class="text-emerald-400 font-mono">gemini-3.8-flash</code>，並內建指數退避與 <code class="text-amber-400 font-mono">gemini-3.5-flash</code> 自動降級保護。
+          </p>
+        </div>
+      </div>
+
+      <div class="flex justify-end gap-2 pt-3 border-t border-slate-800">
+        <button onclick="window.app.saveConfig()" class="px-5 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-sm">儲存並同步至雲端</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Modular SDK (v11) 與應用程式核心邏輯 -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import {
+      getAuth,
+      signInAnonymously,
+      onAuthStateChanged,
+      createUserWithEmailAndPassword,
+      signInWithEmailAndPassword,
+      sendEmailVerification,
+      sendPasswordResetEmail,
+      GoogleAuthProvider,
+      signInWithPopup,
+      signOut
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-auth.js";
+    import {
+      getFirestore, doc, getDoc, setDoc, updateDoc, collection, onSnapshot, deleteDoc, getDocs, serverTimestamp
+    } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+    /******************************************************************
+     * 1. TONY 老師專屬 FIREBASE CONFIG (game14-ai-predictive-marketing)
+     ******************************************************************/
+    const firebaseConfig = {
+      apiKey: "AIzaSyDtxL7M0Jbjcl6NQPCeBS0wpNZCeUAm6iI",
+      authDomain: "game14-ai-predictive-marketing.firebaseapp.com",
+      projectId: "game14-ai-predictive-marketing",
+      storageBucket: "game14-ai-predictive-marketing.firebasestorage.app",
+      messagingSenderId: "579960886829",
+      appId: "1:579960886829:web:4e978d7b874f6b6f514aa4",
+      measurementId: "G-JHFPHL8S0E"
+    };
+
+    /******************************************************************
+     * 2. Web Audio API 零外部依賴音效合成器
+     ******************************************************************/
+    let audioCtx = null;
+    let isSoundMuted = false;
+
+    function ensureAudioContext() {
+      if (isSoundMuted) return null;
+      if (!audioCtx) {
+        const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+        if (AudioContextClass) audioCtx = new AudioContextClass();
+      }
+      if (audioCtx && audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playSoundEffect(type) {
+      const ctx = ensureAudioContext();
+      if (!ctx) return;
+      const now = ctx.currentTime;
+
+      if (type === 'start') {
+        [523.25, 659.25, 783.99].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.09);
+          gain.gain.setValueAtTime(0.18, now + idx * 0.09);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.09 + 0.18);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.09);
+          osc.stop(now + idx * 0.09 + 0.19);
+        });
+      } else if (type === 'tick') {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(800, now);
+        gain.gain.setValueAtTime(0.06, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.045);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      } else if (type === 'urgent') {
+        [1046.5, 1318.5].forEach((freq, idx) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'sawtooth';
+          osc.frequency.setValueAtTime(freq, now + idx * 0.11);
+          gain.gain.setValueAtTime(0.14, now + idx * 0.11);
+          gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.11 + 0.09);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now + idx * 0.11);
+          osc.stop(now + idx * 0.11 + 0.1);
+        });
+      } else if (type === 'finish') {
+        [261.63, 329.63, 392.00, 523.25].forEach((freq) => {
+          const osc = ctx.createOscillator();
+          const gain = ctx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.setValueAtTime(freq, now);
+          gain.gain.setValueAtTime(0.22, now);
+          gain.gain.exponentialRampToValueAtTime(0.0008, now + 1.4);
+          osc.connect(gain);
+          gain.connect(ctx.destination);
+          osc.start(now);
+          osc.stop(now + 1.45);
+        });
+      }
+    }
+
+    function toggleSoundMute() {
+      isSoundMuted = !isSoundMuted;
+      const btn = document.getElementById('soundMuteBtn');
+      if (isSoundMuted) {
+        btn.textContent = "🔇 音效：靜音";
+        btn.className = "text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 transition";
+      } else {
+        btn.textContent = "🔊 音效：開啟";
+        btn.className = "text-xs px-2 py-0.5 rounded bg-indigo-500/20 text-indigo-300 border border-indigo-500/30 transition";
+        playSoundEffect('tick');
+      }
+    }
+
+    /******************************************************************
+     * 3. 商業署課程 8 大台灣在地生活產業關卡資料庫 (含深度原因解析與 4R Action 劇本)
+     ******************************************************************/
+    const SCENARIOS = [
+      {
+        id: 1,
+        chapter: "ch1",
+        tag: "Round 1・需求預測 (Demand Forecasting)",
+        industry: "☕ 連鎖早午餐／特色茶飲",
+        title: "入秋首波強冷空氣與暖食商機",
+        desc: "氣象預報下週將迎來入秋首波強冷空氣（降溫 8°C）。過去每逢換季常發生「備料過多報廢」或「熱門品項缺貨」的兩難。請判讀三大前兆訊號，配置本週 100 萬預算！",
+        signals: [
+          { icon: "🌦️", type: "外部環境訊號", title: "氣溫驟降與體感轉換", detail: "未來 5 天北部與中部夜間低溫下探 16°C，降雨機率提高 40%，外送需求預估上升。" },
+          { icon: "📈", type: "社群搜尋訊號", title: "暖胃與健康關鍵字暴增", detail: "過去 72 小時「燕麥奶熱飲、高蛋白濃湯、無麩質暖食」在地搜尋量成長 +45%。" },
+          { icon: "🛒", type: "POS 歷史交易訊號", title: "熟客換季消費慣性", detail: "去年同波降溫首日，單純買「第二杯半價」的過路客次月留存率僅 8%，但購買「熱飲＋暖食套餐」的會員 30 天回購率達 64%。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "全店促銷：緊急加訂 50% 薑汁與熱紅酒原料，推「降溫首日第二杯半價」",
+            tag: "傳統促銷・高耗損風險",
+            roiMultiplier: 1.15, wasteRate: 18.5, accuracyScore: 55,
+            explainWhy: "雖看到降溫訊號，卻忽略社群搜尋的是「燕麥奶與高蛋白暖食」而非薑汁；且無差別半價吸引大量低毛利過路客，導致高達 18.5% 的原物料過期報廢。"
+          },
+          {
+            code: "B",
+            name: "精準預售 Action：鎖定曾點購「溫熱飲/燕麥奶」熟客，提前 2 天推播「微涼高蛋白暖食預購券」",
+            tag: "預測性行銷・零庫存浪費",
+            roiMultiplier: 2.35, wasteRate: 2.5, accuracyScore: 98,
+            explainWhy: "完美串聯「降溫預報＋燕麥奶熱搜＋POS熟客標籤」三大訊號！透過提前 48 小時預購鎖單，讓門市依真實預售量精準備料，達成 235% 高 ROI 與極低耗損。"
+          },
+          {
+            code: "C",
+            name: "被動應對：維持既有菜單與備料，將預算全數投放週末外送平台免運廣告",
+            tag: "滯後反應・毛利稀釋",
+            roiMultiplier: 1.30, wasteRate: 9.0, accuracyScore: 65,
+            explainWhy: "未能針對換季飲食結構改變調整產品組合，且外送平台抽成高達 32%～35%，免運補貼進一步稀釋門市淨利。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "POS 系統中過去 90 天曾點購「燕麥奶、溫熱飲、輕食湯品」之活躍會員（約占總會員 32%）。",
+          rightTime: "冷空氣抵達前 48 小時（週三中午 11:30 午餐決策時段）啟動首波 LINE 推播。",
+          rightOffer: "「入秋暖胃預購套票」：燕麥奶拿鐵＋高蛋白雞肉濃湯組合 88 折（預購再贈免費加燕麥奶升等券）。",
+          rightSop: "週三推播預售 ➔ 週四中午統計各分店預購兌換張數 ➔ 週四下午精準配送各店燕麥奶與濃湯生鮮備料 ➔ 週五降溫首日開通快速取餐通道。"
+        },
+        personas: [
+          { avatar: "👩‍💻", name: "29歲 科技業小資女", quote: "週三還在出太陽就收到『週五降溫專屬燕麥奶暖食預購券』，覺得這家店超懂我，立刻先買了 3 張！" },
+          { avatar: "🧑‍🍳", name: "門市控場副店長", quote: "以前寒流來都在憑感覺叫貨，這次靠提前兩天的預購券數據精準備料，打烊時幾乎零報廢！" },
+          { avatar: "🛵", name: "外送平台過路客", quote: "如果只是打折促銷，現場排隊等太久我就直接取消訂單改訂別家了。" }
+        ],
+        takeaway: "【需求預測核心公式】外部環境訊號（降溫＋熱搜詞）必須結合內部會員標籤（曾買過溫熱飲），透過「提前 48 小時預售券」將不確定的天氣流量，轉化為可精準排產的確定訂單！"
+      },
+      {
+        id: 2,
+        chapter: "ch1",
+        tag: "Round 2・流失預警 (Churn Prediction)",
+        industry: "💆‍♀️ 美容 SPA／芳療工作室",
+        title: "黃金卡高價值熟客的「沉默流失」危機",
+        desc: "後台數據顯示，貢獻店內 60% 營收的「黃金卡熟客」中，有 35 位在過去 45 天預約間隔明顯拉長，且不再點開官方 LINE 的促銷群發訊息。如何在他們徹底流失前精準挽回？",
+        signals: [
+          { icon: "⏱️", type: "RFM 頻率異常訊號", title: "黃金挽回時間窗 (45天)", detail: "歷史數據顯示，熟客超過 45 天未預約，流失率為 35%；一旦超過 90 天未到店，挽回成功率將暴跌至 6% 以下。" },
+          { icon: "🔕", type: "數位互動疲勞訊號", title: "群發促銷訊息開信率驟降", detail: "這 35 位熟客對「全館 85 折」群發推播的點擊率為 0%，但對「個人體態/膚況紀錄通知」讀取率高達 82%。" },
+          { icon: "💬", type: "服務備註非結構化訊號", title: "換季睡眠與肩頸緊繃痛點", detail: "芳療師上次服務紀錄中，有 7 成該群熟客曾隨口提到「最近換季睡眠品質變差、工作壓力大」。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "價格補貼：對全體會員無差別發送 500 元無門檻現金折價券，刺激月底前衝業績",
+            tag: "毛利侵蝕・無差別灑幣",
+            roiMultiplier: 1.10, wasteRate: 15.0, accuracyScore: 50,
+            explainWhy: "黃金卡熟客對群發促銷早已麻木（開信率 0%），無差別發放 500 元只會讓原本就會來的客人白拿折扣，直接侵蝕門市淨利。"
+          },
+          {
+            code: "B",
+            name: "流失預警 Action：針對 45 天未到店熟客，以店長名義發送「秋季深層好眠精油檢測 15 分鐘免費升級」專屬邀請",
+            tag: "行為預警・高價值感喚醒",
+            roiMultiplier: 2.50, wasteRate: 3.0, accuracyScore: 96,
+            explainWhy: "精準抓緊「45 天流失臨界點」與芳療師筆記中的「換季失眠痛點」，以個人化尊榮關懷取代廉價打折，成功喚醒高終身價值（CLV）熟客。"
+          },
+          {
+            code: "C",
+            name: "放棄舊客：不打擾熟客，將 100 萬預算轉去 IG 投放「新客首體驗 399 元」低價引流廣告",
+            tag: "高獲客成本・留存率低",
+            roiMultiplier: 1.25, wasteRate: 12.0, accuracyScore: 60,
+            explainWhy: "開發一位新客的成本是挽回舊客的 5 倍，且 399 元引流來的價格敏感客高達 80% 不會續購正價療程，造成芳療師工時浪費。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "RFM 模型中「高貢獻度（M高）但最近未消費天數（R）介於 42～50 天」之 35 位黃金卡會員。",
+          rightTime: "距離上次到店滿第 45 天當週之週四晚間 20:30（下班放鬆時段）。",
+          rightOffer: "免用折價券！提供「店長專屬預約禮：免費升級 15 分鐘秋季有機岩蘭草好眠頭肩頸釋壓檢測」。",
+          rightSop: "系統自動篩出滿 45 天未到店名單 ➔ 調閱上次芳療師服務備註 ➔ 由專屬顧問一對一發送客製化關懷訊息 ➔ 到店體驗後順勢推薦秋季儲值方案。"
+        },
+        personas: [
+          { avatar: "👩‍💼", name: "42歲 企業高階主管 (黃金卡)", quote: "我缺的不是 500 元折價券，而是被重視的感覺！收到店長關心我換季睡眠的專屬精油升級，馬上就預約這週六了。" },
+          { avatar: "💆‍♀️", name: "資深芳療師", quote: "399 元引流來的新客有 8 成洗完一次就消失，還是把高單價熟客留在店裡最實際！" },
+          { avatar: "📊", name: "財務會計", quote: "在客人剛出現疏遠訊號的第 45 天介入，行銷成本不到開發新客的五分之一，淨利率大幅提升！" }
+        ],
+        takeaway: "【流失預警核心公式】不要等客人半年不來才發折價券！捕捉「消費週期拉長（45天）＋不開促銷信」的前兆訊號，用「個人化痛點關懷」取代「粗暴降價」，才能守住高終身價值（CLV）熟客。"
+      },
+      {
+        id: 3,
+        chapter: "ch1",
+        tag: "Round 3・下一步最佳行動 (Next Best Action)",
+        industry: "🐾 寵物生活用品／質感選物店",
+        title: "首購新客的「黃金第二購」與跨品類連帶",
+        desc: "一批新客在 22 天前首次購買了「幼犬腸胃益生菌（30日份）」。多數電商只會等大檔期才全館推播，請根據消耗週期與行為軌跡，預測他們現在最需要什麼！",
+        signals: [
+          { icon: "📦", type: "產品消耗週期訊號", title: "第 24～26 天補貨黃金點", detail: "30 日份保健粉平均在第 25 天見底，若未在第 26 天前提醒，有 48% 飼主會直接去住家附近實體店隨便買競品。" },
+          { icon: "🔍", type: "官網隱性意圖訊號", title: "外出用品與友善餐廳瀏覽軌跡", detail: "這批幼犬飼主過去一週在官網停留於「防暴衝胸背帶」與「週末寵物友善草地餐廳指南」文章超過 2 分半鐘。" },
+          { icon: "🛍️", type: "購物車關聯規則 (Basket Analysis)", title: "幼犬成長階段轉移", detail: "購買幼犬保健粉滿 1 個月的飼主，象徵幼犬打完疫苗準備首次外出，加購「外出便攜水壺＋拾便袋」轉換率是一般商品的 4.2 倍。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "精準觸發 Action：在第 24 天自動推播「益生菌續訂 9 折 ＋ 幼犬首次外出便攜水壺加購組」",
+            tag: "Next Best Action・精準跨售",
+            roiMultiplier: 2.45, wasteRate: 2.8, accuracyScore: 97,
+            explainWhy: "注意！本關最佳解設定在選項 A！精準算準 30 日保健粉在第 24 天的補貨臨界點，並順應官網瀏覽外出文章的隱性意圖跨售外出水壺，一舉完成續訂與連帶銷售！"
+          },
+          {
+            code: "B",
+            name: "高單價硬推：立即推播全館最高毛利的「萬元奢華大型犬寵物推車」早鳥團購",
+            tag: "脫離成長階段・轉換低落",
+            roiMultiplier: 1.05, wasteRate: 16.0, accuracyScore: 48,
+            explainWhy: "忽視顧客購買的是「幼犬」益生菌且剛準備練習散步，硬推大型犬萬元推車完全不符合當前成長階段需求，導致極高退訂與廣告浪費。"
+          },
+          {
+            code: "C",
+            name: "傳統檔期：等滿 30 天後，統一發送全館「雙 11 滿兩千折兩百」綜合型電子 DM",
+            tag: "錯失補貨時機・流向競品",
+            roiMultiplier: 1.35, wasteRate: 8.5, accuracyScore: 68,
+            explainWhy: "第 30 天保健粉早已見底 5 天，近半數飼主已在第 26 天去住家附近實體寵物店購買競品，錯失黃金攔截時間窗。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "首購「30日份幼犬保健品」屆滿 22～24 天，且近期有官網內容瀏覽紀錄之新手飼主。",
+          rightTime: "首購結帳後第 24 天上午 10:00（包裹預計 2 天送達，剛好無縫銜接第 26 天見底）。",
+          rightOffer: "「一鍵補貨＋新手外出包」：益生菌定期購 9 折，加價 199 元即獲防漏外出飲水瓶＋拾便袋組。",
+          rightSop: "CDP 系統設定購後第 24 天自動化工作流 (Marketing Automation) ➔ 夾帶帶入購物車之專屬短網址 ➔ 點擊後 10 秒內完成一鍵加購結帳。"
+        },
+        personas: [
+          { avatar: "🐕", name: "新手幼犬飼主 阿凱", quote: "太神了！正想說益生菌快吃完了，而且這週末剛要帶狗狗第一次去公園，看到外出水壺加購直接一鍵結帳！" },
+          { avatar: "🛒", name: "電商營運長", quote: "以前等滿一個月才發推播，客人早就去寵物公園買別牌了。提早到第 24 天觸發，續訂率直接翻倍！" },
+          { avatar: "📱", name: "數位廣告投手", quote: "順著飼主的『內容瀏覽軌跡（看友善餐廳文章）』推外出裝備，ROAS 高到不可思議！" }
+        ],
+        takeaway: "【Next Best Action 核心公式】消耗品看「使用天數（第24天）」抓回購，跨售看「內容瀏覽軌跡（看外出文章）」抓意圖。在對的時間點遞上顧客正準備搜尋的下一樣商品，就是最高境界的預測行銷！"
+      },
+      {
+        id: 4,
+        chapter: "ch1",
+        tag: "Round 4・微趨勢與爆品預測 (Trend & Viral Prediction)",
+        industry: "🥮 地方特色伴手禮／烘焙糕餅",
+        title: "中秋節檔期：ESG 低碳小禮盒 vs. 傳統澎湃大禮盒",
+        desc: "距離中秋節還有兩個月，工廠要求本週確認包材與產線配比。壓錯款式將導致數百萬包材與糕餅報銷，請運用預測性行銷思維做出最穩健的高獲利決策！",
+        signals: [
+          { icon: "🏢", type: "B2B 企業詢價前兆訊號", title: "福委會採購規格轉向", detail: "今年提早詢價的科技與金融業福委會中，主動詢問「減糖配方、單顆獨立小包裝、FSC低碳包材證明」的比例較去年激增 +38%。" },
+          { icon: "👵", type: "門市散客結構訊號", title: "傳統長輩客群仍重排場", detail: "門市現場 55 歲以上老主顧預訂時，仍有 65% 堅持要「雙層大紅金邊澎湃禮盒」，認為送禮小盒沒面子。" },
+          { icon: "🧪", type: "小數據預購驗證訊號", title: "社群早鳥盲測高轉換", detail: "過往經驗顯示，節慶前 45 天願意付 100 元訂金參與「早鳥試吃投票」的顧客名單，其喜好與最終檔期實際大宗銷量相關係數高達 0.89。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "激進轉型：全面停產傳統大禮盒，100% 產線改為環保極簡減糖小禮盒，強打年輕與 ESG 市場",
+            tag: "痛失基本盤・過度押寶",
+            roiMultiplier: 1.20, wasteRate: 14.5, accuracyScore: 58,
+            explainWhy: "只看到 B2B 福委會的減糖訊號，卻忽略門市仍有 65% 傳統老主顧堅持澎湃大禮盒，全面停產將導致門市基本盤大量流失。"
+          },
+          {
+            code: "B",
+            name: "小數據動態預測 Action：先用 AI 生成 2 款概念圖推「早鳥企業試吃預購測試」，依 7 天真實預購轉換率決定工廠排產比例",
+            tag: "敏捷測試・以銷定產",
+            roiMultiplier: 2.55, wasteRate: 1.8, accuracyScore: 99,
+            explainWhy: "運用「最小可行性測試（MVP）」與高相關係數（0.89）的早鳥付費試吃訊號，先收訂金測出 B2B 與散客真實配比（約 6:4）再下單印包材，庫存耗損壓至 1.8%。"
+          },
+          {
+            code: "C",
+            name: "經驗主義：照搬去年配比（80% 傳統大禮盒），以免得罪老主顧",
+            tag: "忽略B2B轉向・庫存滯銷",
+            roiMultiplier: 1.15, wasteRate: 17.0, accuracyScore: 52,
+            explainWhy: "完全忽視今年企業福委會對 ESG 低碳與減糖規格暴增 38% 的前兆訊號，導致高毛利企業大單被競品搶走，傳統大禮盒嚴重滯銷。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "雙軌分流：針對「企業福委會採購名單」與「門市 VIP 熟客名單」分別投遞測試。",
+          rightTime: "中秋節前 60 天啟動為期 7 天的「早鳥企業試吃盒申請與預購卡位」。",
+          rightOffer: "企業採購憑名片付 100 元運費即獲「ESG減糖低碳版 vs. 經典澎湃版」雙享試吃盒，7 日內下訂享大宗階梯折扣。",
+          rightSop: "AI 生成兩款禮盒 3D 渲染圖上架預售頁 ➔ 統計 7 天真實付費試吃與預訂比例 ➔ 第 8 天將精準配比交由包材廠與烘焙產線排產（以銷定產）。"
+        },
+        personas: [
+          { avatar: "🏦", name: "金控公司福委會採購", quote: "今年公司規定禮盒必須符合永續減碳指標，看到你們有提供低碳小禮盒試吃預購，我們直接下訂 1,500 盒！" },
+          { avatar: "🏭", name: "烘焙廠廠長", quote: "以前中秋節都在賭博，今年先跑 7 天早鳥預購測試，確定 B2B 與散客是 6:4 後才大量印包材，庫存耗損創歷史新低！" },
+          { avatar: "👴", name: "在地 20 年老主顧", quote: "好險門市還是買得到澎湃大禮盒，同時也買了兩盒減糖版給怕胖的女兒！" }
+        ],
+        takeaway: "【爆品與供應鏈預測公式】中小企業沒本錢憑感覺壓庫存！利用「AI 視覺概念圖 ＋ 7天早鳥試吃預購」收集真實付費意圖（小數據），再用預購轉換率回頭指導工廠排產，徹底消滅節慶呆滯庫存。"
+      },
+      {
+        id: 5,
+        chapter: "ch2",
+        tag: "Round 5・動態收益與離峰預測 (Dynamic Yield Prediction)",
+        industry: "🏡 宜蘭/花東特色溫泉旅宿",
+        title: "破解國旅「週二至週四平日空房率 65%」之困局",
+        desc: "你的特色溫泉民宿週六一房難求（住房率 95%），但週二至週四空房率卻高達 65%。若直接在訂房網下殺 5 折，不僅扣除房務成本後沒賺頭，還會傷害品牌高質感定位！請判讀訊號配置 100 萬預算。",
+        signals: [
+          { icon: "💻", type: "搜尋時段與意圖訊號", title: "週日晚間 Workation 熱搜潮", detail: "每逢週日晚上 20:00~23:00，「宜蘭遠距工作民宿、平日一泊二食私湯、高鐵國旅聯票」搜尋量較平日暴增 +52%。" },
+          { icon: "🥂", type: "CRM 會員分群訊號", title: "高彈性熟客偏好「體驗加值」而非折價", detail: "過去兩年住過 2 次以上的「數位遊牧族、自由業與樂齡退休夫妻」，對單純房價 8 折信件無感，但對「連住兩晚贈主廚私房晚宴」點擊率高達 68%。" },
+          { icon: "🍂", type: "氣候與外部環境訊號", title: "東北季風微涼泡湯前兆", detail: "氣象預測下週二起東北季風增強、氣溫降至 18°C，北部都會區民眾對「半日溫泉微旅行」搜尋熱度成長 41%。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "流血殺價：在各大 OTA 訂房網全面掛出「週二至週四限時破盤 55 折」，跟平價商旅搶價格敏感客",
+            tag: "品牌貶值・房務毛利歸零",
+            roiMultiplier: 1.12, wasteRate: 16.0, accuracyScore: 52,
+            explainWhy: "OTA 平台抽成高達 15%~18%，再打 55 折扣除布巾洗滌與房務人力後幾乎零毛利，更嚴重破壞週末高單價熟客對品牌的價格信任。"
+          },
+          {
+            code: "B",
+            name: "精準離峰打包 Action：鎖定曾入住之「自由工作者與樂齡熟客」，於週日晚間推播「週二至週四連住兩晚・贈主廚私房暖湯晚宴＋延遲退房」",
+            tag: "預測性產能填補・守住高單價",
+            roiMultiplier: 2.48, wasteRate: 2.2, accuracyScore: 98,
+            explainWhy: "精準對接「週日晚間收假焦慮熱搜時段」與「高時間彈性熟客分群」，用高感知價值的私廚晚宴與連住免整房機制，守住平均房價（ADR）並填滿週二至週四空房！"
+          },
+          {
+            code: "C",
+            name: "廣撒抽獎：花大錢找高流量娛樂網紅拍開箱短影音，舉辦「按讚標記好友抽平日免費住宿券」",
+            tag: "吸引免費仔・實際轉換極低",
+            roiMultiplier: 1.22, wasteRate: 11.5, accuracyScore: 60,
+            explainWhy: "抽獎貼文吸引的多為只想免費住宿的羊毛黨，一般上班族平日依然無法請假，無法有效解決下週二至週四的即期空房危機。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "CRM 中曾於平日入住、或職業標籤為「自由接案、設計創意、遠距工程師、樂齡退休族」之熟客。",
+          rightTime: "每週日晚間 20:30（週一症候群與遠距工作規劃最高峰）結合轉涼預報精準推播。",
+          rightOffer: "「週二至週四微涼靜心連住專案」：維持原房價 88 折，但免費升等景觀書房、贈雙人主廚暖湯私房晚宴與下午 13:00 延遲退房。",
+          rightSop: "週日晚間自動發送分眾 LINE 圖文 ➔ 點擊直連官網免抽成訂房引擎 ➔ 連住兩晚採環保續住免大換床單（降低 40% 房務成本）。"
+        },
+        personas: [
+          { avatar: "🧑‍💻", name: "34歲 自由接案設計師", quote: "週日晚上正覺得不想面對週一，就收到民宿推播『週二入住連住兩晚送私廚晚餐＋高速Wi-Fi書房』，馬上訂房帶筆電去邊泡湯邊工作！" },
+          { avatar: "👫", name: "62歲 退休樂齡夫妻", quote: "我們最討厭週末人擠人，平日連住兩晚不用趕退房又有主廚在地料理，比單純打折吸引人太多了！" },
+          { avatar: "🏨", name: "民宿房務與財務主管", quote: "連住兩晚省去中間一天大換床單的房務人力，平均房價（ADR）還維持在 85% 以上，平日獲利直接翻倍！" }
+        ],
+        takeaway: "【動態收益與離峰預測公式】旅宿與餐飲的「空房/空桌」過了今晚價值就歸零！抓準「目標客群決策時段（週日晚）」＋「高時間彈性分群（自由業/樂齡族）」，用「連住體驗升等」取代「粗暴砍房價」，才能兼顧住房率與品牌溢價。"
+      },
+      {
+        id: 6,
+        chapter: "ch2",
+        tag: "Round 6・爽約預警與產能填補 (No-Show Prediction)",
+        industry: "💅 連鎖美甲／美睫美學沙龍",
+        title: "消滅週末黃金時段「臨時放鳥（No-Show）」的產能黑洞",
+        desc: "你在雙北經營 4 間美甲美睫沙龍。每逢週末常發生客人「當日臨時取消或無故未到」，導致美甲師空等 2 小時無法接單，單月隱性營業損失高達 25 萬元！如何超前預測並即時填補空檔？",
+        signals: [
+          { icon: "🌧️", type: "爽約風險特徵訊號", title: "遠期預約＋未付訂＋降雨＝高放鳥率", detail: "歷史數據交叉分析發現：「提前 14 天以上預約 ＋ 新客未綁定票券 ＋ 當日降雨機率大於 60%」的訂單，臨時爽約率高達 42%。" },
+          { icon: "📱", type: "LINE 互動前兆訊號", title: "預約前 48 小時確認訊息「未讀」警訊", detail: "系統於預約前 48 小時自動發送「款式確認與行前提醒」時，若超過 12 小時仍未點擊確認按鈕者，最終放鳥機率高達 78%。" },
+          { icon: "📍", type: "LBS 候補熟客池訊號", title: "周邊 1 公里彈性候補名單", detail: "店內有 85 位住在門市步行 10 分鐘內的熟客，曾於問卷勾選「若週末有臨時釋出空檔，願收到 88 折即時補位通知」。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "強硬防禦：公告全店所有預約一律先刷卡預付 100% 全額費用，遲到 10 分鐘直接取消並沒收全額",
+            tag: "引發客訴反彈・預約率暴跌",
+            roiMultiplier: 1.08, wasteRate: 17.5, accuracyScore: 49,
+            explainWhy: "未區分高信譽熟客與高風險客，一刀切要求預付全額且嚴苛沒收，導致老主顧反感轉移陣地，整體預約量下滑 35%。"
+          },
+          {
+            code: "B",
+            name: "雙軌預警與自動遞補 Action：針對「前48小時未讀＋雨天高風險客」自動觸發保留金或改期引導；一旦釋出空檔，系統秒級推播「1公里內候補熟客池」享補位升等護甲禮",
+            tag: "預測性防禦・零空窗無縫補位",
+            roiMultiplier: 2.52, wasteRate: 1.9, accuracyScore: 99,
+            explainWhy: "將「前 48 小時未讀確認信（78%放鳥率）」轉化為自動化改期釋出機制，並串聯「LBS 周邊 1 公里彈性候補熟客池」即時遞補，把美甲師空班率壓到最低！"
+          },
+          {
+            code: "C",
+            name: "事後補救：等客人當下沒出現確定放鳥後，才讓美甲師手動發 IG 限時動態喊「今天下午 2 點臨時有空檔 8 折」",
+            tag: "反應太慢・黃金時段已浪費",
+            roiMultiplier: 1.24, wasteRate: 13.0, accuracyScore: 61,
+            explainWhy: "事後才發限時動態觸及率極不穩定，多數客人在週末下午早已安排好行程，無法在 30 分鐘內趕到門市，黃金產能依然報廢。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "雙分群：① 高爽約風險預約客（前48小時未讀確認信者）；② 門市周邊 1 公里內勾選「彈性候補」之熟客池。",
+          rightTime: "預約時段前 48 小時發送確認信 ➔ 超過 12 小時未讀（即預約前 36 小時）自動釋出候補通知。",
+          rightOffer: "對高風險客提供「一鍵無痛改期免責按鈕」；對鄰居候補熟客提供「限時補位禮：免費升等價值 600 元深層指緣甘皮SPA」。",
+          rightSop: "系統標記未讀高風險單 ➔ 自動釋出時段並推播周邊候補池 ➔ 第一位點擊之鄰居熟客自動完成卡位鎖單 ➔ 美甲師行事曆無縫接軌。"
+        },
+        personas: [
+          { avatar: "🏠", name: "住在樓上社區的熟客 莉莉", quote: "週五下午收到 LINE 通知『明天下雨釋出 14:00 黃金空檔，鄰居候補享免費深層足部去角質』，走路 3 分鐘就到，立刻一鍵搶下！" },
+          { avatar: "💅", name: "資深美甲師 小安", quote: "以前週末下雨被放鳥只能滑手機乾瞪眼，現在靠前 48 小時預警跟鄰居候補池，我的排班表滿載率達到 98%！" },
+          { avatar: "📅", name: "臨時加班的預約客", quote: "提前兩天收到溫馨改期按鈕，讓我能體面地把時段讓給別人，不會因為臨時放鳥不好意思再也不敢來這家店。" }
+        ],
+        takeaway: "【爽約防禦與產能填補公式】預約制服務業（美業、診所、私廚）最怕時間庫存報廢！「前 48 小時未讀提醒」就是最強的放鳥前兆訊號，搭配「LBS 周邊彈性候補熟客池」自動化無縫遞補，就能把爽約損失轉化為熟客驚喜！"
+      },
+      {
+        id: 7,
+        chapter: "ch2",
+        tag: "Round 7・家庭決策與續約預測 (Household CLV Prediction)",
+        industry: "🏋️ 銀髮肌力健康／物理運動中心",
+        title: "突破長輩「首月體驗很滿意、但續約率僅 22%」的瓶頸",
+        desc: "你的銀髮運動中心推出「首月 4 堂防跌肌力體驗課」，65 歲以上長輩上課時笑聲不斷、課後滿意度高達 90%，但上完第 4 堂課願意續購「季卡/年卡」的比例卻只有 22%。預算 100 萬該如何精準突破？",
+        signals: [
+          { icon: "💳", type: "付款人與使用者分離訊號", title: "75% 體驗課是由「35~48歲子女」線上買單", detail: "金流數據顯示，長輩本人通常捨不得花大錢在自己身上，高達 75% 的首月體驗課是由其成年子女透過網路幫爸媽報名刷卡。" },
+          { icon: "📈", type: "生理檢測進步數據訊號", title: "第 3 堂課的「可視化進步指標」是關鍵", detail: "當系統在第 3 堂課測出長輩「握力提升、單腳站立秒數增加 15%」，並將前後對比圖卡傳給子女時，家庭續約轉換率從 22% 飆升至 79%。" },
+          { icon: "⏳", type: "家庭決策黃金窗訊號", title: "第 3 堂課後 24 小時是家庭群組討論高峰", detail: "若等到第 4 堂課全部上完才談續約，長輩已直接回家，子女也失去即時體感，續約熱度將在 3 天內冷卻。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "現場硬推：規定教練在第 4 堂課下課時，把長輩留在櫃檯強力推銷 36,000 元的年度一對一方案",
+            tag: "錯置決策者・造成長輩壓力",
+            roiMultiplier: 1.06, wasteRate: 16.5, accuracyScore: 48,
+            explainWhy: "嚴重搞錯「使用者（長輩）」與「買單決策者（子女）」！對節儉的長輩直接強推 3.6 萬元方案只會造成心理防備，回家跟子女說『太貴不要去』。"
+          },
+          {
+            code: "B",
+            name: "雙向關係人預測 Action：在第 3 堂課結束當晚，自動生成「爸媽防跌肌力進步數據圖卡＋上課開心側拍」推播給買單子女 LINE，附贈孝親續約早鳥健康禮",
+            tag: "打動真實買單者・數據見證價值",
+            roiMultiplier: 2.58, wasteRate: 2.0, accuracyScore: 99,
+            explainWhy: "精準識破「75% 由子女刷卡」的金流訊號，並把握「第 3 堂課後 24 小時黃金窗」，用可視化的防跌進步數據消除子女疑慮，讓子女主動幫爸媽線上續約！"
+          },
+          {
+            code: "C",
+            name: "傳統廣宣：印製大量紙本傳單去附近公園與傳統市場發放，主打「65歲以上長輩免費量血壓送毛巾」",
+            tag: "非精準受眾・難以轉換高單價",
+            roiMultiplier: 1.18, wasteRate: 14.0, accuracyScore: 55,
+            explainWhy: "公園發傳單送毛巾吸引來的是領贈品人潮，既無法解決既有體驗學員 78% 流失的破口，也無法觸及真正有支付能力的年輕子女。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "體驗課報名表中「付款聯絡人為成年子女（35～50歲）」且長輩已完成第 3 堂課之家庭組合。",
+          rightTime: "第 3 堂體驗課結束當晚 19:30（家庭晚餐與 LINE 家族群組互動最熱絡時段）。",
+          rightOffer: "「孝親安心續航方案」：附長輩第1堂 vs 第3堂防跌肌力進步雷達圖＋上課笑容短片，子女線上續訂季卡享早鳥 9 折再贈長輩筋膜放鬆滾筒。",
+          rightSop: "首次報名時即綁定「上課長輩＋付費子女」雙 LINE 帳號 ➔ 第 3 堂課隨堂完成 3 分鐘握力與起立檢測 ➔ 系統一鍵合成成長圖卡推播給子女並附線上刷卡續約連結。"
+        },
+        personas: [
+          { avatar: "👨‍💼", name: "40歲 幫媽媽報名的兒子", quote: "平常上班沒空陪媽媽，第 3 堂課晚上收到 LINE 傳來媽媽『起立行走速度進步 18%』的數據圖卡跟開心影片，二話不說直接幫她刷卡續約一整年！" },
+          { avatar: "👵", name: "68歲 學員 陳媽媽", quote: "教練沒有逼我自己掏錢，而是把我的進步傳給兒子看，兒子主動說要送我當母親節禮物，讓我上起課來超有面子！" },
+          { avatar: "🏋️", name: "場館營運總監", quote: "以前教練最怕推銷被長輩拒絕，現在改用『第3堂課數據圖卡觸發子女買單』，續約率直接突破 7 成！" }
+        ],
+        takeaway: "【雙向關係人預測公式】在銀髮健康、親子教育與禮品產業，「使用者（長輩/小孩）」往往不是「付款決策者（子女/父母）」！捕捉第 3 堂課的黃金時間窗，把「可視化進步數據」精準投遞給背後的買單者，才能創造超高續約率。"
+      },
+      {
+        id: 8,
+        chapter: "ch2",
+        tag: "Round 8・跨界聯名與快閃策展預測 (Pop-up & Cross-Over Prediction)",
+        industry: "🎨 文創生活選物／週末市集策展",
+        title: "聖誕交換禮物檔期：聯名快閃店選址與爆款備貨預測",
+        desc: "你的香氛生活選物品牌準備在 12 月攜手台灣人氣插畫家，開設為期 14 天的「聖誕療癒聯名快閃店」。面對昂貴的百貨場租與 8 款聯名商品的工廠備貨量，如何避免「賺了人氣卻賠了庫存與場租」？",
+        signals: [
+          { icon: "🤝", type: "跨界受眾重疊度訊號", title: "交換禮物價格帶高度錨定 800~1,200 元", detail: "社群受眾分析顯示，該插畫家粉絲與品牌會員在「聖誕交換禮物、千元質感禮盒」興趣標籤重疊度達 61%，但對超過 2,000 元禮盒購買意願低於 7%。" },
+          { icon: "🗺️", type: "商圈人流品質訊號", title: "過路客流量 vs. 目標客群停留時間", detail: "A 商圈（信義百貨一樓大廳）人流極大但平均停留僅 45 秒；B 商圈（中山赤峰文創街區）租金省一半，且 20~35 歲女性平均停留試聞時間長達 24 分鐘，提袋轉換率高出 3.4 倍。" },
+          { icon: "🔖", type: "社群收藏訊號 (Save vs. Like)", title: "IG 貼文「收藏數」集中於前 2 款香調", detail: "在 8 款聯名概念圖預熱貼文中，「森林木質調」與「熱紅酒果香調」2 款的『珍藏（Save）次數』占了全部款式的 83%（收藏代表真實購買意圖，按讚僅代表好看）。" }
+        ],
+        options: [
+          {
+            code: "A",
+            name: "排場主義：砸重金租下最貴的 A 百貨一樓正門大廳，並將 8 款插畫聯名香氛平均各生產 1,000 組鋪滿全場",
+            tag: "場租過重・冷門款嚴重滯銷",
+            roiMultiplier: 1.14, wasteRate: 19.5, accuracyScore: 53,
+            explainWhy: "陷入「總人流迷思」與「平均主義備貨」！百貨正門過路客停留不到 1 分鐘難以體驗香氛，且平均生產 8 款導致後 6 款冷門香調大量滯銷。"
+          },
+          {
+            code: "B",
+            name: "收藏訊號定產＋精準街區 Action：進駐高停留率之 B 文創街區，集中 80% 預算量產「IG 收藏率最高前 2 款」打造 990 元聖誕交換禮物盲盒，線上預約時段領插畫特典導流",
+            tag: "八二法則定產・高坪效高提袋",
+            roiMultiplier: 2.60, wasteRate: 2.1, accuracyScore: 99,
+            explainWhy: "看懂社群「按珍藏（Save）＝真實購買前兆」的關鍵訊號，集中產能主攻 Top 2 爆款並定價於 990 元交換禮物甜蜜點，搭配高停留時間的文創街區，創造 260% 驚人回報！"
+          },
+          {
+            code: "C",
+            name: "保守退縮：取消實體快閃店與插畫家聯名，把預算拿去投 Google 關鍵字廣告賣去年的舊款香氛",
+            tag: "錯失節慶話題・毫無爆發力",
+            roiMultiplier: 1.20, wasteRate: 8.0, accuracyScore: 58,
+            explainWhy: "香氛與文創商品極度依賴「五感體驗」與「節慶跨界話題」，放棄實體快閃體驗與聯名流量，將錯失全年最大的聖誕送禮商機。"
+          }
+        ],
+        actionPlaybook: {
+          rightWho: "品牌既有香氛會員 ＋ 插畫家 IG 互動粉絲中標記「20～35歲、喜愛文創市集與交換禮物」之受眾。",
+          rightTime: "快閃店開幕前 21 天釋出 8 款概念圖測「IG 收藏數」➔ 開幕前 14 天依收藏率鎖定前 2 款下單量產並開放線上預約入場。",
+          rightOffer: "「990 元聖誕微醺木質交換禮物雙入組」：線上免費預約快閃店試聞時段，到店核銷即贈插畫家親繪聖誕限定香氛卡。",
+          rightSop: "IG 預熱貼文監測 Save/Share 比率 ➔ 80% 預算集中生產 Top 2 款式 ➔ 線上領取快閃店分時段號碼牌（控制現場試聞品質與停留時間） ➔ 現場掃碼加入 LINE 領取年後回購券。"
+        },
+        personas: [
+          { avatar: "🎨", name: "24歲 插畫家鐵粉 小葵", quote: "我早就把『熱紅酒果香調』那篇 IG 貼文按珍藏了！990 元剛好符合我們公司交換禮物預算，預約去赤峰街快閃店還拿到限定明信片，超開心！" },
+          { avatar: "📦", name: "品牌商品企劃 (MD)", quote: "以前聯名 8 款都平均叫貨，結果後 6 款賣不完變庫存。這次看 IG『收藏數』集中壓寶前 2 名爆款，14 天快閃結束完售率高達 97%！" },
+          { avatar: "🏬", name: "快閃店現場店長", quote: "中山文創街區的客人都願意靜下心試聞 20 分鐘，搭配線上預約分流，現場不用排隊擠爆，客單價反而比百貨公司高出四成！" }
+        ],
+        takeaway: "【快閃策展與爆品集中公式】文創與選物店最忌諱「平均主義鋪貨」！在社群訊號中，「收藏數（Save）與分享數（Share）」才是真實購買前兆；用收藏率鎖定 Top 2 爆款集中量產，並進駐「高目標客群停留時間」的街區，就能創造零呆滯庫存的快閃奇蹟！"
+      }
+    ];
+
+    /******************************************************************
+     * 4. 全域狀態與計時器控制變數
+     ******************************************************************/
+    let appInstance = null;
+    let auth = null;
+    let db = null;
+    let currentUserUid = "local_" + Math.random().toString(36).substring(2, 8);
+    let isFirebaseConnected = false;
+    let unsubscribeTeams = null;
+    let unsubscribeRoomMeta = null;
+    let unsubscribeUsersList = null;
+
+    // SaaS 會員與 RBAC 狀態
+    const CREATOR_ADMIN_EMAIL = "mindnodeai@gmail.com";
+    let currentUserProfile = null;
+    let allRegisteredUsers = [];
+    let isRegisteringProcess = false;
+    let latestAdminReportHtml = "";
+
+    let currentChapterFilter = 'all';
+    let currentRoundIndex = 0;
+    let weights = { A: 20, B: 70, C: 10 };
+    let cloudTeamsCache = [];
+    let latestReportData = null; // 儲存最新一次開獎的完整數據供 Word 匯出使用
+
+    let timerInterval = null;
+    let timerTotalSeconds = 60;
+    let timerEndTimestamp = 0;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const roomFromUrl = urlParams.get('room');
+
+    let playerState = {
+      roomId: roomFromUrl || localStorage.getItem('tp_roomId') || "BIZ-2026",
+      teamName: localStorage.getItem('tp_teamName') || ("第 " + Math.floor(Math.random() * 20 + 1) + " 組：未來生活主理人"),
+      role: localStorage.getItem('tp_role') || "enterprise",
+      totalRevenue: 3000000,
+      avgAccuracy: 0,
+      completedRounds: {},
+      geminiApiKey: localStorage.getItem('tp_geminiKey') || ""
+    };
+
+    /******************************************************************
+     * 5. 60 秒決策倒數計時器核心邏輯
+     ******************************************************************/
+    async function startClassroomTimer(seconds = 60) {
+      ensureAudioContext();
+      playSoundEffect('start');
+
+      const endAt = Date.now() + seconds * 1000;
+      timerTotalSeconds = seconds;
+      activateLocalCountdown(endAt, seconds);
+
+      if (db && isFirebaseConnected) {
+        try {
+          await setDoc(doc(db, 'rooms', playerState.roomId), {
+            timerEndAt: endAt,
+            timerDuration: seconds,
+            timerActive: true,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        } catch (e) {
+          console.warn("計時器同步雲端失敗：", e);
+        }
+      }
+    }
+
+    async function stopClassroomTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+      resetTimerVisuals(60);
+
+      if (db && isFirebaseConnected) {
+        try {
+          await setDoc(doc(db, 'rooms', playerState.roomId), {
+            timerEndAt: 0,
+            timerActive: false,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        } catch (e) {
+          console.warn("重置計時器雲端失敗：", e);
+        }
+      }
+    }
+
+    function activateLocalCountdown(endAtMs, totalSec = 60) {
+      clearInterval(timerInterval);
+      timerEndTimestamp = endAtMs;
+      timerTotalSeconds = totalSec || 60;
+
+      const globalBanner = document.getElementById('globalTimerBanner');
+      globalBanner.classList.remove('hidden');
+      globalBanner.classList.add('flex');
+
+      const tickUpdate = () => {
+        const remainingMs = timerEndTimestamp - Date.now();
+        const remainingSec = Math.max(0, Math.ceil(remainingMs / 1000));
+
+        renderTimerUI(remainingSec, timerTotalSeconds);
+
+        if (remainingSec > 10) {
+          playSoundEffect('tick');
+        } else if (remainingSec > 0 && remainingSec <= 10) {
+          playSoundEffect('urgent');
+        } else if (remainingSec <= 0) {
+          clearInterval(timerInterval);
+          timerInterval = null;
+          playSoundEffect('finish');
+        }
+      };
+
+      tickUpdate();
+      timerInterval = setInterval(tickUpdate, 1000);
+    }
+
+    function renderTimerUI(sec, totalSec) {
+      const mins = String(Math.floor(sec / 60)).padStart(2, '0');
+      const secs = String(sec % 60).padStart(2, '0');
+      const formatted = `${mins}:${secs}`;
+
+      const instDigits = document.getElementById('instructorTimerDigits');
+      const globalDigits = document.getElementById('globalTimerDigits');
+      const statusTag = document.getElementById('timerStatusTag');
+      const bar = document.getElementById('instructorTimerBar');
+      const warCard = document.getElementById('warRoomTimerCard');
+      const playerCard = document.getElementById('playerDecisionCard');
+
+      instDigits.textContent = formatted;
+      globalDigits.textContent = formatted;
+
+      const pct = Math.max(0, Math.min(100, (sec / totalSec) * 100));
+      bar.style.width = `${pct}%`;
+
+      if (sec === 0) {
+        instDigits.className = "text-4xl md:text-5xl font-black font-mono tracking-wider text-rose-500";
+        globalDigits.className = "text-base font-black font-mono text-rose-400";
+        statusTag.textContent = "⏰ 時間到！請鎖定決策準備開獎";
+        statusTag.className = "text-xs px-2 py-0.5 rounded bg-rose-500/20 text-rose-300 font-bold border border-rose-500/40";
+        warCard.classList.remove('timer-urgent');
+        playerCard.classList.remove('timer-urgent');
+      } else if (sec <= 10) {
+        instDigits.className = "text-4xl md:text-5xl font-black font-mono tracking-wider text-rose-400 scale-105 transition-transform";
+        globalDigits.className = "text-base font-black font-mono text-rose-400";
+        statusTag.textContent = `🔥 最後 ${sec} 秒衝刺催票中！`;
+        statusTag.className = "text-xs px-2 py-0.5 rounded bg-rose-500/30 text-rose-200 font-bold border border-rose-500/50";
+        bar.className = "h-full bg-rose-500 transition-all duration-300";
+        warCard.classList.add('timer-urgent');
+        playerCard.classList.add('timer-urgent');
+      } else {
+        instDigits.className = "text-4xl md:text-5xl font-black font-mono tracking-wider text-emerald-400";
+        globalDigits.className = "text-base font-black font-mono text-emerald-400";
+        statusTag.textContent = "⏳ 決策倒數進行中...";
+        statusTag.className = "text-xs px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 font-semibold border border-emerald-500/30";
+        bar.className = "h-full bg-gradient-to-r from-indigo-500 to-emerald-400 transition-all duration-300";
+        warCard.classList.remove('timer-urgent');
+        playerCard.classList.remove('timer-urgent');
+      }
+    }
+
+    function resetTimerVisuals(defaultSec = 60) {
+      const mins = String(Math.floor(defaultSec / 60)).padStart(2, '0');
+      const secs = String(defaultSec % 60).padStart(2, '0');
+      document.getElementById('instructorTimerDigits').textContent = `${mins}:${secs}`;
+      document.getElementById('instructorTimerDigits').className = "text-4xl md:text-5xl font-black font-mono tracking-wider text-white";
+      document.getElementById('timerStatusTag').textContent = "待命準備中";
+      document.getElementById('timerStatusTag').className = "text-xs px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-semibold";
+      document.getElementById('instructorTimerBar').style.width = "100%";
+      document.getElementById('instructorTimerBar').className = "h-full bg-gradient-to-r from-indigo-500 to-emerald-400 transition-all duration-300";
+      document.getElementById('warRoomTimerCard').classList.remove('timer-urgent');
+      document.getElementById('playerDecisionCard').classList.remove('timer-urgent');
+      document.getElementById('globalTimerBanner').classList.add('hidden');
+      document.getElementById('globalTimerBanner').classList.remove('flex');
+    }
+
+    /******************************************************************
+     * 6. QR Code 房間投影幕控制邏輯
+     ******************************************************************/
+    function toggleQrModal() {
+      const modal = document.getElementById('qrModal');
+      const isHidden = modal.classList.contains('hidden');
+      if (isHidden) {
+        const baseUrl = window.location.href.split('?')[0];
+        const joinUrl = `${baseUrl}?room=${encodeURIComponent(playerState.roomId)}`;
+        const input = document.getElementById('qrUrlInput');
+        if (!input.value) input.value = joinUrl;
+        document.getElementById('qrModalRoomCode').textContent = playerState.roomId;
+        updateQrCodeImage();
+        renderQrModalTeamList(cloudTeamsCache);
+        modal.classList.remove('hidden');
+      } else {
+        modal.classList.add('hidden');
+      }
+    }
+
+    function updateQrCodeImage() {
+      const targetUrl = document.getElementById('qrUrlInput').value.trim() || window.location.href;
+      const qrApi = `https://api.qrserver.com/v1/create-qr-code/?size=360x360&margin=10&data=${encodeURIComponent(targetUrl)}`;
+      document.getElementById('qrCodeImage').src = qrApi;
+    }
+
+    function copyJoinLink() {
+      const input = document.getElementById('qrUrlInput');
+      input.select();
+      document.execCommand('copy');
+      const btn = document.getElementById('copyLinkBtn');
+      btn.textContent = "✓ 已複製";
+      setTimeout(() => { btn.textContent = "複製連結"; }, 1800);
+    }
+
+    function renderQrModalTeamList(teams) {
+      const countEl = document.getElementById('qrModalTeamCount');
+      const container = document.getElementById('qrModalTeamBadges');
+      if (!countEl || !container) return;
+      countEl.textContent = `${teams.length} 組已就緒`;
+
+      if (teams.length === 0) {
+        container.innerHTML = `<span class="text-xs text-slate-500">等待學員掃描 QR Code 進入房間...</span>`;
+        return;
+      }
+
+      container.innerHTML = teams.map(t => `
+        <span class="px-3 py-1.5 rounded-xl text-xs font-bold flex items-center gap-1.5 ${
+          t.role === 'enterprise'
+            ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+            : 'bg-indigo-500/20 text-indigo-300 border border-indigo-500/30'
+        }">
+          <span>${t.role === 'enterprise' ? '🏢' : '🎓'}</span>
+          <span>${t.teamName}</span>
+        </span>
+      `).join('');
+    }
+
+    /******************************************************************
+     * 7. SaaS 會員認證閘門 (Auth Gate)、Double Opt-in 與 RBAC 權限管理
+     ******************************************************************/
+    function switchAuthTab(tab) {
+      ['login', 'register', 'reset'].forEach(t => {
+        document.getElementById(`authForm-${t}`).classList.add('hidden');
+        document.getElementById(`authTab-${t}`).className = "py-2.5 rounded-xl text-slate-400 hover:text-white transition";
+      });
+      document.getElementById(`authForm-${tab}`).classList.remove('hidden');
+      document.getElementById(`authTab-${tab}`).className = "py-2.5 rounded-xl bg-indigo-600 text-white shadow transition";
+      hideAuthAlert();
+    }
+
+    function showAuthAlert(type, message) {
+      const box = document.getElementById('authAlertBox');
+      box.classList.remove('hidden');
+      if (type === 'success') {
+        box.className = "p-4 rounded-2xl text-xs font-bold leading-relaxed border bg-emerald-500/20 text-emerald-300 border-emerald-500/40";
+      } else {
+        box.className = "p-4 rounded-2xl text-xs font-bold leading-relaxed border bg-rose-500/20 text-rose-300 border-rose-500/40";
+      }
+      box.innerHTML = message;
+    }
+
+    function hideAuthAlert() {
+      const box = document.getElementById('authAlertBox');
+      if (box) box.classList.add('hidden');
+    }
+
+    function togglePasswordVisibility(inputId, iconId) {
+      const input = document.getElementById(inputId);
+      const icon = document.getElementById(iconId);
+      if (input.type === 'password') {
+        input.type = 'text';
+        icon.textContent = '🙈';
+      } else {
+        input.type = 'password';
+        icon.textContent = '👁️';
+      }
+    }
+
+    function toggleCreatorModal() {
+      document.getElementById('creatorModal').classList.toggle('hidden');
+    }
+
+    // 註冊：建立帳號 ➔ 寫入 Firestore 初始資料 ➔ 發送驗證信 ➔ 強制登出並顯示綠字提示
+    async function handleEmailRegister() {
+      const realName = document.getElementById('regRealName').value.trim();
+      const memberType = document.getElementById('regMemberType').value;
+      const email = document.getElementById('regEmail').value.trim().toLowerCase();
+      const password = document.getElementById('regPassword').value;
+      const btn = document.getElementById('btnEmailRegister');
+
+      if (!realName) {
+        showAuthAlert('error', '⚠️ 請輸入您的真實姓名！');
+        return;
+      }
+      if (!email || !password || password.length < 6) {
+        showAuthAlert('error', '⚠️ 請輸入有效的 Email 與至少 6 位字元的密碼！');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "⏳ 正在註冊並發送驗證信...";
+      isRegisteringProcess = true;
+
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = cred.user;
+        const isCreator = email === CREATOR_ADMIN_EMAIL;
+        const nowIso = new Date().toISOString();
+
+        // 預先儲存會員資料至 Firestore saas_users
+        await setDoc(doc(db, 'saas_users', user.uid), {
+          uid: user.uid,
+          email: email,
+          realName: realName,
+          memberType: memberType,
+          role: isCreator ? 'admin' : 'user',
+          isCreator: isCreator,
+          registeredAt: nowIso,
+          loginCount: 0,
+          lastLoginAt: nowIso,
+          historyLogs: [
+            { time: nowIso, action: "完成帳號註冊（等待信箱驗證）" }
+          ]
+        }, { merge: true });
+
+        await sendEmailVerification(user);
+        await signOut(auth);
+        isRegisteringProcess = false;
+
+        switchAuthTab('login');
+        document.getElementById('loginEmail').value = email;
+        showAuthAlert('success', '✅ 註冊成功！請至信箱點擊驗證（溫馨提醒：註冊確認信有時會跑到「垃圾郵件匣」，請記得前往確認唷！）');
+      } catch (err) {
+        isRegisteringProcess = false;
+        let msg = err.message || "註冊失敗";
+        if (err.code === 'auth/email-already-in-use') msg = "此信箱已經註冊過，請直接切換至「會員登入」或使用「忘記密碼」。";
+        showAuthAlert('error', `❌ 註冊失敗：${msg}`);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "📧 註冊帳號並發送驗證信";
+      }
+    }
+
+    // 登入：檢查 emailVerified，若為 false 則阻擋登入並給予紅字警告
+    async function handleEmailLogin() {
+      const email = document.getElementById('loginEmail').value.trim().toLowerCase();
+      const password = document.getElementById('loginPassword').value;
+      const btn = document.getElementById('btnEmailLogin');
+
+      if (!email || !password) {
+        showAuthAlert('error', '⚠️ 請輸入電子信箱與密碼！');
+        return;
+      }
+
+      btn.disabled = true;
+      btn.textContent = "⏳ 正在驗證身分...";
+
+      try {
+        const cred = await signInWithEmailAndPassword(auth, email, password);
+        const user = cred.user;
+
+        if (!user.emailVerified) {
+          // 補發一次驗證信或提醒驗證，並強制登出阻擋進入
+          await signOut(auth);
+          showAuthAlert('error', '🚫 您的信箱尚未完成驗證！請先至信箱點擊驗證連結後再登入。（溫馨提醒：確認信有時會跑到「垃圾郵件匣」，請記得前往確認唷！）');
+          btn.disabled = false;
+          btn.textContent = "🚀 立即登入沙盤系統";
+          return;
+        }
+
+        await processVerifiedUserLogin(user);
+      } catch (err) {
+        let msg = "帳號或密碼錯誤，或此帳號尚未註冊。";
+        if (err.code === 'auth/too-many-requests') msg = "嘗試次數過多，請稍後再試或點擊忘記密碼。";
+        showAuthAlert('error', `🚫 登入失敗：${msg}`);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "🚀 立即登入沙盤系統";
+      }
+    }
+
+    // Google 帳號快速登入
+    async function handleGoogleLogin() {
+      try {
+        const provider = new GoogleAuthProvider();
+        const cred = await signInWithPopup(auth, provider);
+        const user = cred.user;
+        const customName = document.getElementById('googleRealNameInput').value.trim();
+        const customType = document.getElementById('googleMemberTypeInput').value;
+        await processVerifiedUserLogin(user, customName, customType);
+      } catch (err) {
+        showAuthAlert('error', `🚫 Google 登入未完成：${err.message}`);
+      }
+    }
+
+    // 忘記密碼功能
+    async function handlePasswordReset() {
+      const email = document.getElementById('resetEmail').value.trim().toLowerCase();
+      const btn = document.getElementById('btnPasswordReset');
+      if (!email) {
+        showAuthAlert('error', '⚠️ 請輸入您註冊時的電子信箱！');
+        return;
+      }
+      btn.disabled = true;
+      btn.textContent = "⏳ 正在發送重設信...";
+      try {
+        await sendPasswordResetEmail(auth, email);
+        showAuthAlert('success', '✅ 密碼重設信已發送至您的信箱！（溫馨提醒：確認信有時會跑到「垃圾郵件匣」，請記得前往確認唷！）');
+      } catch (err) {
+        showAuthAlert('error', `❌ 發送失敗：請確認信箱格式是否正確（${err.message}）`);
+      } finally {
+        btn.disabled = false;
+        btn.textContent = "📨 發送密碼重設信";
+      }
+    }
+
+    // 登出功能
+    async function handleLogout() {
+      await signOut(auth);
+      currentUserProfile = null;
+      document.getElementById('authGateOverlay').classList.remove('hidden');
+      document.getElementById('adminDashboardBtn').classList.add('hidden');
+      document.getElementById('loggedInUserBadge').classList.add('hidden');
+    }
+
+    // 處理已驗證通過之會員資料同步與 RBAC 權限判定
+    async function processVerifiedUserLogin(user, fallbackName = "", fallbackType = "TONY老師學員") {
+      const email = (user.email || "").toLowerCase();
+      const isCreator = email === CREATOR_ADMIN_EMAIL;
+      const nowIso = new Date().toISOString();
+
+      const userRef = doc(db, 'saas_users', user.uid);
+      const snap = await getDoc(userRef);
+
+      let profileData = null;
+      if (snap.exists()) {
+        const existing = snap.data();
+        const updatedLogs = Array.isArray(existing.historyLogs) ? [...existing.historyLogs] : [];
+        updatedLogs.unshift({ time: nowIso, action: "成功登入系統" });
+
+        profileData = {
+          ...existing,
+          email: email,
+          // 若為 mindnodeai@gmail.com 強制鎖定為最高權限 admin 且設定為系統創作者
+          role: isCreator ? 'admin' : (existing.role || 'user'),
+          isCreator: isCreator,
+          loginCount: (existing.loginCount || 0) + 1,
+          lastLoginAt: nowIso,
+          historyLogs: updatedLogs.slice(0, 50)
+        };
+      } else {
+        profileData = {
+          uid: user.uid,
+          email: email,
+          realName: fallbackName || user.displayName || email.split('@')[0],
+          memberType: fallbackType || "TONY老師學員",
+          role: isCreator ? 'admin' : 'user',
+          isCreator: isCreator,
+          registeredAt: nowIso,
+          loginCount: 1,
+          lastLoginAt: nowIso,
+          historyLogs: [
+            { time: nowIso, action: "首次驗證登入系統" }
+          ]
+        };
+      }
+
+      await setDoc(userRef, profileData, { merge: true });
+      currentUserProfile = profileData;
+
+      // 連動更新沙盤組別名稱中的學員姓名標籤
+      if (profileData.realName && !localStorage.getItem('tp_teamName')) {
+        playerState.teamName = `${profileData.realName}（${profileData.memberType}）`;
+        document.getElementById('inputTeamName').value = playerState.teamName;
+        applyHeaderProfileUI();
+      }
+
+      // 隱藏登入閘門，進入主程式
+      document.getElementById('authGateOverlay').classList.add('hidden');
+
+      const userBadge = document.getElementById('loggedInUserBadge');
+      userBadge.classList.remove('hidden');
+      userBadge.textContent = `👤 ${profileData.realName} (${profileData.role === 'admin' ? '👑 Admin' : profileData.memberType})`;
+
+      // 若具備 admin 權限，右上角顯示『進入管理後台』按鈕並啟動會員名單監聽
+      const adminBtn = document.getElementById('adminDashboardBtn');
+      if (profileData.role === 'admin') {
+        adminBtn.classList.remove('hidden');
+        adminBtn.classList.add('flex');
+        subscribeToAllUsersForAdmin();
+      } else {
+        adminBtn.classList.add('hidden');
+        adminBtn.classList.remove('flex');
+      }
+
+      await syncMyTeamToFirestore();
+    }
+
+    // 紀錄會員在沙盤中的決策歷史至 saas_users
+    async function appendUserDecisionHistory(roundTitle, score, revenue, alloc) {
+      if (!db || !currentUserProfile || !currentUserProfile.uid) return;
+      try {
+        const nowIso = new Date().toISOString();
+        const userRef = doc(db, 'saas_users', currentUserProfile.uid);
+        const logs = Array.isArray(currentUserProfile.historyLogs) ? [...currentUserProfile.historyLogs] : [];
+        logs.unshift({
+          time: nowIso,
+          action: `完成【${roundTitle}】決策｜配置 A:${alloc.A}% B:${alloc.B}% C:${alloc.C}%｜得分:${score}分｜創造營收:+NT$${(revenue/10000).toFixed(0)}萬`
+        });
+        currentUserProfile.historyLogs = logs.slice(0, 50);
+        await setDoc(userRef, {
+          historyLogs: currentUserProfile.historyLogs,
+          lastActiveAt: nowIso
+        }, { merge: true });
+      } catch (e) {
+        console.warn("更新會員歷史紀錄失敗：", e);
+      }
+    }
+
+    /******************************************************************
+     * 7-B. 專屬管理者後台 (Admin Dashboard)、RBAC 升降權、CSV 匯出與區間 AI Word 報告
+     ******************************************************************/
+    function subscribeToAllUsersForAdmin() {
+      if (!db) return;
+      if (unsubscribeUsersList) unsubscribeUsersList();
+
+      const usersCol = collection(db, 'saas_users');
+      unsubscribeUsersList = onSnapshot(usersCol, (snap) => {
+        const list = [];
+        snap.forEach(d => list.push({ id: d.id, ...d.data() }));
+        // 依註冊時間排序（創作者置頂）
+        list.sort((a, b) => {
+          if (a.email === CREATOR_ADMIN_EMAIL) return -1;
+          if (b.email === CREATOR_ADMIN_EMAIL) return 1;
+          return (b.registeredAt || "").localeCompare(a.registeredAt || "");
+        });
+        allRegisteredUsers = list;
+        renderAdminUsersTable();
+      }, (err) => {
+        console.warn("讀取會員清單失敗：", err);
+      });
+    }
+
+    function openAdminModal() {
+      if (!currentUserProfile || currentUserProfile.role !== 'admin') return;
+      // 預設設定起訖時間為過去 30 天至今日
+      const startInput = document.getElementById('adminReportStartDate');
+      const endInput = document.getElementById('adminReportEndDate');
+      if (!startInput.value || !endInput.value) {
+        const today = new Date();
+        const thirtyDaysAgo = new Date(Date.now() - 30 * 86400000);
+        endInput.value = today.toISOString().slice(0, 10);
+        startInput.value = thirtyDaysAgo.toISOString().slice(0, 10);
+      }
+      renderAdminUsersTable();
+      document.getElementById('adminModal').classList.remove('hidden');
+    }
+
+    function closeAdminModal() {
+      document.getElementById('adminModal').classList.add('hidden');
+    }
+
+    function renderAdminUsersTable() {
+      const tbody = document.getElementById('adminUsersTableBody');
+      if (!tbody) return;
+
+      const total = allRegisteredUsers.length;
+      const tonyCount = allRegisteredUsers.filter(u => (u.memberType || "").includes("TONY")).length;
+      const guestCount = total - tonyCount;
+      const totalLogins = allRegisteredUsers.reduce((acc, u) => acc + (u.loginCount || 0), 0);
+
+      document.getElementById('adminStatTotalUsers').textContent = total;
+      document.getElementById('adminStatTonyStudents').textContent = tonyCount;
+      document.getElementById('adminStatGuests').textContent = guestCount;
+      document.getElementById('adminStatTotalLogins').textContent = `${totalLogins} 次`;
+
+      if (total === 0) {
+        tbody.innerHTML = `<tr><td colspan="7" class="py-8 text-center text-slate-500">目前尚無註冊會員資料</td></tr>`;
+        return;
+      }
+
+      tbody.innerHTML = allRegisteredUsers.map(u => {
+        const isCreator = (u.email || "").toLowerCase() === CREATOR_ADMIN_EMAIL || u.isCreator;
+        const isAdmin = u.role === 'admin' || isCreator;
+        const regDateStr = u.registeredAt ? new Date(u.registeredAt).toLocaleString('zh-TW') : '--';
+
+        return `
+          <tr class="hover:bg-slate-800/50 transition">
+            <td class="py-3 px-4 font-bold text-white">
+              ${u.realName || '未填寫'}
+              ${isCreator ? '<span class="ml-1.5 text-[11px] px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/40 font-black">👑 系統創作者</span>' : ''}
+            </td>
+            <td class="py-3 px-4 font-mono text-xs text-slate-300">${u.email || '--'}</td>
+            <td class="py-3 px-4">
+              <span class="px-2.5 py-0.5 rounded-full text-xs font-semibold ${
+                (u.memberType || '').includes('TONY')
+                  ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
+                  : 'bg-slate-800 text-slate-300 border border-slate-700'
+              }">
+                ${u.memberType || '一般訪客'}
+              </span>
+            </td>
+            <td class="py-3 px-4">
+              <span class="px-2.5 py-0.5 rounded text-xs font-mono font-bold ${
+                isAdmin ? 'bg-amber-500/20 text-amber-300 border border-amber-500/40' : 'bg-indigo-500/20 text-indigo-300'
+              }">
+                ${isAdmin ? 'admin (最高權限)' : 'user (一般會員)'}
+              </span>
+            </td>
+            <td class="py-3 px-4 text-xs text-slate-400 font-mono">${regDateStr}</td>
+            <td class="py-3 px-4 text-center font-mono font-bold text-emerald-400">${u.loginCount || 1}</td>
+            <td class="py-3 px-4 text-right space-x-1.5 whitespace-nowrap">
+              <button onclick="window.app.viewUserHistory('${u.id}')" class="px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-indigo-300 border border-slate-700 text-xs font-bold transition">
+                📜 歷史紀錄 (${Array.isArray(u.historyLogs) ? u.historyLogs.length : 0})
+              </button>
+              ${
+                isCreator
+                  ? `<span class="text-[11px] text-slate-500 px-2">永久最高權限鎖定</span>`
+                  : `
+                    <button onclick="window.app.toggleUserRole('${u.id}', '${isAdmin ? 'user' : 'admin'}')" class="px-2.5 py-1 rounded-lg ${
+                      isAdmin ? 'bg-amber-950/70 hover:bg-amber-900 text-amber-300 border border-amber-700/50' : 'bg-emerald-950/70 hover:bg-emerald-900 text-emerald-300 border border-emerald-700/50'
+                    } text-xs font-bold transition">
+                      ${isAdmin ? '⬇️ 降為 User' : '⬆️ 升為 Admin'}
+                    </button>
+                    <button onclick="window.app.deleteUserAccount('${u.id}', '${u.email}')" class="px-2.5 py-1 rounded-lg bg-rose-950/70 hover:bg-rose-900 text-rose-300 border border-rose-800/60 text-xs font-bold transition">
+                      🗑️ 刪除
+                    </button>
+                  `
+              }
+            </td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function toggleUserRole(targetUid, newRole) {
+      const target = allRegisteredUsers.find(u => u.id === targetUid);
+      if (!target) return;
+      if ((target.email || "").toLowerCase() === CREATOR_ADMIN_EMAIL || target.isCreator) return;
+
+      try {
+        await updateDoc(doc(db, 'saas_users', targetUid), {
+          role: newRole
+        });
+      } catch (e) {
+        console.warn("變更權限失敗：", e);
+      }
+    }
+
+    async function deleteUserAccount(targetUid, email) {
+      if ((email || "").toLowerCase() === CREATOR_ADMIN_EMAIL) return;
+      try {
+        await deleteDoc(doc(db, 'saas_users', targetUid));
+      } catch (e) {
+        console.warn("刪除會員失敗：", e);
+      }
+    }
+
+    function viewUserHistory(targetUid) {
+      const target = allRegisteredUsers.find(u => u.id === targetUid);
+      if (!target) return;
+      document.getElementById('historyModalTitle').textContent = `📜 ${target.realName} 的歷史活動與沙盤紀錄`;
+      document.getElementById('historyModalSub').textContent = `信箱：${target.email} ｜ 身分：${target.memberType} ｜ 累積登入：${target.loginCount || 1} 次`;
+
+      const logs = Array.isArray(target.historyLogs) ? target.historyLogs : [];
+      const container = document.getElementById('historyModalContent');
+      if (logs.length === 0) {
+        container.innerHTML = `<div class="p-4 text-slate-400">尚無歷史紀錄</div>`;
+      } else {
+        container.innerHTML = logs.map((item, idx) => `
+          <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <span class="text-slate-200 font-medium">#${logs.length - idx}・${item.action}</span>
+            <span class="text-[11px] font-mono text-indigo-400 shrink-0">${new Date(item.time).toLocaleString('zh-TW')}</span>
+          </div>
+        `).join('');
+      }
+      document.getElementById('userHistoryModal').classList.remove('hidden');
+    }
+
+    // 功能 5：匯出 CSV（開頭加入 \ufeff BOM 確保繁體中文在 Excel 不亂碼）
+    function exportMembersCSV() {
+      const headers = ["真實姓名", "電子信箱", "學員身份", "系統權限", "註冊時間", "登錄次數", "最後登入時間", "歷史紀錄摘要"];
+      const escapeCsv = (val) => {
+        const str = String(val ?? "").replace(/"/g, '""');
+        return `"${str}"`;
+      };
+
+      const rows = allRegisteredUsers.map(u => {
+        const isCreator = (u.email || "").toLowerCase() === CREATOR_ADMIN_EMAIL || u.isCreator;
+        const roleLabel = isCreator ? "admin (系統創作者)" : (u.role || "user");
+        const regTime = u.registeredAt ? new Date(u.registeredAt).toLocaleString('zh-TW') : "";
+        const lastTime = u.lastLoginAt ? new Date(u.lastLoginAt).toLocaleString('zh-TW') : "";
+        const logsSummary = Array.isArray(u.historyLogs)
+          ? u.historyLogs.slice(0, 5).map(l => `${new Date(l.time).toLocaleDateString('zh-TW')}:${l.action}`).join(" | ")
+          : "";
+
+        return [
+          escapeCsv(u.realName),
+          escapeCsv(u.email),
+          escapeCsv(u.memberType),
+          escapeCsv(roleLabel),
+          escapeCsv(regTime),
+          escapeCsv(u.loginCount || 1),
+          escapeCsv(lastTime),
+          escapeCsv(logsSummary)
+        ].join(",");
+      });
+
+      const csvContent = "\ufeff" + [headers.join(","), ...rows].join("\r\n");
+      const blob = new Blob([csvContent], { type: "text/csv;charset=utf-8;" });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `未來店長SaaS會員名單_${new Date().toISOString().slice(0, 10)}.csv`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    // 功能 6：管理後台設定起訖時間產出 AI 分析報告並可匯出成 Word 檔
+    async function generateAdminAiReport() {
+      const startStr = document.getElementById('adminReportStartDate').value;
+      const endStr = document.getElementById('adminReportEndDate').value;
+      const btn = document.getElementById('btnAdminAiAnalyze');
+      const preview = document.getElementById('adminAiReportPreview');
+
+      const startMs = startStr ? new Date(startStr + "T00:00:00").getTime() : 0;
+      const endMs = endStr ? new Date(endStr + "T23:59:59").getTime() : Date.now();
+
+      const filteredUsers = allRegisteredUsers.filter(u => {
+        const t = u.registeredAt ? new Date(u.registeredAt).getTime() : Date.now();
+        return t >= startMs && t <= endMs;
+      });
+
+      const tonyStudents = filteredUsers.filter(u => (u.memberType || "").includes("TONY")).length;
+      const guests = filteredUsers.length - tonyStudents;
+      const totalLogins = filteredUsers.reduce((acc, u) => acc + (u.loginCount || 1), 0);
+
+      btn.disabled = true;
+      btn.textContent = "⏳ 正在生成 AI 分析報告...";
+
+      let reportText = `【未來店長 SaaS 平台營運與學習成效 AI 分析報告】\n`;
+      reportText += `📅 統計起訖區間：${startStr || '不限'} 至 ${endStr || '今日'}\n`;
+      reportText += `📊 區間內活躍/新增會員數：共 ${filteredUsers.length} 位（TONY老師學員：${tonyStudents} 位 ／ 一般訪客：${guests} 位）\n`;
+      reportText += `🔥 區間累積登入與互動總次數：${totalLogins} 次\n\n`;
+      reportText += `【壹、會員結構與參與度洞察】\n`;
+      reportText += `1. 學員轉換表現：TONY老師學員佔比達 ${filteredUsers.length > 0 ? Math.round((tonyStudents / filteredUsers.length) * 100) : 0}%，顯示實體/線上課程學員對「Signal ➔ Action 預測性行銷沙盤」具有高度實戰演練需求。\n`;
+      reportText += `2. 決策傾向分析：根據雲端沙盤紀錄，多數學員在第一輪常受傳統「買一送一」促銷直覺影響，但經過《預測理論聖經》與 4R Action 劇本引導後，平均預測精準度可提升至 85 分以上。\n\n`;
+      reportText += `【貳、TONY 顧問平台後續營運與教學優化建議】\n`;
+      reportText += `- 建議一（分群進階培訓）：針對高登入次數之「TONY老師學員」開放更多產業自訂 AI 沙盤命題權限。\n`;
+      reportText += `- 建議二（非學員精準轉化）：針對「非學員(一般訪客)」名單，可透過 CSV 匯出後寄送最新公開班與企業內訓課程資訊，完成 SaaS 潛在客戶開發閉環！`;
+
+      if (playerState.geminiApiKey) {
+        try {
+          const aiPrompt = `你是 TONY 楊文澤顧問的 AI 商業數據幕僚。請根據以下 SaaS 平台區間數據（起訖：${startStr} ~ ${endStr}，會員數：${filteredUsers.length}，TONY老師學員：${tonyStudents}，一般訪客：${guests}，累積登入次數：${totalLogins}），撰寫一份約 300 字的平台學習成效洞察與商業變現建議報告：`;
+          const aiRes = await callGeminiTextWithFallback(aiPrompt, playerState.geminiApiKey);
+          reportText += `\n\n【參、Gemini AI 即時深度補充洞察】\n${aiRes}`;
+        } catch (e) {
+          console.warn("管理後台 AI 補充分析略過：", e);
+        }
+      }
+
+      preview.textContent = reportText;
+      latestAdminReportHtml = reportText;
+      btn.disabled = false;
+      btn.textContent = "⚡ 重新產出區間 AI 分析報告";
+    }
+
+    function exportAdminWordReport() {
+      if (!latestAdminReportHtml) {
+        generateAdminAiReport();
+      }
+      const startStr = document.getElementById('adminReportStartDate').value || '起始';
+      const endStr = document.getElementById('adminReportEndDate').value || '今日';
+
+      const rowsHtml = allRegisteredUsers.map(u => `
+        <tr>
+          <td style="border:1px solid #cbd5e1; padding:6px;">${u.realName || ''}</td>
+          <td style="border:1px solid #cbd5e1; padding:6px;">${u.email || ''}</td>
+          <td style="border:1px solid #cbd5e1; padding:6px;">${u.memberType || ''}</td>
+          <td style="border:1px solid #cbd5e1; padding:6px;">${u.role || 'user'}</td>
+          <td style="border:1px solid #cbd5e1; padding:6px;">${u.registeredAt ? new Date(u.registeredAt).toLocaleString('zh-TW') : ''}</td>
+          <td style="border:1px solid #cbd5e1; padding:6px; text-align:center;">${u.loginCount || 1}</td>
+        </tr>
+      `).join('');
+
+      const docHtml = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head><meta charset="utf-8"><title>SaaS 平台 AI 分析報告</title></head>
+        <body style="font-family:'Microsoft JhengHei',sans-serif; color:#1e293b; line-height:1.6;">
+          <h1 style="color:#1e1b4b; border-bottom:3px solid #4f46e5; padding-bottom:6px;">未來店長 SaaS 平台｜AI 營運與會員數據分析報告</h1>
+          <p><b>分析區間：</b>${startStr} 至 ${endStr} ｜ <b>產出者：</b>TONY 楊文澤顧問管理後台</p>
+          <div style="background:#f8fafc; border:1px solid #cbd5e1; padding:12px; white-space:pre-line; margin-bottom:16px;">${latestAdminReportHtml || document.getElementById('adminAiReportPreview').textContent}</div>
+          <h2 style="color:#312e81;">附表：平台註冊會員完整名冊</h2>
+          <table style="width:100%; border-collapse:collapse; font-size:10pt;">
+            <thead>
+              <tr style="background:#e2e8f0;">
+                <th style="border:1px solid #cbd5e1; padding:6px;">真實姓名</th>
+                <th style="border:1px solid #cbd5e1; padding:6px;">電子信箱</th>
+                <th style="border:1px solid #cbd5e1; padding:6px;">學員身份</th>
+                <th style="border:1px solid #cbd5e1; padding:6px;">權限</th>
+                <th style="border:1px solid #cbd5e1; padding:6px;">註冊時間</th>
+                <th style="border:1px solid #cbd5e1; padding:6px;">登錄次數</th>
+              </tr>
+            </thead>
+            <tbody>${rowsHtml}</tbody>
+          </table>
+          <p style="margin-top:20px; font-size:9pt; color:#64748b;">© 2020 TonyStudio. 本學習平台由 TONY 楊文澤資深AI科技顧問設計. All Rights Reserved.</p>
+        </body>
+        </html>
+      `;
+
+      const blob = new Blob(['\ufeff', docHtml], { type: 'application/msword;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `未來店長SaaS平台AI分析報告_${startStr}_${endStr}.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /******************************************************************
+     * 7-C. Firebase 初始化與即時監聽
+     ******************************************************************/
+    async function initFirebase() {
+      try {
+        appInstance = initializeApp(firebaseConfig);
+        auth = getAuth(appInstance);
+        db = getFirestore(appInstance);
+
+        onAuthStateChanged(auth, async (user) => {
+          if (user) {
+            currentUserUid = user.uid;
+            document.getElementById('displayUidBadge').textContent = `(UID: ${user.uid.slice(0, 6)})`;
+            updateStatusBadge('connected', '🟢 雲端即時連線中 (Firestore Live)');
+            isFirebaseConnected = true;
+
+            // 若正在註冊流程中，等待發送驗證信並登出，不進入主畫面
+            if (isRegisteringProcess) return;
+
+            // 檢查是否為正式登入（非匿名）且已驗證信箱（或 Google 登入）
+            const isGoogle = user.providerData.some(p => p.providerId === 'google.com');
+            if (!user.isAnonymous && (user.emailVerified || isGoogle)) {
+              await processVerifiedUserLogin(user);
+              subscribeToRoomData(playerState.roomId);
+            }
+          } else {
+            isFirebaseConnected = true;
+            updateStatusBadge('connected', '🟢 雲端驗證待命中');
+          }
+        });
+      } catch (err) {
+        console.warn("[Firebase Fallback] 切換至本機沙盤模式：", err);
+        updateStatusBadge('warning', '⚠️ 本機沙盤模式');
+        renderWarRoomCharts([]);
+      }
+    }
+
+    function updateStatusBadge(status, text) {
+      const badge = document.getElementById('firebaseStatusBadge');
+      const dot = document.getElementById('firebaseStatusDot');
+      const label = document.getElementById('firebaseStatusText');
+      label.textContent = text;
+
+      if (status === 'connected') {
+        badge.className = "text-xs px-2.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5";
+        dot.className = "w-2 h-2 rounded-full bg-emerald-400 pulse-dot";
+      } else {
+        badge.className = "text-xs px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 flex items-center gap-1.5";
+        dot.className = "w-2 h-2 rounded-full bg-amber-400 pulse-dot";
+      }
+    }
+
+    function subscribeToRoomData(roomId) {
+      if (!db) return;
+      if (unsubscribeTeams) unsubscribeTeams();
+      if (unsubscribeRoomMeta) unsubscribeRoomMeta();
+
+      const teamsRef = collection(db, 'rooms', roomId, 'teams');
+      unsubscribeTeams = onSnapshot(teamsRef, (snapshot) => {
+        const list = [];
+        snapshot.forEach(docSnap => {
+          list.push({ id: docSnap.id, ...docSnap.data() });
+        });
+        cloudTeamsCache = list;
+        document.getElementById('onlineTeamCount').textContent = list.length;
+        renderWarRoomCharts(list);
+        renderQrModalTeamList(list);
+      });
+
+      const roomDocRef = doc(db, 'rooms', roomId);
+      unsubscribeRoomMeta = onSnapshot(roomDocRef, (docSnap) => {
+        if (docSnap.exists()) {
+          const data = docSnap.data();
+          if (data.customScenario) {
+            SCENARIOS[7] = data.customScenario;
+            renderRoundSelector();
+            renderWarRoomRoundQuickBar();
+            if (currentRoundIndex === 7) {
+              loadScenario(7, false);
+            }
+          }
+          if (data.timerActive && data.timerEndAt && data.timerEndAt > Date.now()) {
+            if (Math.abs(data.timerEndAt - timerEndTimestamp) > 1500) {
+              activateLocalCountdown(data.timerEndAt, data.timerDuration || 60);
+            }
+          } else if (data.timerActive === false) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            resetTimerVisuals(60);
+          }
+        }
+      });
+    }
+
+    async function syncMyTeamToFirestore() {
+      if (!db || !isFirebaseConnected) return;
+      try {
+        const completedList = Object.values(playerState.completedRounds);
+        const count = completedList.length;
+        const bonusRev = completedList.reduce((acc, cur) => acc + cur.revenue, 0);
+        const avgAcc = count > 0 ? Math.round(completedList.reduce((acc, cur) => acc + cur.score, 0) / count) : 0;
+
+        const teamDocRef = doc(db, 'rooms', playerState.roomId, 'teams', currentUserUid);
+        await setDoc(teamDocRef, {
+          teamName: playerState.teamName,
+          role: playerState.role,
+          totalRevenue: 3000000 + bonusRev,
+          avgAccuracy: avgAcc,
+          completedCount: count,
+          latestWeights: weights,
+          completedRounds: playerState.completedRounds,
+          updatedAt: serverTimestamp()
+        }, { merge: true });
+      } catch (e) {
+        console.warn("寫入 Firestore 失敗：", e);
+      }
+    }
+
+    /******************************************************************
+     * 8. 學員端介面渲染與章節篩選邏輯
+     ******************************************************************/
+    function initUI() {
+      document.getElementById('inputTeamName').value = playerState.teamName;
+      document.getElementById('inputRole').value = playerState.role;
+      document.getElementById('inputRoomId').value = playerState.roomId;
+      document.getElementById('inputGeminiKey').value = playerState.geminiApiKey;
+
+      applyHeaderProfileUI();
+      renderRoundSelector();
+      renderWarRoomRoundQuickBar();
+      loadScenario(0);
+    }
+
+    function applyHeaderProfileUI() {
+      document.getElementById('displayTeamName').textContent = playerState.teamName;
+      document.getElementById('displayRoomId').textContent = playerState.roomId;
+      document.getElementById('warRoomCodeDisplay').textContent = playerState.roomId;
+      document.getElementById('displayRoleBadge').textContent = playerState.role === 'enterprise' ? '[生活企業組]' : '[大學生商管組]';
+      document.getElementById('displayRoleBadge').className = playerState.role === 'enterprise' ? 'text-emerald-400 font-semibold' : 'text-indigo-400 font-semibold';
+      document.getElementById('playerAvatar').textContent = playerState.role === 'enterprise' ? '🏢' : '🎓';
+    }
+
+    function setChapterFilter(chap) {
+      currentChapterFilter = chap;
+      ['ch1', 'ch2', 'all'].forEach(c => {
+        const btn = document.getElementById(`chap-${c}`);
+        if (c === chap) {
+          btn.className = "px-3 py-1.5 rounded-xl bg-indigo-600 text-white shadow border border-indigo-500 transition";
+        } else {
+          btn.className = "px-3 py-1.5 rounded-xl bg-slate-800 text-slate-300 hover:text-white border border-slate-700 transition";
+        }
+      });
+
+      if (chap === 'ch1' && currentRoundIndex >= 4) {
+        loadScenario(0);
+      } else if (chap === 'ch2' && currentRoundIndex < 4) {
+        loadScenario(4);
+      } else {
+        renderRoundSelector();
+      }
+    }
+
+    function switchMode(mode) {
+      ['bible', 'player', 'sandbox', 'instructor'].forEach(m => {
+        document.getElementById(`view-${m}`).classList.add('hidden');
+        const btn = document.getElementById(`tab-${m}`);
+        btn.className = "px-3 py-1.5 rounded-lg text-slate-400 hover:text-white transition";
+      });
+      document.getElementById(`view-${mode}`).classList.remove('hidden');
+      document.getElementById(`tab-${mode}`).className = "px-3 py-1.5 rounded-lg bg-indigo-600 text-white shadow transition";
+      if (mode === 'instructor') {
+        renderWarRoomRoundQuickBar();
+        renderWarRoomCharts(cloudTeamsCache);
+      }
+    }
+
+    function renderRoundSelector() {
+      const container = document.getElementById('roundSelectorContainer');
+      const visibleItems = SCENARIOS.map((s, idx) => ({ s, idx })).filter(item => {
+        if (currentChapterFilter === 'ch1') return item.idx < 4;
+        if (currentChapterFilter === 'ch2') return item.idx >= 4;
+        return true;
+      });
+
+      container.innerHTML = visibleItems.map(({ s, idx }) => {
+        const isActive = idx === currentRoundIndex;
+        const isDone = playerState.completedRounds[idx] !== undefined;
+        const isNewExpansion = idx >= 4;
+        return `
+          <button onclick="window.app.loadScenario(${idx})" class="text-left p-3.5 rounded-2xl border transition flex flex-col justify-between ${
+            isActive
+              ? 'bg-indigo-600/25 border-indigo-500 shadow-lg shadow-indigo-500/10'
+              : 'glass-card border-slate-800 hover:border-slate-700'
+          }">
+            <div class="flex items-center justify-between w-full mb-1">
+              <span class="text-xs font-bold ${isActive ? 'text-indigo-300' : 'text-slate-400'}">
+                關卡 ${idx + 1} ${isNewExpansion ? '<span class="text-[10px] text-amber-400 ml-0.5">★進階</span>' : ''}
+              </span>
+              ${isDone ? '<span class="text-xs px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-300">✓ 已診斷</span>' : ''}
+            </div>
+            <div class="font-bold text-sm text-white truncate">${s.industry}</div>
+            <div class="text-xs text-slate-400 truncate mt-0.5">${s.title}</div>
+          </button>
+        `;
+      }).join('');
+    }
+
+    function renderWarRoomRoundQuickBar() {
+      const bar = document.getElementById('warRoomRoundQuickBar');
+      if (!bar) return;
+      bar.innerHTML = SCENARIOS.map((s, idx) => {
+        const isActive = idx === currentRoundIndex;
+        return `
+          <button onclick="window.app.loadScenario(${idx})" class="px-3 py-1.5 rounded-xl text-xs font-bold transition border ${
+            isActive
+              ? 'bg-indigo-600 text-white border-indigo-500 shadow'
+              : 'bg-slate-900 text-slate-400 border-slate-800 hover:text-white'
+          }">
+            R${idx + 1}・${s.industry.slice(0, 6)}
+          </button>
+        `;
+      }).join('');
+    }
+
+    function loadScenario(index, hideResult = true) {
+      currentRoundIndex = index;
+      const s = SCENARIOS[index];
+      renderRoundSelector();
+      renderWarRoomRoundQuickBar();
+
+      document.getElementById('scenarioCategory').textContent = s.tag;
+      document.getElementById('scenarioIndustry').textContent = s.industry;
+      document.getElementById('scenarioTitle').textContent = s.title;
+      document.getElementById('scenarioDesc').textContent = s.desc;
+      document.getElementById('warRoomCurrentRoundLabel').textContent = `關卡 ${index + 1}：${s.industry}（${s.title}）`;
+
+      document.getElementById('signalsContainer').innerHTML = s.signals.map(sig => `
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800 hover:border-indigo-500/40 transition">
+          <div class="flex items-center gap-2 text-xs font-bold text-indigo-300 mb-1">
+            <span class="text-base">${sig.icon}</span>
+            <span>${sig.type}｜${sig.title}</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed pl-6">${sig.detail}</p>
+        </div>
+      `).join('');
+
+      if (playerState.completedRounds[index]) {
+        const prev = playerState.completedRounds[index];
+        weights = { A: prev.A, B: prev.B, C: prev.C };
+      } else {
+        weights = { A: 20, B: 70, C: 10 };
+      }
+
+      renderOptions();
+      if (hideResult) {
+        document.getElementById('resultPanel').classList.add('hidden');
+      }
+      renderWarRoomCharts(cloudTeamsCache);
+    }
+
+    function goToNextScenario() {
+      const nextIdx = (currentRoundIndex + 1) % SCENARIOS.length;
+      loadScenario(nextIdx, true);
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function renderOptions() {
+      const s = SCENARIOS[currentRoundIndex];
+      const container = document.getElementById('optionsContainer');
+      container.innerHTML = s.options.map(opt => {
+        const val = weights[opt.code];
+        return `
+          <div class="p-4 rounded-xl bg-slate-900/80 border border-slate-800 space-y-2.5">
+            <div class="flex items-start justify-between gap-3">
+              <div class="flex items-start gap-2.5">
+                <span class="w-7 h-7 rounded-lg bg-indigo-500/20 border border-indigo-500/40 text-indigo-300 font-black text-sm flex items-center justify-center shrink-0 mt-0.5">
+                  ${opt.code}
+                </span>
+                <div>
+                  <div class="text-sm font-bold text-white leading-snug">${opt.name}</div>
+                  <span class="inline-block text-[11px] px-2 py-0.5 rounded bg-slate-800 text-slate-400 mt-1">${opt.tag}</span>
+                </div>
+              </div>
+              <div class="text-right shrink-0">
+                <span id="labelWeight-${opt.code}" class="text-lg font-black font-mono text-indigo-400">${val}%</span>
+                <div class="text-[11px] text-slate-500">NT$ ${val} 萬</div>
+              </div>
+            </div>
+            <input type="range" min="0" max="100" step="5" value="${val}"
+              oninput="window.app.handleSliderChange('${opt.code}', this.value)"
+              id="slider-${opt.code}" class="w-full">
+          </div>
+        `;
+      }).join('');
+      updateBudgetSumUI();
+    }
+
+    function handleSliderChange(changedCode, newValue) {
+      weights[changedCode] = parseInt(newValue, 10);
+      document.getElementById(`labelWeight-${changedCode}`).textContent = `${weights[changedCode]}%`;
+      document.getElementById(`labelWeight-${changedCode}`).nextElementSibling.textContent = `NT$ ${weights[changedCode]} 萬`;
+      updateBudgetSumUI();
+    }
+
+    function setQuickPreset(a, b, c) {
+      weights = { A: a, B: b, C: c };
+      ['A', 'B', 'C'].forEach(code => {
+        const slider = document.getElementById(`slider-${code}`);
+        if (slider) slider.value = weights[code];
+        const lbl = document.getElementById(`labelWeight-${code}`);
+        if (lbl) {
+          lbl.textContent = `${weights[code]}%`;
+          lbl.nextElementSibling.textContent = `NT$ ${weights[code]} 萬`;
+        }
+      });
+      updateBudgetSumUI();
+    }
+
+    function updateBudgetSumUI() {
+      const sum = weights.A + weights.B + weights.C;
+      const badge = document.getElementById('budgetSumBadge');
+      const btn = document.getElementById('submitDecisionBtn');
+
+      if (sum === 100) {
+        badge.textContent = `100% (NT$ 100萬・配置完成)`;
+        badge.className = "text-sm md:text-base font-black font-mono px-3 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 border border-emerald-500/30";
+        btn.disabled = false;
+        btn.classList.remove('opacity-50', 'cursor-not-allowed');
+      } else {
+        const diff = 100 - sum;
+        const msg = diff > 0 ? `還差 ${diff}%` : `超出 ${Math.abs(diff)}%`;
+        badge.textContent = `${sum}% (${msg})`;
+        badge.className = "text-sm md:text-base font-black font-mono px-3 py-1 rounded-lg bg-rose-500/20 text-rose-400 border border-rose-500/30";
+        btn.disabled = true;
+        btn.classList.add('opacity-50', 'cursor-not-allowed');
+      }
+    }
+
+    /******************************************************************
+     * 9. 決策推演、深度文字說明生成、4R Action 渲染與 Word 報告準備
+     ******************************************************************/
+    async function submitDecision() {
+      const sum = weights.A + weights.B + weights.C;
+      if (sum !== 100) return;
+
+      playSoundEffect('start');
+
+      const s = SCENARIOS[currentRoundIndex];
+      let weightedROI = 0;
+      let weightedWaste = 0;
+      let weightedScore = 0;
+
+      // 找出本關最佳策略代碼（accuracyScore 最高者）
+      let bestOpt = s.options[0];
+      s.options.forEach(opt => {
+        if (opt.accuracyScore > bestOpt.accuracyScore) bestOpt = opt;
+        const w = weights[opt.code] / 100;
+        weightedROI += opt.roiMultiplier * w;
+        weightedWaste += opt.wasteRate * w;
+        weightedScore += opt.accuracyScore * w;
+      });
+
+      const createdRevenue = Math.round(1000000 * weightedROI);
+      const roiPercent = Math.round(weightedROI * 100);
+      const finalScore = Math.round(weightedScore);
+
+      document.getElementById('resRevenue').textContent = `+NT$ ${(createdRevenue / 10000).toFixed(0)}萬`;
+      document.getElementById('resROI').textContent = `${roiPercent}%`;
+      document.getElementById('resWaste').textContent = `${weightedWaste.toFixed(1)}%`;
+      document.getElementById('resScore').textContent = `${finalScore} 分`;
+      document.getElementById('reportAllocationSummary').textContent = `貴組配置：A方案 ${weights.A}萬 / B方案 ${weights.B}萬 / C方案 ${weights.C}萬`;
+
+      const gradeBadge = document.getElementById('resultGradeBadge');
+      let gradeTitle = "";
+      if (finalScore >= 85) {
+        gradeTitle = "🏆 S 級・商業趨勢先知（精準完成 Signal ➔ Action 轉化）";
+        gradeBadge.textContent = "🏆 S 級・商業趨勢先知";
+        gradeBadge.className = "px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-emerald-500/20 text-emerald-300 border border-emerald-500/40";
+      } else if (finalScore >= 70) {
+        gradeTitle = "✨ A 級・穩健數據店長（已捕捉部分訊號，但資金尚有優化空間）";
+        gradeBadge.textContent = "✨ A 級・穩健數據店長";
+        gradeBadge.className = "px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-indigo-500/20 text-indigo-300 border border-indigo-500/40";
+      } else {
+        gradeTitle = "⚠️ B 級・傳統經驗決策（受困於打折促銷或被動反應，耗損偏高）";
+        gradeBadge.textContent = "⚠️ B 級・傳統經驗決策";
+        gradeBadge.className = "px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-amber-500/20 text-amber-300 border border-amber-500/40";
+      }
+
+      // 產生詳細的 A/B/C 資金配置得失說明
+      const diagHtml = s.options.map(opt => {
+        const userWeight = weights[opt.code];
+        const isBest = opt.code === bestOpt.code;
+        const subRev = Math.round(userWeight * opt.roiMultiplier);
+        const explainText = opt.explainWhy || (isBest
+          ? "此方案完美對接三大前兆訊號，將預測轉化為高轉換率的超前部署行動。"
+          : "此方案未能有效結合前兆訊號，容易造成行銷預算浪費或毛利折損。");
+
+        return `
+          <div class="p-3.5 rounded-xl border ${isBest ? 'bg-emerald-950/30 border-emerald-500/40' : 'bg-slate-950/70 border-slate-800'}">
+            <div class="flex flex-wrap items-center justify-between gap-2 mb-1">
+              <span class="font-bold ${isBest ? 'text-emerald-300' : 'text-slate-200'}">
+                【方案 ${opt.code}】您投入了 ${userWeight}% 預算（NT$ ${userWeight} 萬元） ${isBest ? '⭐ 本關最佳預測性 Action' : ''}
+              </span>
+              <span class="text-xs font-mono ${isBest ? 'text-emerald-400' : 'text-amber-400'}">
+                單項預期產出：NT$ ${subRev} 萬｜單項耗損率：${opt.wasteRate}%
+              </span>
+            </div>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              <strong>📌 顧問因果解析：</strong>${explainText}
+            </p>
+          </div>
+        `;
+      }).join('');
+      document.getElementById('detailedDiagnosisContainer').innerHTML = diagHtml;
+
+      // 渲染 4R Action Playbook
+      const pb = s.actionPlaybook || {
+        rightWho: "依據內部 CRM 與 RFM 篩選出具高轉換潛力之目標熟客分群。",
+        rightTime: "在顧客需求發生前 24～48 小時的黃金時間窗主動介入。",
+        rightOffer: "以高感知價值的體驗升等、預購鎖單禮取代全店無差別打折。",
+        rightSop: "監測前兆訊號 ➔ 自動化分群推播 ➔ 預售鎖單數據回傳指導門市備料與排班。"
+      };
+
+      document.getElementById('actionPlaybookContainer').innerHTML = `
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="font-bold text-emerald-400 mb-1">① Right Who（精準鎖定對象與決策者）</div>
+          <p class="text-slate-200 leading-relaxed">${pb.rightWho}</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="font-bold text-emerald-400 mb-1">② Right Time（黃金時間窗超前介入）</div>
+          <p class="text-slate-200 leading-relaxed">${pb.rightTime}</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="font-bold text-emerald-400 mb-1">③ Right Offer（高價值感誘因與鎖單機制）</div>
+          <p class="text-slate-200 leading-relaxed">${pb.rightOffer}</p>
+        </div>
+        <div class="p-3.5 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="font-bold text-emerald-400 mb-1">④ Right Action SOP（門市與數位執行步驟）</div>
+          <p class="text-slate-200 leading-relaxed">${pb.rightSop}</p>
+        </div>
+      `;
+
+      // 預設生成一段結構化顧問總評（若學員點擊 AI 按鈕則由 gemini-3.8-flash 深化）
+      const bestWeight = weights[bestOpt.code];
+      let defaultCommentary = `【TONY 老師 AI 顧問團綜合評語】\n`;
+      if (bestWeight >= 60) {
+        defaultCommentary += `恭喜「${playerState.teamName}」！貴組在本關展現了極佳的商業敏銳度，將 ${bestWeight}% 的核心資金重壓在最佳預測行動【方案 ${bestOpt.code}】，同時保留適度彈性。您已經掌握了「先看懂前兆訊號（Signal），再用預售/分群行動（Action）鎖定確定營收」的核心精髓！\n\n`;
+      } else {
+        defaultCommentary += `「${playerState.teamName}」請注意！貴組在本關僅將 ${bestWeight}% 的預算配置於最佳預測行動【方案 ${bestOpt.code}】，而將過多資金（${100 - bestWeight}%）分散在傳統打折促銷或事後被動廣告。請記住：看到訊號卻只會打折，會讓毛利與庫存雙雙受損！建議將【方案 ${bestOpt.code}】權重拉升至 70% 以上。\n\n`;
+      }
+      defaultCommentary += `💡 核心公式復盤：${s.takeaway}`;
+
+      document.getElementById('aiDeepCommentaryBox').textContent = defaultCommentary;
+
+      document.getElementById('customerPersonasContainer').innerHTML = s.personas.map(p => `
+        <div class="p-3 rounded-xl bg-slate-900/90 border border-slate-800">
+          <div class="flex items-center gap-2 font-bold text-xs text-indigo-300 mb-1">
+            <span class="text-base">${p.avatar}</span>
+            <span>${p.name}</span>
+          </div>
+          <p class="text-xs text-slate-300 leading-relaxed">「${p.quote}」</p>
+        </div>
+      `).join('');
+
+      // 儲存供 Word 報告匯出的完整資料物件
+      latestReportData = {
+        scenario: s,
+        weights: { ...weights },
+        createdRevenue,
+        roiPercent,
+        wasteRate: weightedWaste.toFixed(1),
+        finalScore,
+        gradeTitle,
+        bestOptCode: bestOpt.code,
+        playbook: pb,
+        aiCommentary: defaultCommentary
+      };
+
+      const panel = document.getElementById('resultPanel');
+      panel.classList.remove('hidden');
+      panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      playerState.completedRounds[currentRoundIndex] = {
+        A: weights.A,
+        B: weights.B,
+        C: weights.C,
+        score: finalScore,
+        revenue: createdRevenue
+      };
+
+      updatePlayerHeaderStats();
+      renderRoundSelector();
+      await syncMyTeamToFirestore();
+      await appendUserDecisionHistory(s.title, finalScore, createdRevenue, weights);
+    }
+
+    function updatePlayerHeaderStats() {
+      const completedList = Object.values(playerState.completedRounds);
+      const count = completedList.length;
+      const baseRev = 3000000;
+      const bonusRev = completedList.reduce((acc, cur) => acc + cur.revenue, 0);
+      const avgAcc = count > 0 ? Math.round(completedList.reduce((acc, cur) => acc + cur.score, 0) / count) : 0;
+
+      document.getElementById('statTotalRevenue').textContent = `NT$ ${(baseRev + bonusRev).toLocaleString()}`;
+      document.getElementById('statAccuracy').textContent = count > 0 ? `${avgAcc} %` : `-- %`;
+      document.getElementById('statCompletedRounds').textContent = count;
+    }
+
+    /******************************************************************
+     * 10. 呼叫 Gemini 3.8 Flash 針對學員決策生成個人化深度顧問報告
+     ******************************************************************/
+    async function generateAiDeepCommentary() {
+      if (!latestReportData) return;
+      const btn = document.getElementById('btnGenerateAiReport');
+      const box = document.getElementById('aiDeepCommentaryBox');
+      const s = latestReportData.scenario;
+
+      btn.disabled = true;
+      btn.innerHTML = `<span>⏳ gemini-3.8-flash 正在撰寫顧問診斷報告...</span>`;
+
+      const prompt = `
+        你現在是經濟部商業發展署「生活產業預測性行銷課程」的總顧問 TONY 老師（楊文澤顧問）。
+        請針對學員組別「${playerState.teamName}」在以下沙盤關卡中的預算配置決策，撰寫一份約 350 字、結構清晰、具商業洞察力的「AI 顧問深度診斷與 Action 行動指導評語」：
+        - 產業與關卡：${s.industry} - ${s.title}
+        - 三大前兆訊號：${s.signals.map(x => x.title + '(' + x.detail + ')').join('；')}
+        - 學員配置權重：
+          方案A (${s.options[0].name})：投入 ${latestReportData.weights.A}%
+          方案B (${s.options[1].name})：投入 ${latestReportData.weights.B}%
+          方案C (${s.options[2].name})：投入 ${latestReportData.weights.C}%
+        - 推演結果：得分 ${latestReportData.finalScore} 分，預估營收 NT$${(latestReportData.createdRevenue/10000).toFixed(0)} 萬，耗損率 ${latestReportData.wasteRate}%。
+
+        請依序包含以下三段（純文字段落，不需 JSON）：
+        1.【訊號判讀與資金配置得失分析】：明確點出該組在 A、B、C 配置比例上的優點與盲點。
+        2.【為什麼預測只是訊號，Action 才是關鍵】：結合本關情境，說明如何把前兆訊號轉化為具體可執行的商業動作。
+        3.【給店長的下週一落地行動清單（3點具體建議）】：提供馬上可用的實戰建議。
+      `;
+
+      if (playerState.geminiApiKey) {
+        try {
+          const text = await callGeminiTextWithFallback(prompt, playerState.geminiApiKey);
+          box.textContent = text;
+          latestReportData.aiCommentary = text;
+          btn.disabled = false;
+          btn.innerHTML = `<span>✓ AI 顧問深度評語已更新 (可下載 Word)</span>`;
+          return;
+        } catch (e) {
+          console.warn("AI 深度評語呼叫失敗，使用內建顧問加強版評語：", e);
+        }
+      }
+
+      // 若未填 API Key，生成超詳盡顧問級分析文本
+      await new Promise(r => setTimeout(r, 600));
+      const richFallback = `【1. 訊號判讀與資金配置得失分析】
+貴組「${playerState.teamName}」在本關將資金配置為 A 方案 ${latestReportData.weights.A}%、B 方案 ${latestReportData.weights.B}%、C 方案 ${latestReportData.weights.C}%，最終取得 ${latestReportData.finalScore} 分（ROI ${latestReportData.roiPercent}%）。本關的三大前兆訊號明確指向「特定目標客群的時間窗與隱性需求轉移」，若將過多預算留給傳統無差別促銷，雖然短期有表面人流，卻會造成高達 ${latestReportData.wasteRate}% 的庫存或產能折損。
+
+【2. 為什麼「預測只是訊號，Action 才是變現關鍵」】
+多數店長看到天氣變化或搜尋量上升（Signal），直覺反應就是「全店打折」；但真正的預測性行銷高手，會將訊號轉化為「鎖定精準分群（Right Who）＋ 提前黃金時間窗介入（Right Time）＋ 高感知價值預購或升級誘因（Right Offer）」。有訊號而無精準 Action，數據就只是沉睡的報表！
+
+【3. 給店長的下週一落地行動清單（Action Plan）】
+- 第一步（盤點標籤）：立即在 POS 或 LINE 後台建立本關對應的顧客行為分群標籤。
+- 第二步（設定自動化觸發）：將推播時間從「事發當天」提早至「前 24～48 小時黃金預警窗」。
+- 第三步（以預售指導備料）：用預購領券率或確認信讀取率，回頭決定門市備料與人力排班，將耗損率徹底壓低至 3% 以下！`;
+
+      box.textContent = richFallback;
+      latestReportData.aiCommentary = richFallback;
+      btn.disabled = false;
+      btn.innerHTML = `<span>✓ 顧問深度評語已生成 (可下載 Word)</span>`;
+    }
+
+    /******************************************************************
+     * 11. 一鍵匯出「編排過的 Microsoft Word (.doc) 顧問診斷報告」
+     ******************************************************************/
+    function exportWordReport() {
+      if (!latestReportData) {
+        const panel = document.getElementById('playerDecisionCard');
+        if (panel) panel.scrollIntoView({ behavior: 'smooth' });
+        return;
+      }
+
+      const d = latestReportData;
+      const s = d.scenario;
+      const nowStr = new Date().toLocaleString('zh-TW');
+
+      const optionsRowsHtml = s.options.map(opt => {
+        const w = d.weights[opt.code];
+        const isBest = opt.code === d.bestOptCode;
+        const subRev = Math.round(w * opt.roiMultiplier);
+        return `
+          <tr style="background-color: ${isBest ? '#ecfdf5' : '#ffffff'};">
+            <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; text-align:center;">方案 ${opt.code} ${isBest ? '★最佳解' : ''}</td>
+            <td style="border:1px solid #cbd5e1; padding:8px;"><b>${opt.name}</b><br><span style="color:#64748b; font-size:10pt;">標籤：${opt.tag}</span></td>
+            <td style="border:1px solid #cbd5e1; padding:8px; text-align:center; font-weight:bold; color:#1e40af;">${w}% (NT$ ${w}萬)</td>
+            <td style="border:1px solid #cbd5e1; padding:8px; text-align:center;">NT$ ${subRev}萬 (耗損 ${opt.wasteRate}%)</td>
+            <td style="border:1px solid #cbd5e1; padding:8px; font-size:10pt;">${opt.explainWhy || ''}</td>
+          </tr>
+        `;
+      }).join('');
+
+      const signalsRowsHtml = s.signals.map(sig => `
+        <tr>
+          <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; width:28%; background-color:#f8fafc;">${sig.icon} ${sig.type}<br>${sig.title}</td>
+          <td style="border:1px solid #cbd5e1; padding:8px;">${sig.detail}</td>
+        </tr>
+      `).join('');
+
+      const wordHtml = `
+        <html xmlns:o='urn:schemas-microsoft-com:office:office' xmlns:w='urn:schemas-microsoft-com:office:word' xmlns='http://www.w3.org/TR/REC-html40'>
+        <head>
+          <meta charset="utf-8">
+          <title>${s.industry} - 預測性行銷決策診斷與 Action 落地報告</title>
+          <style>
+            body { font-family: "Microsoft JhengHei", "微軟正黑體", sans-serif; color: #1e293b; line-height: 1.6; font-size: 11pt; }
+            h1 { font-size: 20pt; color: #1e1b4b; margin-bottom: 4pt; }
+            h2 { font-size: 14pt; color: #312e81; border-bottom: 2px solid #4f46e5; padding-bottom: 4pt; margin-top: 18pt; margin-bottom: 8pt; }
+            .subtitle { font-size: 11pt; color: #475569; margin-bottom: 14pt; }
+            table { width: 100%; border-collapse: collapse; margin-bottom: 12pt; }
+            .kpi-box { background-color: #f1f5f9; border: 1px solid #94a3b8; padding: 10pt; margin-bottom: 12pt; }
+            .takeaway-box { background-color: #eef2ff; border-left: 5px solid #4f46e5; padding: 10pt; margin-top: 12pt; }
+          </style>
+        </head>
+        <body>
+          <div style="border-bottom: 3px solid #1e1b4b; padding-bottom: 8pt; margin-bottom: 12pt;">
+            <div style="font-size: 10pt; color: #4f46e5; font-weight: bold;">經濟部商業發展署「生活產業預測性行銷實戰培訓」｜顧問級沙盤診斷書</div>
+            <h1>《未來店長》預測性行銷決策診斷與 Action 行動報告</h1>
+            <div class="subtitle">
+              <b>參訓組別：</b>${playerState.teamName}（${playerState.role === 'enterprise' ? '生活企業實務組' : '大學生商管創新組'}）｜
+              <b>房間代碼：</b>${playerState.roomId}｜<b>產出時間：</b>${nowStr}
+            </div>
+          </div>
+
+          <h2>壹、實戰沙盤關卡背景與三大前兆訊號（Signals）</h2>
+          <p><b>【挑戰產業與課題】：</b>${s.industry} — ${s.title}（${s.tag}）</p>
+          <p><b>【商業情境描述】：</b>${s.desc}</p>
+          <table>
+            <thead>
+              <tr style="background-color: #e2e8f0; color: #0f172a;">
+                <th style="border:1px solid #cbd5e1; padding:8px; text-align:left;">前兆訊號維度</th>
+                <th style="border:1px solid #cbd5e1; padding:8px; text-align:left;">關鍵數據與顧客行為線索</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${signalsRowsHtml}
+            </tbody>
+          </table>
+
+          <h2>貳、貴組預算配置決策與 30 天後市場開獎指標</h2>
+          <p><b>【綜合評級】：</b><span style="color:#047857; font-weight:bold;">${d.gradeTitle}</span></p>
+          <table>
+            <tr style="background-color: #0f172a; color: #ffffff; text-align:center; font-weight:bold;">
+              <td style="padding:8px; border:1px solid #334155;">預估創造總營收</td>
+              <td style="padding:8px; border:1px solid #334155;">行銷投資報酬率 (ROI)</td>
+              <td style="padding:8px; border:1px solid #334155;">庫存/產能閒置耗損率</td>
+              <td style="padding:8px; border:1px solid #334155;">預測×行動綜合得分</td>
+            </tr>
+            <tr style="background-color: #f8fafc; text-align:center; font-size: 13pt; font-weight:bold;">
+              <td style="padding:10px; border:1px solid #cbd5e1; color:#047857;">+NT$ ${(d.createdRevenue / 10000).toFixed(0)} 萬元</td>
+              <td style="padding:10px; border:1px solid #cbd5e1; color:#4f46e5;">${d.roiPercent}%</td>
+              <td style="padding:10px; border:1px solid #cbd5e1; color:#b45309;">${d.wasteRate}%</td>
+              <td style="padding:10px; border:1px solid #cbd5e1; color:#0f172a;">${d.finalScore} 分 / 100</td>
+            </tr>
+          </table>
+
+          <p><b>【為什麼會得到這個分數？A / B / C 三方案資金配置因果說明】：</b></p>
+          <table>
+            <thead>
+              <tr style="background-color: #e2e8f0; color: #0f172a;">
+                <th style="border:1px solid #cbd5e1; padding:8px; width:12%;">方案</th>
+                <th style="border:1px solid #cbd5e1; padding:8px; width:28%;">策略行動內容</th>
+                <th style="border:1px solid #cbd5e1; padding:8px; width:14%;">貴組配置權重</th>
+                <th style="border:1px solid #cbd5e1; padding:8px; width:16%;">預期產出與耗損</th>
+                <th style="border:1px solid #cbd5e1; padding:8px; width:30%;">訊號判讀與財務因果解析</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${optionsRowsHtml}
+            </tbody>
+          </table>
+
+          <h2>參、從預測訊號到真實變現：4R Action 落地執行藍圖</h2>
+          <p><i>「預測只是捕捉前兆訊號（Signal），真正創造營收差異的是後續精準的商業行動（Action）！」</i></p>
+          <table>
+            <tbody>
+              <tr>
+                <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; width:25%; background-color:#ecfdf5; color:#065f46;">① Right Who<br>（精準鎖定分群與決策者）</td>
+                <td style="border:1px solid #cbd5e1; padding:8px;">${d.playbook.rightWho}</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; background-color:#ecfdf5; color:#065f46;">② Right Time<br>（黃金時間窗超前介入）</td>
+                <td style="border:1px solid #cbd5e1; padding:8px;">${d.playbook.rightTime}</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; background-color:#ecfdf5; color:#065f46;">③ Right Offer<br>（高價值感誘因與鎖單機制）</td>
+                <td style="border:1px solid #cbd5e1; padding:8px;">${d.playbook.rightOffer}</td>
+              </tr>
+              <tr>
+                <td style="border:1px solid #cbd5e1; padding:8px; font-weight:bold; background-color:#ecfdf5; color:#065f46;">④ Right Action SOP<br>（門市與數位執行步驟）</td>
+                <td style="border:1px solid #cbd5e1; padding:8px;">${d.playbook.rightSop}</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h2>肆、AI 首席行銷顧問深度診斷評語 (Gemini 3.8 Flash)</h2>
+          <div style="background-color:#f8fafc; border:1px solid #cbd5e1; padding:12pt; white-space:pre-line;">${d.aiCommentary}</div>
+
+          <div class="takeaway-box">
+            <b>💡 TONY 老師（楊文澤顧問）課堂核心公式復盤：</b><br>
+            ${s.takeaway}
+          </div>
+        </body>
+        </html>
+      `;
+
+      const blob = new Blob(['\ufeff', wordHtml], { type: 'application/msword;charset=utf-8' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      const safeName = s.industry.replace(/[^\u4e00-\u9fa5a-zA-Z0-9]/g, '');
+      a.download = `預測性行銷診斷報告_${playerState.teamName}_${safeName}.doc`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+
+    /******************************************************************
+     * 12. Gemini 3.8 Flash 沙盤生成器 (含快捷範本與 4R Action 生成)
+     ******************************************************************/
+    function fillSandboxPreset(ind, prod, pain) {
+      document.getElementById('customIndustry').value = ind;
+      document.getElementById('customProduct').value = prod;
+      document.getElementById('customPain').value = pain;
+    }
+
+    async function callGeminiWithFallback(promptText, apiKey) {
+      const models = ['gemini-3.8-flash', 'gemini-3.5-flash'];
+      for (const model of models) {
+        for (let attempt = 0; attempt < 2; attempt++) {
+          try {
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+            const res = await fetch(url, {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                contents: [{ parts: [{ text: promptText }] }],
+                generationConfig: { responseMimeType: "application/json" }
+              })
+            });
+            if (!res.ok) throw new Error(`HTTP ${res.status}`);
+            const data = await res.json();
+            const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+            if (rawText) return JSON.parse(rawText);
+          } catch (err) {
+            console.warn(`[Gemini JSON Attempt ${attempt + 1}] ${model} 呼叫例外:`, err);
+            await new Promise(r => setTimeout(r, 600 * (attempt + 1)));
+          }
+        }
+      }
+      throw new Error("All Gemini models failed");
+    }
+
+    async function callGeminiTextWithFallback(promptText, apiKey) {
+      const models = ['gemini-3.8-flash', 'gemini-3.5-flash'];
+      for (const model of models) {
+        try {
+          const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
+          const res = await fetch(url, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+              contents: [{ parts: [{ text: promptText }] }]
+            })
+          });
+          if (!res.ok) throw new Error(`HTTP ${res.status}`);
+          const data = await res.json();
+          const rawText = data.candidates?.[0]?.content?.parts?.[0]?.text;
+          if (rawText) return rawText;
+        } catch (err) {
+          console.warn(`[Gemini Text Fallback] ${model} 呼叫例外:`, err);
+        }
+      }
+      throw new Error("All Gemini text models failed");
+    }
+
+    async function generateCustomScenario() {
+      const ind = document.getElementById('customIndustry').value.trim() || "特色生活服務店";
+      const prod = document.getElementById('customProduct').value.trim() || "主力明星商品";
+      const pain = document.getElementById('customPain').value.trim() || "平日離峰時段人流不足與熟客回購率下降";
+      const shouldBroadcast = document.getElementById('broadcastCustomCheck').checked;
+      const btn = document.getElementById('generateCustomBtn');
+
+      btn.disabled = true;
+      btn.innerHTML = `<span>⏳ gemini-3.8-flash 正在為「${ind}」推演訊號與 4R Action 沙盤...</span>`;
+
+      let newScenario = null;
+
+      if (playerState.geminiApiKey) {
+        const prompt = `
+          你是一位專精於台灣生活產業「預測性行銷（Signal to Action）」的資深顧問。
+          請根據以下企業學員輸入的真實痛點，設計一道預測性行銷沙盤關卡，並嚴格輸出 JSON 格式：
+          產業別：${ind}
+          主力商品：${prod}
+          目前煩惱：${pain}
+          JSON 結構必須包含：
+          {
+            "tag": "Round 8・AI 動態生成沙盤 (Gemini 3.8 即時命題)",
+            "industry": "🌟 ${ind}",
+            "title": "針對「${pain}」的超前部署決策",
+            "desc": "100字內商業情境描述",
+            "signals": [
+              {"icon": "📈", "type": "外部趨勢訊號", "title": "標題", "detail": "具體數據訊號描述"},
+              {"icon": "🛒", "type": "內部交易訊號", "title": "標題", "detail": "具體數據訊號描述"},
+              {"icon": "🔍", "type": "顧客行為訊號", "title": "標題", "detail": "具體數據訊號描述"}
+            ],
+            "options": [
+              {"code": "A", "name": "傳統無差別打折促銷方案", "tag": "傳統促銷・高耗損", "roiMultiplier": 1.15, "wasteRate": 15.5, "accuracyScore": 54, "explainWhy": "說明為何此傳統打折方案會折損毛利或忽略訊號"},
+              {"code": "B", "name": "結合三大訊號的精準預測分群與預購 Action 方案", "tag": "預測性行銷・高轉換", "roiMultiplier": 2.52, "wasteRate": 2.2, "accuracyScore": 98, "explainWhy": "說明為何此方案完美將三大訊號轉化為高ROI商業行動"},
+              {"code": "C", "name": "盲目投放廣泛流量廣告方案", "tag": "高獲客成本", "roiMultiplier": 1.25, "wasteRate": 10.5, "accuracyScore": 62, "explainWhy": "說明為何被動投廣告無法解決核心痛點"}
+            ],
+            "actionPlaybook": {
+              "rightWho": "精準鎖定之顧客分群描述",
+              "rightTime": "黃金介入時間點描述",
+              "rightOffer": "高價值感誘因與鎖單機制描述",
+              "rightSop": "門市與數位落地執行步驟SOP"
+            },
+            "personas": [
+              {"avatar": "👩‍💼", "name": "核心目標熟客", "quote": "顧客對方案B的讚賞心聲"},
+              {"avatar": "🧑‍🍳", "name": "門市第一線店長", "quote": "門市人員對精準預售降低耗損的回饋"},
+              {"avatar": "📊", "name": "品牌財務顧問", "quote": "從ROI角度的分析"}
+            ],
+            "takeaway": "一句話總結該企業如何從被動促銷轉向主動預測訊號與Action落地"
+          }
+        `;
+        try {
+          newScenario = await callGeminiWithFallback(prompt, playerState.geminiApiKey);
+          newScenario.id = 8;
+          newScenario.chapter = "ch2";
+        } catch (e) {
+          console.warn("改用內建顧問級生成器", e);
+        }
+      }
+
+      if (!newScenario) {
+        await new Promise(r => setTimeout(r, 700));
+        newScenario = {
+          id: 8,
+          chapter: "ch2",
+          tag: "Round 8・AI 企業專屬沙盒 (Signal-to-Action 診斷)",
+          industry: `🌟 ${ind}`,
+          title: `破解「${pain.slice(0, 16)}...」之預測戰役`,
+          desc: `身為「${ind}」品牌負責人，面對「${pain}」的挑戰，若直接全店打折將嚴重侵蝕「${prod}」的毛利。請判讀以下 3 個前兆訊號配置 100 萬預算！`,
+          signals: [
+            { icon: "📊", type: "消費週期前兆訊號", title: "首購後第 21 天流失臨界點", detail: `購買過「${prod}」的顧客若在第 21 天內未產生第二次互動，後續回購機率將從 52% 驟降至 9%。` },
+            { icon: "🕒", type: "時段與外部環境訊號", title: "離峰時段隱性需求轉移", detail: "數據顯示平日下午周邊上班族與社區客並非沒需求，而是缺乏「提前預訂免排隊／辦公室揪團免運」的觸發誘因。" },
+            { icon: "💬", type: "社群搜尋意圖訊號", title: "送禮與自用雙重標籤分流", detail: "官方 LINE 好友中，點擊過「保存方式與隱藏版吃法」的顧客，其連帶加購率是一般領券客的 3.8 倍。" }
+          ],
+          options: [
+            {
+              code: "A",
+              name: `全店無差別促銷：針對「${prod}」推出限時買一送一，強行拉抬平日人流`,
+              tag: "傳統促銷・毛利腰斬",
+              roiMultiplier: 1.12, wasteRate: 16.5, accuracyScore: 54,
+              explainWhy: "雖能帶來短暫排隊人潮，但買一送一直接讓毛利歸零，且吸引來的過路客在恢復原價後留存率低於 10%。"
+            },
+            {
+              code: "B",
+              name: `預測分群觸發 Action：鎖定購後第 18 天熟客與周邊企業福委，推播「平日下午茶預訂專屬雙享組＋隱藏版試吃」`,
+              tag: "預測性行銷・精準削峰填谷",
+              roiMultiplier: 2.52, wasteRate: 2.2, accuracyScore: 98,
+              explainWhy: "精準抓緊「購後第 18 天喚醒窗」與「周邊辦公室平日下午茶團購需求」，以預訂制鎖定離峰產能，兼顧高毛利與零報廢！"
+            },
+            {
+              code: "C",
+              name: "廣撒流量廣告：將預算全數購買網紅開箱與外送平台置頂曝光",
+              tag: "高獲客成本・留存偏低",
+              roiMultiplier: 1.28, wasteRate: 11.0, accuracyScore: 63,
+              explainWhy: "未建立熟客回購自動化機制前，盲目投流就像把水倒進漏水的桶子，高昂廣告費與平台抽成稀釋了整體獲利。"
+            }
+          ],
+          actionPlaybook: {
+            rightWho: `購買過「${prod}」滿 18 天之熟客名單 ＋ 門市方圓 1.5 公里內之企業福委與辦公室團購主揪。`,
+            rightTime: "每週二上午 10:30（辦公室決定本週下午茶團購的黃金決策點）＋ 顧客首購後第 18 天自動觸發。",
+            rightOffer: `「平日下午預訂專屬禮」：提前 24 小時預訂「${prod}」滿 10 組享 9 折免運，再贈主廚未上市隱藏版試吃品。`,
+            rightSop: "LINE 後台設定購後第 18 天自動喚醒推播 ➔ 週二推播周邊企業團購預訂表單 ➔ 依前一日預訂總量精準安排平日下午門市備料與包裝人力。"
+          },
+          personas: [
+            { avatar: "👩‍💻", name: "周邊園區團購主揪", quote: `收到平日下午茶提前預訂的專屬優惠，剛好解決我們部門開會點心需求，直接揪團訂了 25 組「${prod}」！` },
+            { avatar: "🏪", name: `${ind} 門市店長`, quote: "透過提前一天鎖定平日下午的預訂量，我們離峰時段不再空等，備料與人力配置變得超精準！" },
+            { avatar: "💡", name: "數位行銷顧問", quote: "抓準第 18 天的喚醒時間窗，加上B2B下午茶預售，完美解決離峰與回購兩大痛點！" }
+          ],
+          takeaway: `【${ind} 專屬預測公式】針對「${pain}」，切忌用買一送一犧牲品牌價值！應結合「購後第18天喚醒訊號」與「離峰預訂制 Action」，把被動等客人上門轉化為可預測的週期性訂單。`
+        };
+      }
+
+      SCENARIOS[7] = newScenario;
+
+      if (shouldBroadcast && db && isFirebaseConnected) {
+        try {
+          await setDoc(doc(db, 'rooms', playerState.roomId), {
+            customScenario: newScenario,
+            updatedAt: serverTimestamp()
+          }, { merge: true });
+        } catch (e) {
+          console.warn("廣播自訂關卡失敗：", e);
+        }
+      }
+
+      btn.disabled = false;
+      btn.innerHTML = `<span>⚡ 立即以 gemini-3.8-flash 生成新預測沙盤並進入挑戰</span>`;
+      setChapterFilter('all');
+      switchMode('player');
+      loadScenario(7);
+    }
+
+    /******************************************************************
+     * 13. 講師戰情室：Firestore 即時統計與課堂控場工具
+     ******************************************************************/
+    function renderWarRoomCharts(teamsList) {
+      const effectiveTeams = teamsList.length > 0 ? teamsList : [{
+        id: currentUserUid,
+        teamName: playerState.teamName,
+        role: playerState.role,
+        totalRevenue: 3000000,
+        avgAccuracy: 0,
+        completedCount: Object.keys(playerState.completedRounds).length,
+        latestWeights: weights,
+        completedRounds: playerState.completedRounds
+      }];
+
+      const entTeams = effectiveTeams.filter(t => t.role === 'enterprise');
+      const stuTeams = effectiveTeams.filter(t => t.role === 'student');
+
+      document.getElementById('entGroupCountBadge').textContent = `${entTeams.length} 組`;
+      document.getElementById('stuGroupCountBadge').textContent = `${stuTeams.length} 組`;
+
+      const calcGroupAvg = (group) => {
+        if (group.length === 0) return { A: 0, B: 0, C: 0 };
+        let sumA = 0, sumB = 0, sumC = 0;
+        group.forEach(t => {
+          const roundW = t.completedRounds?.[currentRoundIndex] || t.latestWeights || { A: 33, B: 34, C: 33 };
+          sumA += (roundW.A ?? 0);
+          sumB += (roundW.B ?? 0);
+          sumC += (roundW.C ?? 0);
+        });
+        return {
+          A: Math.round(sumA / group.length),
+          B: Math.round(sumB / group.length),
+          C: Math.round(sumC / group.length)
+        };
+      };
+
+      const entAvg = calcGroupAvg(entTeams);
+      const stuAvg = calcGroupAvg(stuTeams);
+
+      const renderBars = (data, colorClass, emptyHint) => {
+        if (data.A === 0 && data.B === 0 && data.C === 0) {
+          return `<div class="text-xs text-slate-500 py-6 text-center">${emptyHint}</div>`;
+        }
+        return `
+          <div class="space-y-2.5 text-xs">
+            <div>
+              <div class="flex justify-between mb-1"><span>策略 A</span><span class="font-mono font-bold">${data.A}%</span></div>
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-amber-500 transition-all duration-500" style="width:${data.A}%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1"><span>策略 B</span><span class="font-mono font-bold text-emerald-400">${data.B}%</span></div>
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden"><div class="h-full ${colorClass} transition-all duration-500" style="width:${data.B}%"></div></div>
+            </div>
+            <div>
+              <div class="flex justify-between mb-1"><span>策略 C</span><span class="font-mono font-bold">${data.C}%</span></div>
+              <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden"><div class="h-full bg-slate-500 transition-all duration-500" style="width:${data.C}%"></div></div>
+            </div>
+          </div>
+        `;
+      };
+
+      document.getElementById('chartEnterprise').innerHTML = renderBars(entAvg, 'bg-emerald-500', '尚無企業組別加入（可點擊右上角塞入模擬隊伍）');
+      document.getElementById('chartStudent').innerHTML = renderBars(stuAvg, 'bg-indigo-500', '尚無大學生組別加入（可點擊右上角塞入模擬隊伍）');
+
+      const sorted = [...effectiveTeams].sort((a, b) => (b.totalRevenue || 0) - (a.totalRevenue || 0));
+
+      document.getElementById('leaderboardBody').innerHTML = sorted.map((t, i) => {
+        const isMe = t.id === currentUserUid;
+        const w = t.completedRounds?.[currentRoundIndex] || t.latestWeights || { A: 20, B: 70, C: 10 };
+        return `
+          <tr class="${isMe ? 'bg-indigo-500/15 font-semibold' : 'hover:bg-slate-800/40'} transition">
+            <td class="py-3 px-3 font-mono">${i === 0 ? '🥇 1' : i === 1 ? '🥈 2' : i === 2 ? '🥉 3' : i + 1}</td>
+            <td class="py-3 px-3 text-white">${t.teamName} ${isMe ? '<span class="text-[11px] px-1.5 py-0.5 rounded bg-indigo-500/30 text-indigo-200 ml-1">本機</span>' : ''}</td>
+            <td class="py-3 px-3 text-xs text-slate-300">${t.role === 'enterprise' ? '🏢 企業組' : '🎓 大學生組'}</td>
+            <td class="py-3 px-3 font-mono text-xs text-indigo-300">${w.A}% / ${w.B}% / ${w.C}%</td>
+            <td class="py-3 px-3 font-mono text-xs text-amber-300">${t.completedCount || 0} / 8</td>
+            <td class="py-3 px-3 font-mono text-emerald-400">${t.avgAccuracy ? t.avgAccuracy + '%' : '--'}</td>
+            <td class="py-3 px-3 font-mono text-right text-white font-bold">NT$ ${(t.totalRevenue || 3000000).toLocaleString()}</td>
+          </tr>
+        `;
+      }).join('');
+    }
+
+    async function seedDemoTeamsToFirestore() {
+      const demoList = [
+        { id: "demo_ent_1", teamName: "礁溪溫泉行旅隊", role: "enterprise", latestWeights: { A: 15, B: 75, C: 10 }, completedCount: 6, avgAccuracy: 92, totalRevenue: 15850000 },
+        { id: "demo_ent_2", teamName: "指尖美學連鎖沙龍", role: "enterprise", latestWeights: { A: 25, B: 60, C: 15 }, completedCount: 5, avgAccuracy: 85, totalRevenue: 13420000 },
+        { id: "demo_ent_3", teamName: "樂齡活力肌力中心", role: "enterprise", latestWeights: { A: 30, B: 55, C: 15 }, completedCount: 4, avgAccuracy: 81, totalRevenue: 10850000 },
+        { id: "demo_stu_1", teamName: "龍華數位行銷創客隊", role: "student", latestWeights: { A: 20, B: 65, C: 15 }, completedCount: 6, avgAccuracy: 88, totalRevenue: 14980000 },
+        { id: "demo_stu_2", teamName: "赤峰文創策展新星", role: "student", latestWeights: { A: 40, B: 35, C: 25 }, completedCount: 4, avgAccuracy: 70, totalRevenue: 9620000 }
+      ];
+
+      if (db && isFirebaseConnected) {
+        for (const item of demoList) {
+          await setDoc(doc(db, 'rooms', playerState.roomId, 'teams', item.id), {
+            ...item,
+            updatedAt: serverTimestamp()
+          });
+        }
+      } else {
+        cloudTeamsCache = demoList;
+        renderWarRoomCharts(cloudTeamsCache);
+        renderQrModalTeamList(cloudTeamsCache);
+      }
+    }
+
+    async function clearRoomTeams() {
+      if (!db || !isFirebaseConnected) {
+        cloudTeamsCache = [];
+        renderWarRoomCharts([]);
+        renderQrModalTeamList([]);
+        return;
+      }
+      const snap = await getDocs(collection(db, 'rooms', playerState.roomId, 'teams'));
+      const deletions = [];
+      snap.forEach(d => deletions.push(deleteDoc(doc(db, 'rooms', playerState.roomId, 'teams', d.id))));
+      await Promise.all(deletions);
+      playerState.completedRounds = {};
+      updatePlayerHeaderStats();
+      await syncMyTeamToFirestore();
+    }
+
+    /******************************************************************
+     * 14. 設定視窗控制
+     ******************************************************************/
+    function toggleConfigModal() {
+      document.getElementById('configModal').classList.toggle('hidden');
+    }
+
+    async function saveConfig() {
+      const name = document.getElementById('inputTeamName').value.trim() || "第一組：未來生活主理人";
+      const role = document.getElementById('inputRole').value;
+      const room = document.getElementById('inputRoomId').value.trim() || "BIZ-2026";
+      const key = document.getElementById('inputGeminiKey').value.trim();
+
+      const roomChanged = room !== playerState.roomId;
+
+      playerState.teamName = name;
+      playerState.role = role;
+      playerState.roomId = room;
+      playerState.geminiApiKey = key;
+
+      localStorage.setItem('tp_teamName', name);
+      localStorage.setItem('tp_role', role);
+      localStorage.setItem('tp_roomId', room);
+      localStorage.setItem('tp_geminiKey', key);
+
+      applyHeaderProfileUI();
+      toggleConfigModal();
+
+      if (roomChanged && isFirebaseConnected) {
+        subscribeToRoomData(room);
+      }
+      await syncMyTeamToFirestore();
+    }
+
+    window.app = {
+      switchMode,
+      setChapterFilter,
+      loadScenario,
+      goToNextScenario,
+      handleSliderChange,
+      setQuickPreset,
+      submitDecision,
+      generateAiDeepCommentary,
+      exportWordReport,
+      fillSandboxPreset,
+      generateCustomScenario,
+      seedDemoTeamsToFirestore,
+      clearRoomTeams,
+      toggleConfigModal,
+      saveConfig,
+      toggleQrModal,
+      updateQrCodeImage,
+      copyJoinLink,
+      startClassroomTimer,
+      stopClassroomTimer,
+      toggleSoundMute,
+      // 新增 SaaS 會員驗證與管理後台 API
+      switchAuthTab,
+      togglePasswordVisibility,
+      handleEmailRegister,
+      handleEmailLogin,
+      handleGoogleLogin,
+      handlePasswordReset,
+      handleLogout,
+      toggleCreatorModal,
+      openAdminModal,
+      closeAdminModal,
+      toggleUserRole,
+      deleteUserAccount,
+      viewUserHistory,
+      exportMembersCSV,
+      generateAdminAiReport,
+      exportAdminWordReport
+    };
+
+    window.addEventListener('DOMContentLoaded', () => {
+      initUI();
+      initFirebase();
+    });
+  </script>
+</body>
+</html>
