@@ -687,12 +687,12 @@
               </div>
             </div>
 
-            <!-- 新增重點 3：AI 顧問即時個人化深度講評 (Gemini 3.8 Flash) -->
+            <!-- 新增重點 3：AI 顧問即時個人化深度講評 (Gemini 4 Hydrogen) -->
             <div class="bg-indigo-950/40 rounded-2xl p-5 border border-indigo-500/40 space-y-3">
               <div class="flex flex-wrap items-center justify-between gap-2">
                 <div>
                   <h4 class="text-sm font-black text-white flex items-center gap-2">
-                    <span>🤖 參、AI 首席行銷顧問個人化深度講評 (Gemini 3.8 Flash)</span>
+                    <span>🤖 參、AI 首席行銷顧問個人化深度講評 (Gemini 4 Hydrogen)</span>
                   </h4>
                   <p class="text-xs text-slate-400">針對貴組剛剛的資金配置比例，由 AI 生成專屬優化建議，並自動同步納入 Word 報告中</p>
                 </div>
@@ -735,7 +735,7 @@
         <div class="max-w-4xl">
           <div class="flex flex-wrap items-center gap-2">
             <span class="text-xs font-bold px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-500/40">
-              AI Scenario Generator・Gemini 3.8 Flash 驅動
+              AI Scenario Generator・Gemini 4 Hydrogen 驅動
             </span>
             <span class="text-xs px-2.5 py-1 rounded-full bg-indigo-500/20 text-indigo-300 border border-indigo-500/30">
               支援一鍵生成新產業沙盤 ＆ 雲端同步至全班第 8 關
@@ -743,7 +743,7 @@
           </div>
           <h2 class="text-2xl font-black text-white mt-2">✨ AI 預測性行銷沙盤生成器（自由命題 × 企業痛點診斷）</h2>
           <p class="text-sm text-slate-300 mt-1">
-            您可以點擊下方<strong>「台灣熱門生活產業快捷範本」</strong>或手動輸入現場學員的真實業態，系統將透過 <code class="text-emerald-300 font-mono">gemini-3.8-flash</code> 即時生成包含「3 大前兆訊號」、「A/B/C 三大策略選項」與「4R Action 落地執行藍圖」的完整沙盤關卡！
+            您可以點擊下方<strong>「台灣熱門生活產業快捷範本」</strong>或手動輸入現場學員的真實業態，系統將透過 <code class="text-emerald-300 font-mono">gemini-4-hydrogen</code> 即時生成包含「3 大前兆訊號」、「A/B/C 三大策略選項」與「4R Action 落地執行藍圖」的完整沙盤關卡！
           </p>
         </div>
 
@@ -780,7 +780,7 @@
             <span>同時將此 AI 生成沙盤透過 Firestore 廣播至全班第 8 關（讓全班一起挑戰並匯出 Word 報告）</span>
           </label>
           <button id="generateCustomBtn" onclick="window.app.generateCustomScenario()" class="px-6 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm shadow-lg shadow-emerald-600/30 transition flex items-center gap-2">
-            <span>⚡ 立即以 gemini-3.8-flash 生成新預測沙盤並進入挑戰</span>
+            <span>⚡ 立即以 gemini-4-hydrogen 生成新預測沙盤並進入挑戰</span>
           </button>
         </div>
       </div>
@@ -1116,7 +1116,7 @@
           <div class="p-4 bg-white rounded-3xl shadow-2xl border-4 border-emerald-400">
             <img id="qrCodeImage" src="" alt="Room QR Code" class="w-64 h-64 md:w-72 md:h-72 object-contain">
           </div>
-          <span class="text-xs text-slate-400 mt-2">掃描後自動帶入房間代碼，完成登入即可連線對戰</span>
+          <span class="text-xs text-slate-400 mt-2">掃描後自動帶入房間代碼，登入驗證後即可連線對戰</span>
         </div>
 
         <div class="md:col-span-7 space-y-5">
@@ -1151,7 +1151,7 @@
   <div id="configModal" class="fixed inset-0 z-50 hidden bg-black/75 backdrop-blur-sm flex items-center justify-center p-4">
     <div class="glass-card max-w-lg w-full rounded-2xl p-6 border border-slate-700 space-y-5">
       <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-        <h3 class="text-lg font-black text-white">⚙️ 學員組別與 Gemini 3.8 API 設定</h3>
+        <h3 class="text-lg font-black text-white">⚙️ 學員組別與 Gemini 4 Hydrogen API 設定</h3>
         <button onclick="window.app.toggleConfigModal()" class="text-slate-400 hover:text-white text-xl">&times;</button>
       </div>
 
@@ -1179,7 +1179,7 @@
           <label class="block text-xs text-indigo-300 font-semibold mb-1">🔑 Google Gemini API Key（用於「AI 沙盤生成器」與「AI 顧問深度報告講評」）</label>
           <input id="inputGeminiKey" type="password" placeholder="貼上您的 AIzaSy... 金鑰 (將儲存於本機瀏覽器)" class="w-full px-3 py-2 rounded-xl bg-slate-900 border border-slate-700 text-white font-mono text-xs">
           <p class="text-[11px] text-slate-400 mt-1">
-            系統已鎖定主模型為 <code class="text-emerald-400 font-mono">gemini-3.8-flash</code>，並內建指數退避與 <code class="text-amber-400 font-mono">gemini-3.5-flash</code> 自動降級保護。
+            系統已鎖定主模型為 <code class="text-emerald-400 font-mono">gemini-4-hydrogen</code>，並內建指數退避與 <code class="text-amber-400 font-mono">gemini-3.8-flash</code> 自動降級保護。
           </p>
         </div>
       </div>
@@ -2962,7 +2962,7 @@
         </div>
       `;
 
-      // 預設生成一段結構化顧問總評（若學員點擊 AI 按鈕則由 gemini-3.8-flash 深化）
+      // 預設生成一段結構化顧問總評（若學員點擊 AI 按鈕則由 gemini-4-hydrogen 深化）
       const bestWeight = weights[bestOpt.code];
       let defaultCommentary = `【TONY 老師 AI 顧問團綜合評語】\n`;
       if (bestWeight >= 60) {
@@ -3029,7 +3029,7 @@
     }
 
     /******************************************************************
-     * 10. 呼叫 Gemini 3.8 Flash 針對學員決策生成個人化深度顧問報告
+     * 10. 呼叫 Gemini 4 Hydrogen 針對學員決策生成個人化深度顧問報告
      ******************************************************************/
     async function generateAiDeepCommentary() {
       if (!latestReportData) return;
@@ -3038,7 +3038,7 @@
       const s = latestReportData.scenario;
 
       btn.disabled = true;
-      btn.innerHTML = `<span>⏳ gemini-3.8-flash 正在撰寫顧問診斷報告...</span>`;
+      btn.innerHTML = `<span>⏳ gemini-4-hydrogen 正在撰寫顧問診斷報告...</span>`;
 
       const prompt = `
         你現在是經濟部商業發展署「生活產業預測性行銷課程」的總顧問 TONY 老師（楊文澤顧問）。
@@ -3221,7 +3221,7 @@
             </tbody>
           </table>
 
-          <h2>肆、AI 首席行銷顧問深度診斷評語 (Gemini 3.8 Flash)</h2>
+          <h2>肆、AI 首席行銷顧問深度診斷評語 (Gemini 4 Hydrogen)</h2>
           <div style="background-color:#f8fafc; border:1px solid #cbd5e1; padding:12pt; white-space:pre-line;">${d.aiCommentary}</div>
 
           <div class="takeaway-box">
@@ -3245,7 +3245,7 @@
     }
 
     /******************************************************************
-     * 12. Gemini 3.8 Flash 沙盤生成器 (含快捷範本與 4R Action 生成)
+     * 12. Gemini 4 Hydrogen 沙盤生成器 (含快捷範本與 4R Action 生成)
      ******************************************************************/
     function fillSandboxPreset(ind, prod, pain) {
       document.getElementById('customIndustry').value = ind;
@@ -3254,7 +3254,7 @@
     }
 
     async function callGeminiWithFallback(promptText, apiKey) {
-      const models = ['gemini-3.8-flash', 'gemini-3.5-flash'];
+      const models = ['gemini-4-hydrogen', 'gemini-3.8-flash'];
       for (const model of models) {
         for (let attempt = 0; attempt < 2; attempt++) {
           try {
@@ -3281,7 +3281,7 @@
     }
 
     async function callGeminiTextWithFallback(promptText, apiKey) {
-      const models = ['gemini-3.8-flash', 'gemini-3.5-flash'];
+      const models = ['gemini-4-hydrogen', 'gemini-3.8-flash'];
       for (const model of models) {
         try {
           const url = `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent?key=${apiKey}`;
@@ -3311,7 +3311,7 @@
       const btn = document.getElementById('generateCustomBtn');
 
       btn.disabled = true;
-      btn.innerHTML = `<span>⏳ gemini-3.8-flash 正在為「${ind}」推演訊號與 4R Action 沙盤...</span>`;
+      btn.innerHTML = `<span>⏳ gemini-4-hydrogen 正在為「${ind}」推演訊號與 4R Action 沙盤...</span>`;
 
       let newScenario = null;
 
@@ -3324,7 +3324,7 @@
           目前煩惱：${pain}
           JSON 結構必須包含：
           {
-            "tag": "Round 8・AI 動態生成沙盤 (Gemini 3.8 即時命題)",
+            "tag": "Round 8・AI 動態生成沙盤 (Gemini 4 Hydrogen 即時命題)",
             "industry": "🌟 ${ind}",
             "title": "針對「${pain}」的超前部署決策",
             "desc": "100字內商業情境描述",
@@ -3427,7 +3427,7 @@
       }
 
       btn.disabled = false;
-      btn.innerHTML = `<span>⚡ 立即以 gemini-3.8-flash 生成新預測沙盤並進入挑戰</span>`;
+      btn.innerHTML = `<span>⚡ 立即以 gemini-4-hydrogen 生成新預測沙盤並進入挑戰</span>`;
       setChapterFilter('all');
       switchMode('player');
       loadScenario(7);
